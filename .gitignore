@@ -349,11 +349,14 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 <<<<<<< HEAD
+<<<<<<< HEAD
 /src/CSGO Unity Clone/Library/ArtifactDB
 /src/CSGO Unity Clone/Library/ArtifactDB-lock
 /src/CSGO Unity Clone/Library/ShaderCache.db
 /src/CSGO Unity Clone/Library/SourceAssetDB
 /src/CSGO Unity Clone/Library/SourceAssetDB-lock
+=======
+>>>>>>> 62db47f56341643fb3bfa181d48e69bba8638b02
 =======
 >>>>>>> 62db47f56341643fb3bfa181d48e69bba8638b02
 /src/CSGO Unity Clone/Temp/UnityLockfile
