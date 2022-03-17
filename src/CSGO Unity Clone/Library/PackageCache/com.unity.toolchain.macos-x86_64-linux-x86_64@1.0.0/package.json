@@ -1,0 +1,26 @@
+{
+  "name": "com.unity.toolchain.macos-x86_64-linux-x86_64",
+  "displayName": "Toolchain MacOS Linux x64",
+  "description": "Cross-compilation toolchain to build player target Linux x86_64 on host Darwin x86_64",
+  "version": "1.0.0",
+  "unity": "2019.3",
+  "keywords": [
+    "toolchain",
+    "macos",
+    "darwin",
+    "linux",
+    "cross-compilation"
+  ],
+  "dependencies": {
+    "com.unity.sysroot": "1.0.0",
+    "com.unity.sysroot.linux-x86_64": "1.0.0"
+  },
+  "upmCi": {
+    "footprint": "7fca9971a3fd4b3f58cd0565090b6d2d42339b91"
+  },
+  "repository": {
+    "url": "https://github.com/Unity-Technologies/com.unity.sysroot.git",
+    "type": "git",
+    "revision": "0b6b1770930fd9a6c9365613ff2cba3eb81810dd"
+  }
+}
