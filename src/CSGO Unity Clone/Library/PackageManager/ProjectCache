@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637831197136516645
-    m_Hash: 3837338742
+      ticks: 637832083300372049
+    m_Hash: 2285814204
   m_LockFileStatus:
     m_FilePath: C:/st-2122-2-S6A-ipr-Apostol-Daniel/src/CSGO Unity Clone/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637831197136576664
-    m_Hash: 2819551038
+      ticks: 637832083300377049
+    m_Hash: 98188254
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
