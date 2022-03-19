@@ -36691,7 +36691,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100002, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}
       propertyPath: m_Name
-      value: WFX_BImpact SoftBody
+      value: Impact AK-47
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}
       propertyPath: m_RootOrder
@@ -36741,7 +36741,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400000, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}
 --- !u!4 &616897710 stripped
 Transform:
@@ -81372,6 +81373,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   range: 100
+  impactForce: 60
+  fireRate: 15
   fpsCam: {fileID: 1933957515}
   muzzleFlash: {fileID: 96154755}
   impactEffect: {fileID: 616897711}
