@@ -8,18 +8,27 @@ public class GunScript : MonoBehaviour
     public float damage = 10f;
     //If object further than 100f then it cannot be hit
     public float range = 100f;
-    public float impactForce = 30f;
+    //object knockback if has rigidbody
+    public float impactForce = 150f;
+    //deafult fire rate
+    public float fireRate = 15f;
 
     public Camera fpsCam;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
 
+    private float nextTimeToFire = 0f;
+
     // Update is called once per frame
     void Update()
     {
         //Getting player input
-        if (Input.GetButtonDown("Fire1"))
+        //GetButtonDown activates on click
+        //GetButton activates when pressed and holded; automatic fire
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
+            //the greater the fireRate, the lower is nextTimeToFire
+            nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
         }
 
