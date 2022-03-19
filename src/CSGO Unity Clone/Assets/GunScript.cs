@@ -8,7 +8,11 @@ public class GunScript : MonoBehaviour
     public float damage = 10f;
     //If object further than 100f then it cannot be hit
     public float range = 100f;
+    public float impactForce = 30f;
+
     public Camera fpsCam;
+    public ParticleSystem muzzleFlash;
+    public GameObject impactEffect;
 
     // Update is called once per frame
     void Update()
@@ -22,6 +26,7 @@ public class GunScript : MonoBehaviour
         //Shooting using Ray-Casting(like in csgo, no bullet drop; laser like)
         void Shoot() 
         {
+            muzzleFlash.Play();
             RaycastHit hitInfo;
 
             //Check if something is hit
@@ -34,6 +39,14 @@ public class GunScript : MonoBehaviour
                 {
                     target.TakeDamage(damage);
                 }
+
+                if(hitInfo.rigidbody != null) 
+                {
+                    hitInfo.rigidbody.AddForce(-hitInfo.normal * impactForce);
+                }
+
+                GameObject impactGo = Instantiate(impactEffect,hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+                Destroy(impactGo, 2f);
             }
         }
     }
