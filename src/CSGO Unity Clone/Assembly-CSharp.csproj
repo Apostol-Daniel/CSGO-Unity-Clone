@@ -57,7 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionCurves.cs" />
+    <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_DeleteAfterDelay.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\SepiaTone.cs" />
+    <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
+    <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_RandomDir.cs" />
+    <Compile Include="Assets\JMO Assets\WarFX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\PlayerMovement.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ImageEffects.cs" />
     <Compile Include="Assets\MouseLook.cs" />
@@ -66,14 +70,18 @@
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Blur.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\SunShafts.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Environment\Water\Water\Scripts\Displace.cs" />
+    <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo.cs" />
+    <Compile Include="Assets\JMO Assets\WarFX\Scripts\WFX_LightFlicker.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsHelper.cs" />
     <Compile Include="Assets\Imported Assests\Western Props\Scripts\Destructible.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\DepthOfFieldDeprecated.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Environment\Water\Water\Scripts\PlanarReflection.cs" />
+    <Compile Include="Assets\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\CameraMotionBlur.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Environment\Water (Basic)\Scripts\WaterBasic.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\GlobalFog.cs" />
+    <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsBase.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Tonemapping.cs" />
@@ -84,8 +92,10 @@
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ScreenOverlay.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ImageEffectBase.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\BlurOptimized.cs" />
+    <Compile Include="Assets\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Environment\Water\Water\Scripts\WaterBase.cs" />
     <Compile Include="Assets\Imported Assests\Desert Environment\Example\AutoMoveAndRotate.cs" />
+    <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Environment\Water\Water\Scripts\MeshContainer.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\NoiseAndGrain.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\BloomOptimized.cs" />
@@ -93,8 +103,10 @@
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\NoiseAndScratches.cs" />
     <Compile Include="Assets\Imported Assests\Arena\Example\ImageEffects\Scripts\ScreenSpaceAmbientOcclusion.cs" />
+    <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_Translate.cs" />
     <Compile Include="Assets\Imported Assests\Arena\Example\ParticleSystems\Scripts\ParticleSystemMultiplier.cs" />
     <Compile Include="Assets\Target.cs" />
+    <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_Wall.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Environment\Water\Water\Scripts\GerstnerDisplace.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionLookup.cs" />
@@ -102,28 +114,16 @@
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ContrastStretch.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Quads.cs" />
     <Compile Include="Assets\GunScript.cs" />
+    <Compile Include="Assets\JMO Assets\WarFX\Scripts\CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\TiltShift.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Environment\Water\Water\Scripts\Water.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Fisheye.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\MotionBlur.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\CreaseShading.cs" />
+    <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Grayscale.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionRamp.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Triangles.cs" />
-    <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
-    <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo.cs" />
-    <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
-    <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RandomDir.cs" />
-    <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_Wall.cs" />
-    <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
-    <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_RandomDir.cs" />
-    <Compile Include="Assets\JMO Assets\WarFX\Scripts\CFX_LightIntensityFade.cs" />
-    <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_Translate.cs" />
-    <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_DeleteAfterDelay.cs" />
-    <Compile Include="Assets\JMO Assets\WarFX\Scripts\WFX_LightFlicker.cs" />
-    <Compile Include="Assets\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
-    <Compile Include="Assets\JMO Assets\WarFX\Scripts\CFX_AutoDestructShuriken.cs" />
-    <Compile Include="Assets\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />
