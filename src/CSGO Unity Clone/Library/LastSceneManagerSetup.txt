@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Imported Assests/Desert Environment/Example.unity
+- path: Assets/JMO Assets/WarFX/Demo/WarFX Demo New.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
