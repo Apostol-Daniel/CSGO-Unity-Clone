@@ -33,7 +33,16 @@ public class GunScript : MonoBehaviour, IGunScript
     //setting ammo to full when loaded in
     void Start()
     {
+        //Start() is called the first time when the object is enabled
         currentAmmo = maxAmmo;
+    }
+
+    void OnEnable() 
+    {
+        //OnEnable() is called everytime when the object is created
+        //Stopping reloading animation if switching weapons to prevent bugs
+        isReloading = false;
+        reloadingAnimation.SetBool("Reloading", false);
     }
 
     // Update is called once per frame
