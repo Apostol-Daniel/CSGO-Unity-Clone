@@ -100,7 +100,8 @@ public class GunScript : MonoBehaviour, IGunScript
         //Check if something is hit
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hitInfo, range))
         {
-            Debug.Log(hitInfo.transform.name);
+            //Get name of hit object
+            //Debug.Log(hitInfo.transform.name);
 
             Target target = hitInfo.transform.GetComponent<Target>();
             if (target != null)
