@@ -6,7 +6,7 @@ namespace Assets.Gun_Scripts
     {
         public float delay = 3f;
         public float radius = 5f;
-        public float explosionForce = 700f;
+        public float explosionForce = 200f;
 
         public GameObject explosionEffect;
 
@@ -21,33 +21,45 @@ namespace Assets.Gun_Scripts
         void Update()
         {
             countdown -= Time.deltaTime;
-            if(countdown <= 0 && !hasExploded) 
+            if (countdown <= 0 && !hasExploded)
             {
                 Explode();
             }
         }
 
-        void Explode() 
+        void Explode()
         {
             //Show explosion effect
             GameObject explosionEffectObject = Instantiate(explosionEffect, transform.position, transform.rotation);
             Debug.Log("Boom");
 
             //Get nearby objects
-            Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+            Collider[] collidersToDestroy = Physics.OverlapSphere(transform.position, radius);
 
-            foreach(Collider nearbyObjects in colliders) 
+            foreach (Collider nearbyObjects in collidersToDestroy)
             {
-                //Add forces
+                //Damage
+                //First destroy object -> create more objects(pieces of objects)
+                Destructible dest = nearbyObjects.GetComponent<Destructible>();
+                if (dest != null)
+                {
+                    dest.Destroy();
+                }
+
+            }
+
+            Collider[] collidersToMove = Physics.OverlapSphere(transform.position, radius);
+
+            foreach (Collider nearbyObjects in collidersToMove)
+            {
+                //Add forces to the pieces of the objects
                 Rigidbody rb = nearbyObjects.GetComponent<Rigidbody>();
-                if(rb != null) 
+                if (rb != null)
                 {
                     rb.AddExplosionForce(explosionForce, transform.position, radius);
                 }
-                //Damage
-
             }
-            
+
             //Remove grenade
             hasExploded = true;
             //For some reasson the explosionEffect does not get delete automatically
