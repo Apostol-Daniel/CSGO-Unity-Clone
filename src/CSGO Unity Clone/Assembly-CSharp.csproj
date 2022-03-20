@@ -64,6 +64,7 @@
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ImageEffects.cs" />
+    <Compile Include="Assets\Gun Scripts\KnifeScript.cs" />
     <Compile Include="Assets\Gun Scripts\AK47Script.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\EdgeDetection.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ContrastEnhance.cs" />
@@ -129,7 +130,7 @@
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Grayscale.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionRamp.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Triangles.cs" />
-    <Compile Include="Assets\Gun Scripts\KnifeScript.cs" />
+    <Compile Include="Assets\WeaponSelector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />

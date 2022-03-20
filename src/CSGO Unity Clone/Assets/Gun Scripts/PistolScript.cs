@@ -7,7 +7,7 @@
             damage = 7f;
             range = 80f;
             impactForce = 50f;
-            fireRate = 5f;
+            fireRate = 6f;
             isAutomaticWeapon = false;
         }
     }
