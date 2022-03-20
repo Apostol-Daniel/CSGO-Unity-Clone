@@ -736,6 +736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a35fc53963d5040aee49b7584083a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reloadingAnimation: {fileID: 365428002}
   fpsCam: {fileID: 1933957515}
   muzzleFlash: {fileID: 37570573}
   impactEffect: {fileID: 1024423965}
@@ -29309,6 +29310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bf2e9d7889c3c4883a2e4e67c2bdac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reloadingAnimation: {fileID: 365428002}
   fpsCam: {fileID: 1933957515}
   muzzleFlash: {fileID: 644279085}
   impactEffect: {fileID: 1094372959}
@@ -92500,6 +92502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1400e171a65c1d488be90efd29d91e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reloadingAnimation: {fileID: 365428002}
   fpsCam: {fileID: 1933957515}
   muzzleFlash: {fileID: 96154755}
   impactEffect: {fileID: 616897711}
@@ -100718,6 +100721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b38ee36203c58443b9b055117213a1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reloadingAnimation: {fileID: 365428002}
   fpsCam: {fileID: 1933957515}
   muzzleFlash: {fileID: 1409038124}
   impactEffect: {fileID: 488292099}
@@ -124463,6 +124467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf34e21c8e9526948b313c07d803df6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reloadingAnimation: {fileID: 365428002}
   fpsCam: {fileID: 1933957515}
   muzzleFlash: {fileID: 1501467112}
   impactEffect: {fileID: 1964053297}
