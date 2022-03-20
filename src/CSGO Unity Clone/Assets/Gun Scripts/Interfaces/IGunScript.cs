@@ -1,7 +1,10 @@
-﻿namespace Assets.Gun_Scripts.Interfaces
+﻿using System.Collections;
+
+namespace Assets.Gun_Scripts.Interfaces
 {
     public interface IGunScript
     {
-        public void Shoot();
+        void Shoot();
+        IEnumerator Reload();
     }
 }

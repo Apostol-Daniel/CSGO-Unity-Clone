@@ -6515,7 +6515,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: NaN, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 6.75e-43, y: 6.984195e-39, z: 6.74e-43, w: 0.000000005646143}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -28800,6 +28800,7 @@ GameObject:
   m_Component:
   - component: {fileID: 365428000}
   - component: {fileID: 365428001}
+  - component: {fileID: 365428002}
   m_Layer: 0
   m_Name: WeaponHolder
   m_TagString: Untagged
@@ -28839,6 +28840,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedWeapon: 0
+--- !u!95 &365428002
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365427999}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 172a50430afdebd439c21ce0350a0ac2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &366998303
 GameObject:
   m_ObjectHideFlags: 0
@@ -85371,8 +85391,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276882592}
-  m_LocalRotation: {x: -0, y: -0.07367892, z: -0, w: 0.997282}
-  m_LocalPosition: {x: -0.95, y: 1.1, z: -16.57}
+  m_LocalRotation: {x: -0, y: 0.99747956, z: -0, w: 0.07095409}
+  m_LocalPosition: {x: -2.69, y: 1.1, z: -4.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1018222515}
@@ -85380,7 +85400,7 @@ Transform:
   - {fileID: 1933957513}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: -8.451, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 171.862, z: 0}
 --- !u!114 &1276882595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100669,7 +100689,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1440404981
 Transform:
   m_ObjectHideFlags: 0
@@ -102820,7 +102840,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501467109}
   m_LocalRotation: {x: -0.000000014901158, y: -0.7071067, z: 0.000000019092107, w: 0.70710677}
-  m_LocalPosition: {x: -0.55900013, y: 0.032999925, z: 0.0029999614}
+  m_LocalPosition: {x: -0.559, y: 0.0476, z: -0.0006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 52611934}
@@ -124414,7 +124434,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1836096152
 Transform:
   m_ObjectHideFlags: 0

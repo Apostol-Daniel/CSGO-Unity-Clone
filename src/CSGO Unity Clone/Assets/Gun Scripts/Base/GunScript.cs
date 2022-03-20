@@ -1,9 +1,10 @@
 using Assets.Gun_Scripts.Interfaces;
 using UnityEngine;
+using System.Collections;
 
 public class GunScript : MonoBehaviour, IGunScript
 {
-    //Don't need start, only update
+    #region Weapon stats
     public float damage { get; set; }
     //If object further than 100f then it cannot be hit
     public float range { get; set; }
@@ -11,24 +12,54 @@ public class GunScript : MonoBehaviour, IGunScript
     public float impactForce { get; set; }
     //deafult fire rate
     public float fireRate { get; set; }
+    private float nextTimeToFire = 0f;
     public bool isAutomaticWeapon { get; set; }
+    #endregion
+
+    #region Ammo and reloading
+    public int maxAmmo { get; set; }
+    private int currentAmmo;
+    public float reloadTime { get; set; }
+    private bool isReloading;
+    #endregion
 
     public Camera fpsCam;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
 
-    private float nextTimeToFire = 0f;
+    
+
+    //setting ammo to full when loaded an
+    void Start() 
+    {
+        currentAmmo = maxAmmo;
+    }
 
     // Update is called once per frame
     void Update()
     {
         //Getting player input
-        CheckFireInput();                   
+        CheckFireInputAndAmmo();                   
+    }
+
+    //Co-routing; weird syntax
+    public IEnumerator Reload()
+    {
+        isReloading = true;
+        //console log obv
+        Debug.Log("Reloading...");
+        //wait for reloadTime seconds
+        yield return new WaitForSeconds(reloadTime);
+        //reload
+        currentAmmo = maxAmmo;
+
+        isReloading = false;
     }
 
     public void Shoot()
     {
         muzzleFlash.Play();
+        currentAmmo --;
         RaycastHit hitInfo;
 
         //Shooting using Ray-Casting(like in csgo, no bullet drop; laser like)
@@ -53,8 +84,20 @@ public class GunScript : MonoBehaviour, IGunScript
         }
     }
 
-    public void CheckFireInput() 
+    public void CheckFireInputAndAmmo() 
     {
+
+        //Check ammo count
+        if (isReloading)
+            return;
+
+        if(currentAmmo <= 0) 
+        {
+            StartCoroutine(Reload());
+            return;
+        }
+
+        //Check if weapon is or not automatic
         switch (isAutomaticWeapon) 
         {
             //GetButtonDown activates on click
@@ -77,5 +120,5 @@ public class GunScript : MonoBehaviour, IGunScript
 
         }
         
-    }
+    }   
 }
