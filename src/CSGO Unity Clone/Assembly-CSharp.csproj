@@ -75,7 +75,7 @@
     <Compile Include="Assets\Imported Assests\JMO Assets\WarFX\Demo\Assets\WFX_Demo.cs" />
     <Compile Include="Assets\Imported Assests\JMO Assets\WarFX\Scripts\WFX_LightFlicker.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsHelper.cs" />
-    <Compile Include="Assets\Imported Assests\Western Props\Scripts\Destructible.cs" />
+    <Compile Include="Assets\Destructible.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\DepthOfFieldDeprecated.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Environment\Water\Water\Scripts\PlanarReflection.cs" />
     <Compile Include="Assets\Imported Assests\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
