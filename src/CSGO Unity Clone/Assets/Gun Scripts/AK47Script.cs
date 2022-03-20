@@ -9,6 +9,8 @@
             impactForce = 150f;
             fireRate = 7f; 
             isAutomaticWeapon = true;
+            maxAmmo = 30;
+            reloadTime = 2.5f;
         }
     }
 }
