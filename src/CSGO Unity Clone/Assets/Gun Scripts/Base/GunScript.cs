@@ -14,7 +14,11 @@ public class GunScript : MonoBehaviour, IGunScript
     public float FireRate { get; set; }
     private float NextTimeToFire = 0f;
     public bool IsAutomatedWeapon { get; set; }
-    public bool IsScopedWeapon { get; set; }  
+    public bool IsScopedWeapon { get; set; }
+    private bool isScoped = false;
+    //Changed Field Of View; lower field of view = higher zoom
+    public float? ScopedFOV { get; set; }
+    private float NormalFOV;
     #endregion
 
     #region Ammo and reloading
@@ -27,7 +31,10 @@ public class GunScript : MonoBehaviour, IGunScript
 
     public Camera FpsCam;
     public ParticleSystem MuzzleFlash;
-    public GameObject ImpactEffect; 
+    public GameObject ImpactEffect;
+
+    #nullable enable
+    public GameObject? ScopeOverlay;
 
     public GameObject WeaponCamera;
 
@@ -50,7 +57,8 @@ public class GunScript : MonoBehaviour, IGunScript
 
     // Update is called once per frame
     public void Update()
-    {      
+    {
+        Scope();
         //Getting player input
         CheckFireInputAndAmmo();
     }
@@ -125,15 +133,20 @@ public class GunScript : MonoBehaviour, IGunScript
     //Co-routing; weird syntax
     public IEnumerator Reload()
     {
+        bool IsWeaponScoped = (Animator.GetBool("IsScoped"));
+
         IsReloading = true;
         //console log obv
         Debug.Log("Reloading...");
         //wait for reloadTime seconds
-
         //set Reloading bool in reloading animation
         Animator.SetBool("Reloading", true);
-        //Exit scope animation if set to true
-        Animator.SetBool("IsScoped",false);
+        //unscope for reload
+        if (IsWeaponScoped) 
+        {
+            Animator.SetBool("IsScoped", false);
+            OnUnscoped();
+        }
         // -.25f to offset transition duration
         yield return new WaitForSeconds(ReloadTime - .25f);
         Animator.SetBool("Reloading", false);
@@ -143,5 +156,40 @@ public class GunScript : MonoBehaviour, IGunScript
         CurrentAmmo = MaxAmmo;
 
         IsReloading = false;
-    }  
+    }
+  
+    void Scope()
+    {
+        if(IsScopedWeapon == true) 
+        {
+            if (Input.GetButtonDown("Fire2"))
+            {
+                isScoped = !isScoped;
+                Animator.SetBool("IsScoped", isScoped);
+
+                if (isScoped) StartCoroutine(OnScoped());
+                else
+                    OnUnscoped();
+            }
+        }
+    }
+
+    void OnUnscoped()
+    {
+        ScopeOverlay.SetActive(false);
+        WeaponCamera.SetActive(true);
+
+        FpsCam.fieldOfView = NormalFOV;
+    }
+
+    IEnumerator OnScoped()
+    {
+        yield return new WaitForSeconds (.15f);
+
+        ScopeOverlay.SetActive(true);
+        WeaponCamera.SetActive(false);
+        NormalFOV = FpsCam.fieldOfView;
+        FpsCam.fieldOfView = (float)ScopedFOV;
+    }
+
 }
