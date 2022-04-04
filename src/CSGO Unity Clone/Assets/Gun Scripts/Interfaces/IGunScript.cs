@@ -6,5 +6,6 @@ namespace Assets.Gun_Scripts.Interfaces
     {
         void Shoot();
         IEnumerator Reload();
+        void Update();
     }
 }

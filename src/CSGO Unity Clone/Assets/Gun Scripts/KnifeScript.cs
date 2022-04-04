@@ -5,13 +5,13 @@ namespace Assets.Gun_Scripts
     {
         public KnifeScript()
         {
-            damage = 25f;
-            range = 3f;
-            impactForce = 50f;
-            fireRate = 1.5f;
-            isAutomaticWeapon = true;
-            maxAmmo = 10;
-            reloadTime = 0f;
+            Damage = 25f;
+            Range = 3f;
+            ImpactForce = 50f;
+            FireRate = 1.5f;
+            IsAutomatedWeapon = true;
+            MaxAmmo = 10;
+            ReloadTime = 0f;
         }
     }
 }
