@@ -16,9 +16,7 @@ public class GunScript : MonoBehaviour, IGunScript
     public bool IsAutomatedWeapon { get; set; }
     public bool IsScopedWeapon { get; set; }
     private bool isScoped = false;
-    //Changed Field Of View; lower field of view = higher zoom
-    public float? ScopedFOV { get; set; }
-    private float NormalFOV;
+    //Changed Field Of View; lower field of view = higher zoom  
     #endregion
 
     #region Ammo and reloading
@@ -30,6 +28,8 @@ public class GunScript : MonoBehaviour, IGunScript
     #endregion
 
     public Camera FpsCam;
+    public float? ScopedFOV { get; set; }
+    private float NormalFOV;
     public ParticleSystem MuzzleFlash;
     public GameObject ImpactEffect;
 
@@ -43,6 +43,7 @@ public class GunScript : MonoBehaviour, IGunScript
     //setting ammo to full when loaded in
     void Start()
     {
+        OriginalFOV = FpsCam.fieldOfView;
         //Start() is called the first time when the object is enabled
         CurrentAmmo = MaxAmmo;
     }
@@ -132,9 +133,7 @@ public class GunScript : MonoBehaviour, IGunScript
 
     //Co-routing; weird syntax
     public IEnumerator Reload()
-    {
-        bool IsWeaponScoped = (Animator.GetBool("IsScoped"));
-
+    {       
         IsReloading = true;
         //console log obv
         Debug.Log("Reloading...");
@@ -142,11 +141,7 @@ public class GunScript : MonoBehaviour, IGunScript
         //set Reloading bool in reloading animation
         Animator.SetBool("Reloading", true);
         //unscope for reload
-        if (IsWeaponScoped) 
-        {
-            Animator.SetBool("IsScoped", false);
-            OnUnscoped();
-        }
+        ExitScopeAnimationIfWeaponIsScoped();
         // -.25f to offset transition duration
         yield return new WaitForSeconds(ReloadTime - .25f);
         Animator.SetBool("Reloading", false);
@@ -158,7 +153,7 @@ public class GunScript : MonoBehaviour, IGunScript
         IsReloading = false;
     }
   
-    void Scope()
+    public void Scope()
     {
         if(IsScopedWeapon == true) 
         {
@@ -174,7 +169,7 @@ public class GunScript : MonoBehaviour, IGunScript
         }
     }
 
-    void OnUnscoped()
+    public void OnUnscoped()
     {
         ScopeOverlay.SetActive(false);
         WeaponCamera.SetActive(true);
@@ -182,7 +177,7 @@ public class GunScript : MonoBehaviour, IGunScript
         FpsCam.fieldOfView = NormalFOV;
     }
 
-    IEnumerator OnScoped()
+    public IEnumerator OnScoped()
     {
         yield return new WaitForSeconds (.15f);
 
@@ -192,4 +187,16 @@ public class GunScript : MonoBehaviour, IGunScript
         FpsCam.fieldOfView = (float)ScopedFOV;
     }
 
+    public void ExitScopeAnimationIfWeaponIsScoped() 
+    {
+        isScoped = false;
+        bool IsWeaponScoped = (Animator.GetBool("IsScoped"));
+        if (IsWeaponScoped)
+        {
+            NormalFOV = 90f;
+            Animator.SetBool("IsScoped", false);
+            OnUnscoped();
+        }
+    }
+   
 }

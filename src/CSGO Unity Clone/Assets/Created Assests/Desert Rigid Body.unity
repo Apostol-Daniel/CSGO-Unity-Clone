@@ -112471,6 +112471,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1486172008}
     - target: {fileID: 4588835725446017295, guid: 4d51fcb97aa992940886e3e36fbac850, type: 3}
+      propertyPath: ScopeOverlay
+      value: 
+      objectReference: {fileID: 1126144043}
+    - target: {fileID: 4588835725446017295, guid: 4d51fcb97aa992940886e3e36fbac850, type: 3}
       propertyPath: WeaponCamera
       value: 
       objectReference: {fileID: 2009196230}
@@ -112562,6 +112566,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 4588835725887435041, guid: 4d51fcb97aa992940886e3e36fbac850, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: -9.425589e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4588835725887435041, guid: 4d51fcb97aa992940886e3e36fbac850, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 4.5905e-41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4588835725887435041, guid: 4d51fcb97aa992940886e3e36fbac850, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4588835725887435043, guid: 4d51fcb97aa992940886e3e36fbac850, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -112602,6 +112618,10 @@ PrefabInstance:
       propertyPath: ImpactEffect
       value: 
       objectReference: {fileID: 938830534}
+    - target: {fileID: 4588835726058967097, guid: 4d51fcb97aa992940886e3e36fbac850, type: 3}
+      propertyPath: ScopeOverlay
+      value: 
+      objectReference: {fileID: 1126144043}
     - target: {fileID: 4588835726058967097, guid: 4d51fcb97aa992940886e3e36fbac850, type: 3}
       propertyPath: WeaponCamera
       value: 
@@ -112915,6 +112935,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 866662264}
     - target: {fileID: 4588835726969374785, guid: 4d51fcb97aa992940886e3e36fbac850, type: 3}
+      propertyPath: ScopeOverlay
+      value: 
+      objectReference: {fileID: 1126144043}
+    - target: {fileID: 4588835726969374785, guid: 4d51fcb97aa992940886e3e36fbac850, type: 3}
       propertyPath: WeaponCamera
       value: 
       objectReference: {fileID: 2009196230}
@@ -112962,6 +112986,10 @@ PrefabInstance:
       propertyPath: ImpactEffect
       value: 
       objectReference: {fileID: 2097884325}
+    - target: {fileID: 4588835727132609285, guid: 4d51fcb97aa992940886e3e36fbac850, type: 3}
+      propertyPath: ScopeOverlay
+      value: 
+      objectReference: {fileID: 1126144043}
     - target: {fileID: 4588835727132609285, guid: 4d51fcb97aa992940886e3e36fbac850, type: 3}
       propertyPath: WeaponCamera
       value: 
