@@ -2,9 +2,10 @@
 
 namespace Assets.Gun_Scripts.Interfaces
 {
-    public interface IGunScript
+    public interface IGunScript : IScopeScript
     {
         void Shoot();
         IEnumerator Reload();
+        void Update();
     }
 }

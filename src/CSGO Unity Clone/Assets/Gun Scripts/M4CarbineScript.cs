@@ -4,13 +4,13 @@
     {
         public M4CarbineScript()
         {
-            damage = 8f;
-            range = 100f;
-            impactForce = 100f;
-            fireRate = 8f;
-            isAutomaticWeapon = true;
-            maxAmmo = 30;
-            reloadTime = 2.5f;
+            Damage = 8f;
+            Range = 100f;
+            ImpactForce = 100f;
+            FireRate = 8f;
+            IsAutomatedWeapon = true;
+            MaxAmmo = 30;
+            ReloadTime = 2.5f;
         }
     }
 }

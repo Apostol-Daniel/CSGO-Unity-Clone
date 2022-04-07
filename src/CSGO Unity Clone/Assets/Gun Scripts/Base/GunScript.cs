@@ -5,49 +5,61 @@ using UnityEngine;
 public class GunScript : MonoBehaviour, IGunScript
 {
     #region Weapon stats
-    public float damage { get; set; }
+    public float Damage { get; set; }
     //If object further than 100f then it cannot be hit
-    public float range { get; set; }
+    public float Range { get; set; }
     //object knockback if has rigidbody
-    public float impactForce { get; set; }
+    public float ImpactForce { get; set; }
     //deafult fire rate
-    public float fireRate { get; set; }
-    private float nextTimeToFire = 0f;
-    public bool isAutomaticWeapon { get; set; }
+    public float FireRate { get; set; }
+    private float NextTimeToFire = 0f;
+    public bool IsAutomatedWeapon { get; set; }
+    public bool IsScopedWeapon { get; set; }
+    private bool isScoped = false;
+    //Changed Field Of View; lower field of view = higher zoom  
     #endregion
 
     #region Ammo and reloading
-    public int maxAmmo { get; set; }
-    private int currentAmmo;
-    public float reloadTime { get; set; }
-    private bool isReloading;
-    public Animator reloadingAnimation;
+    public int MaxAmmo { get; set; }
+    private int CurrentAmmo;
+    public float ReloadTime { get; set; }
+    private bool IsReloading;
+    public Animator Animator;
     #endregion
 
-    public Camera fpsCam;
-    public ParticleSystem muzzleFlash;
-    public GameObject impactEffect;
+    public Camera FpsCam;
+    public float? ScopedFOV { get; set; }
+    private float NormalFOV;
+    public ParticleSystem MuzzleFlash;
+    public GameObject ImpactEffect;
+
+    #nullable enable
+    public GameObject? ScopeOverlay;
+
+    public GameObject WeaponCamera;
 
 
 
     //setting ammo to full when loaded in
     void Start()
     {
+        OriginalFOV = FpsCam.fieldOfView;
         //Start() is called the first time when the object is enabled
-        currentAmmo = maxAmmo;
+        CurrentAmmo = MaxAmmo;
     }
 
     void OnEnable() 
     {
         //OnEnable() is called everytime when the object is created
         //Stopping reloading animation if switching weapons to prevent bugs
-        isReloading = false;
-        reloadingAnimation.SetBool("Reloading", false);
+        IsReloading = false;
+        Animator.SetBool("Reloading", false);
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
+        Scope();
         //Getting player input
         CheckFireInputAndAmmo();
     }
@@ -56,32 +68,32 @@ public class GunScript : MonoBehaviour, IGunScript
     {
 
         //Check ammo count
-        if (isReloading)
+        if (IsReloading)
             return;
 
-        if (currentAmmo <= 0)
+        if (CurrentAmmo <= 0)
         {
             StartCoroutine(Reload());
             return;
         }
 
         //Check if weapon is or not automatic
-        switch (isAutomaticWeapon)
+        switch (IsAutomatedWeapon)
         {
             //GetButtonDown activates on click
             case false:
-                if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
+                if (Input.GetButtonDown("Fire1") && Time.time >= NextTimeToFire)
                 {
-                    nextTimeToFire = Time.time + 1f / fireRate;
+                    NextTimeToFire = Time.time + 1f / FireRate;
                     Shoot();
                 }
                 break;
 
             //GetButton activates when pressed and holded; automatic fire
             case true:
-                if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+                if (Input.GetButton("Fire1") && Time.time >= NextTimeToFire)
                 {
-                    nextTimeToFire = Time.time + 1f / fireRate;
+                    NextTimeToFire = Time.time + 1f / FireRate;
                     Shoot();
                 }
                 break;
@@ -92,13 +104,13 @@ public class GunScript : MonoBehaviour, IGunScript
 
     public void Shoot()
     {
-        muzzleFlash.Play();
-        currentAmmo--;
+        MuzzleFlash.Play();
+        CurrentAmmo--;
         RaycastHit hitInfo;
 
         //Shooting using Ray-Casting(like in csgo, no bullet drop; laser like)
         //Check if something is hit
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hitInfo, range))
+        if (Physics.Raycast(FpsCam.transform.position, FpsCam.transform.forward, out hitInfo, Range))
         {
             //Get name of hit object
             //Debug.Log(hitInfo.transform.name);
@@ -106,37 +118,85 @@ public class GunScript : MonoBehaviour, IGunScript
             Target target = hitInfo.transform.GetComponent<Target>();
             if (target != null)
             {
-                target.TakeDamage(damage);
+                target.TakeDamage(Damage);
             }
 
             if (hitInfo.rigidbody != null)
             {
-                hitInfo.rigidbody.AddForce(-hitInfo.normal * impactForce);
+                hitInfo.rigidbody.AddForce(-hitInfo.normal * ImpactForce);
             }
 
-            GameObject impactGo = Instantiate(impactEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+            GameObject impactGo = Instantiate(ImpactEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
             Destroy(impactGo, 2f);
         }
     }
 
     //Co-routing; weird syntax
     public IEnumerator Reload()
-    {
-        isReloading = true;
+    {       
+        IsReloading = true;
         //console log obv
         Debug.Log("Reloading...");
         //wait for reloadTime seconds
-
         //set Reloading bool in reloading animation
-        reloadingAnimation.SetBool("Reloading", true);
+        Animator.SetBool("Reloading", true);
+        //unscope for reload
+        ExitScopeAnimationIfWeaponIsScoped();
         // -.25f to offset transition duration
-        yield return new WaitForSeconds(reloadTime - .25f);
-        reloadingAnimation.SetBool("Reloading", false);
+        yield return new WaitForSeconds(ReloadTime - .25f);
+        Animator.SetBool("Reloading", false);
         //to start shooting after the reloading animation is finished
         yield return new WaitForSeconds(.25f);
         //reload
-        currentAmmo = maxAmmo;
+        CurrentAmmo = MaxAmmo;
 
-        isReloading = false;
+        IsReloading = false;
     }
+  
+    public void Scope()
+    {
+        if(IsScopedWeapon == true) 
+        {
+            if (Input.GetButtonDown("Fire2"))
+            {
+                isScoped = !isScoped;
+                Animator.SetBool("IsScoped", isScoped);
+
+                if (isScoped) StartCoroutine(OnScoped());
+                else
+                    OnUnscoped();
+            }
+        }
+    }
+
+    public void OnUnscoped()
+    {
+        ScopeOverlay.SetActive(false);
+        WeaponCamera.SetActive(true);
+
+        FpsCam.fieldOfView = NormalFOV;
+    }
+
+    public IEnumerator OnScoped()
+    {
+        yield return new WaitForSeconds (.15f);
+
+        ScopeOverlay.SetActive(true);
+        WeaponCamera.SetActive(false);
+        NormalFOV = FpsCam.fieldOfView;
+        FpsCam.fieldOfView = (float)ScopedFOV;
+    }
+
+    public void ExitScopeAnimationIfWeaponIsScoped() 
+    {
+        isScoped = false;
+        bool IsWeaponScoped = (Animator.GetBool("IsScoped"));
+        if (IsWeaponScoped)
+        {
+            NormalFOV = 90f;
+            Animator.SetBool("IsScoped", false);
+            OnUnscoped();
+        }
+    }
+   
 }

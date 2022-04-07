@@ -4,13 +4,13 @@
     {
         public PistolScript()
         {
-            damage = 7f;
-            range = 80f;
-            impactForce = 50f;
-            fireRate = 6f;
-            isAutomaticWeapon = false;
-            maxAmmo = 12;
-            reloadTime = 1.5f;
+            Damage = 7f;
+            Range = 80f;
+            ImpactForce = 50f;
+            FireRate = 6f;
+            IsAutomatedWeapon = false;
+            MaxAmmo = 12;
+            ReloadTime = 1.5f;
         }
     }
 }

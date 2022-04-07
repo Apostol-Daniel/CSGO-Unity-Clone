@@ -1,16 +1,22 @@
-﻿namespace Assets.Gun_Scripts
+﻿using System.Collections;
+using UnityEngine;
+
+namespace Assets.Gun_Scripts
 {
     public class AWPScript : GunScript
-    {
+    {        
+
         public AWPScript()
         {
-            damage = 100f;
-            range = 200f;
-            impactForce = 250f;
-            fireRate = .5f;
-            isAutomaticWeapon = false;
-            maxAmmo = 5;
-            reloadTime = 3.5f;
-        }
+            Damage = 100f;
+            Range = 200f;
+            ImpactForce = 250f;
+            FireRate = .5f;
+            IsAutomatedWeapon = false;
+            IsScopedWeapon = true;
+            ScopedFOV = 15f;
+            MaxAmmo = 5;
+            ReloadTime = 3.5f;
+        }          
     }
 }
