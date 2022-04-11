@@ -145,6 +145,7 @@
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Triangles.cs" />
     <Compile Include="Assets\Server\Client.cs" />
     <Compile Include="Assets\Server\Tcp.cs" />
+    <Compile Include="Assets\Server\UIManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />

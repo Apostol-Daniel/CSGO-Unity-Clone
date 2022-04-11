@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assets.Server
 {
@@ -16,24 +12,26 @@ namespace Assets.Server
         private readonly int DataBufferSize;
         private readonly Client Instance;
 
-        public Tcp(Client instance,int dataBufferSize)
+        public Tcp(Client instance, int dataBufferSize)
         {
             DataBufferSize = dataBufferSize;
             Instance = instance;
         }
 
-        public void Connect(TcpClient socket) 
+        public void Connect()
         {
-            Socket = socket;
+            Socket = new TcpClient()
+            {
+                ReceiveBufferSize = DataBufferSize,
+                SendBufferSize = DataBufferSize
+            };
 
-            Socket.ReceiveBufferSize = DataBufferSize;
-            Socket.SendBufferSize = DataBufferSize;
 
             ReceiveBuffer = new byte[DataBufferSize];
             Socket.BeginConnect(Instance.Ip, Instance.Port, ConnectCallback, Socket);
         }
 
-        private void ConnectCallback(IAsyncResult result) 
+        private void ConnectCallback(IAsyncResult result)
         {
             Socket.EndConnect(result);
 

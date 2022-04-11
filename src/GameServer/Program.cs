@@ -10,6 +10,8 @@ namespace GameServer
             Console.Title = "Game Server";
 
             Server.Start(10, 26950);
+
+            Console.ReadKey();
         }
     }
 }

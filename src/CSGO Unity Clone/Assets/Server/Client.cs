@@ -34,7 +34,7 @@ namespace Assets.Server
 
         public void ConnectToServer()
         {
-            
+            TcpClient.Connect();
         }
     }
 }
