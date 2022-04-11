@@ -42,8 +42,7 @@ public class GunScript : MonoBehaviour, IGunScript
 
     //setting ammo to full when loaded in
     void Start()
-    {
-        OriginalFOV = FpsCam.fieldOfView;
+    {       
         //Start() is called the first time when the object is enabled
         CurrentAmmo = MaxAmmo;
     }
