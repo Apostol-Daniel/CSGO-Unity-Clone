@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameServer.Core;
+using System;
 
 namespace GameServer
 {
@@ -7,7 +8,8 @@ namespace GameServer
         static void Main(string[] args)
         {
             Console.Title = "Game Server";
-            Console.WriteLine("Hello World!");
+
+            Server.Start(10, 26950);
         }
     }
 }

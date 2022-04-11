@@ -6,14 +6,6 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "GameServer/1.0.0": {
-        "dependencies": {
-          "GameServer.Core": "1.0.0"
-        },
-        "runtime": {
-          "GameServer.dll": {}
-        }
-      },
       "GameServer.Core/1.0.0": {
         "runtime": {
           "GameServer.Core.dll": {}
@@ -22,11 +14,6 @@
     }
   },
   "libraries": {
-    "GameServer/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "GameServer.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
