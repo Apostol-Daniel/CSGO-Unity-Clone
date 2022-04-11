@@ -112602,6 +112602,10 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 119
       objectReference: {fileID: 0}
+    - target: {fileID: 4588835725985597365, guid: 4d51fcb97aa992940886e3e36fbac850, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 4588835726058967097, guid: 4d51fcb97aa992940886e3e36fbac850, type: 3}
       propertyPath: FpsCam
       value: 
@@ -113018,6 +113022,5 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7910672574374535284, guid: 4d51fcb97aa992940886e3e36fbac850, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d51fcb97aa992940886e3e36fbac850, type: 3}

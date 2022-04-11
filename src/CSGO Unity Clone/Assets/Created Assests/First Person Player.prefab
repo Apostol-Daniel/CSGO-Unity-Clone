@@ -4790,10 +4790,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1400e171a65c1d488be90efd29d91e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadingAnimation: {fileID: 4588835725387020639}
-  fpsCam: {fileID: 4588835725985597320}
-  muzzleFlash: {fileID: 4588835726113187865}
-  impactEffect: {fileID: 4588835726146468335}
+  Animator: {fileID: 0}
+  FpsCam: {fileID: 0}
+  MuzzleFlash: {fileID: 0}
+  ImpactEffect: {fileID: 0}
+  ScopeOverlay: {fileID: 0}
+  WeaponCamera: {fileID: 0}
 --- !u!1 &4588835725464386712
 GameObject:
   m_ObjectHideFlags: 0
@@ -9470,87 +9472,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!1 &4588835725502215787
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4588835725502215786}
-  - component: {fileID: 4588835725502215784}
-  - component: {fileID: 4588835725502215785}
-  m_Layer: 0
-  m_Name: Cylinder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4588835725502215786
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4588835725502215787}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 0.03, z: 0.01}
-  m_LocalScale: {x: 1.2, y: 1.1, z: 1.2}
-  m_Children: []
-  m_Father: {fileID: 4588835725502924691}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4588835725502215784
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4588835725502215787}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4588835725502215785
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4588835725502215787}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: e17ef02eccf823e41807fb7a6886a496, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &4588835725502924692
 GameObject:
   m_ObjectHideFlags: 0
@@ -9562,7 +9483,8 @@ GameObject:
   - component: {fileID: 4588835725502924691}
   - component: {fileID: 4588835725502924689}
   - component: {fileID: 4588835725502924690}
-  - component: {fileID: 7910672574374535284}
+  - component: {fileID: 3140110532046936737}
+  - component: {fileID: 6412003228897448222}
   m_Layer: 0
   m_Name: First Person Player
   m_TagString: Untagged
@@ -9582,7 +9504,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4588835725891872572}
-  - {fileID: 4588835725502215786}
   - {fileID: 4588835725985597365}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -9626,7 +9547,15 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
---- !u!23 &7910672574374535284
+--- !u!33 &3140110532046936737
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588835725502924692}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &6412003228897448222
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24391,7 +24320,7 @@ Transform:
   - {fileID: 4588835725387020625}
   - {fileID: 4588835726224253272}
   m_Father: {fileID: 4588835725502924691}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &4588835725985597320
 Camera:
@@ -24506,10 +24435,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf34e21c8e9526948b313c07d803df6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadingAnimation: {fileID: 4588835725387020639}
-  fpsCam: {fileID: 4588835725985597320}
-  muzzleFlash: {fileID: 4588835726988127487}
-  impactEffect: {fileID: 4588835726865759966}
+  Animator: {fileID: 0}
+  FpsCam: {fileID: 0}
+  MuzzleFlash: {fileID: 0}
+  ImpactEffect: {fileID: 0}
+  ScopeOverlay: {fileID: 0}
+  WeaponCamera: {fileID: 0}
 --- !u!1 &4588835726064200249
 GameObject:
   m_ObjectHideFlags: 0
@@ -62843,10 +62774,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bf2e9d7889c3c4883a2e4e67c2bdac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadingAnimation: {fileID: 4588835725387020639}
-  fpsCam: {fileID: 4588835725985597320}
-  muzzleFlash: {fileID: 4588835725513817614}
-  impactEffect: {fileID: 4588835725597731310}
+  Animator: {fileID: 0}
+  FpsCam: {fileID: 0}
+  MuzzleFlash: {fileID: 0}
+  ImpactEffect: {fileID: 0}
+  ScopeOverlay: {fileID: 0}
+  WeaponCamera: {fileID: 0}
 --- !u!1 &4588835726748624030
 GameObject:
   m_ObjectHideFlags: 0
@@ -81871,10 +81804,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a35fc53963d5040aee49b7584083a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadingAnimation: {fileID: 4588835725387020639}
-  fpsCam: {fileID: 4588835725985597320}
-  muzzleFlash: {fileID: 4588835727002964503}
-  impactEffect: {fileID: 4588835726501337992}
+  Animator: {fileID: 0}
+  FpsCam: {fileID: 0}
+  MuzzleFlash: {fileID: 0}
+  ImpactEffect: {fileID: 0}
+  ScopeOverlay: {fileID: 0}
+  WeaponCamera: {fileID: 0}
 --- !u!1 &4588835726988127474
 GameObject:
   m_ObjectHideFlags: 0
@@ -91645,10 +91580,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b38ee36203c58443b9b055117213a1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadingAnimation: {fileID: 4588835725387020639}
-  fpsCam: {fileID: 4588835725985597320}
-  muzzleFlash: {fileID: 4588835726064200230}
-  impactEffect: {fileID: 4588835726755815193}
+  Animator: {fileID: 0}
+  FpsCam: {fileID: 0}
+  MuzzleFlash: {fileID: 0}
+  ImpactEffect: {fileID: 0}
+  ScopeOverlay: {fileID: 0}
+  WeaponCamera: {fileID: 0}
 --- !u!1 &4588835727158353623
 GameObject:
   m_ObjectHideFlags: 0
