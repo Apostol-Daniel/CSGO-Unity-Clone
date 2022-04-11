@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\st-2122-2-S6A-ipr-Apostol-Daniel\src\CSGO Unity Clone\Assets\Imported Assests\EffectExamples\Editor\PackageManagerAssembly\PackageManagerAssembly.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionCurves.cs" />
@@ -66,9 +67,9 @@
     <Compile Include="Assets\Imported Assests\JMO Assets\WarFX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ImageEffects.cs" />
     <Compile Include="Assets\Gun Scripts\KnifeScript.cs" />
-    <Compile Include="Assets\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
+    <Compile Include="Assets\Imported Assests\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
     <Compile Include="Assets\Gun Scripts\AK47Script.cs" />
-    <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
+    <Compile Include="Assets\Imported Assests\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\EdgeDetection.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ContrastEnhance.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Blur.cs" />
@@ -81,9 +82,9 @@
     <Compile Include="Assets\Destructible.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\DepthOfFieldDeprecated.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Environment\Water\Water\Scripts\PlanarReflection.cs" />
-    <Compile Include="Assets\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
+    <Compile Include="Assets\Imported Assests\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
     <Compile Include="Assets\Imported Assests\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
-    <Compile Include="Assets\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Imported Assests\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\CameraMotionBlur.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Environment\Water (Basic)\Scripts\WaterBasic.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
@@ -91,7 +92,7 @@
     <Compile Include="Assets\Imported Assests\JMO Assets\WarFX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsBase.cs" />
-    <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
+    <Compile Include="Assets\Imported Assests\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Tonemapping.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ScreenSpaceAmbientObscurance.cs" />
     <Compile Include="Assets\Gun Scripts\Interfaces\IScopeScript.cs" />
@@ -102,12 +103,12 @@
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ImageEffectBase.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\BlurOptimized.cs" />
     <Compile Include="Assets\WeaponSelector.cs" />
-    <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
+    <Compile Include="Assets\Imported Assests\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
     <Compile Include="Assets\Imported Assests\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Environment\Water\Water\Scripts\WaterBase.cs" />
     <Compile Include="Assets\Imported Assests\Desert Environment\Example\AutoMoveAndRotate.cs" />
     <Compile Include="Assets\Imported Assests\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RandomDir.cs" />
-    <Compile Include="Assets\EffectExamples\Shared\Scripts\GunShoot.cs" />
+    <Compile Include="Assets\Imported Assests\EffectExamples\Shared\Scripts\GunShoot.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Environment\Water\Water\Scripts\MeshContainer.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\NoiseAndGrain.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\BloomOptimized.cs" />
@@ -140,8 +141,10 @@
     <Compile Include="Assets\Player Scripts\MouseLook.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Grayscale.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionRamp.cs" />
-    <Compile Include="Assets\EffectExamples\Shared\Scripts\GunAim.cs" />
+    <Compile Include="Assets\Imported Assests\EffectExamples\Shared\Scripts\GunAim.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Triangles.cs" />
+    <Compile Include="Assets\Server\Client.cs" />
+    <Compile Include="Assets\Server\Tcp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />
@@ -151,7 +154,7 @@
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrain.shader" />
     <None Include="Assets\Imported Assests\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft Scroll.shader" />
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />
-    <None Include="Assets\RealisticGrenadesPack\ReadMe.txt" />
+    <None Include="Assets\Imported Assests\RealisticGrenadesPack\ReadMe.txt" />
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset3.shader" />
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlurDX11.shader" />
@@ -166,7 +169,7 @@
     <None Include="Assets\Imported Assests\JMO Assets\WarFX\Shaders\WFX_S Alpha-Specular TintColor.shader" />
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\ConvertDepth.shader" />
-    <None Include="Assets\RealisticGrenadesPack\Standard Assets\Effects\ImageEffects\Shaders\SSAOShader.shader" />
+    <None Include="Assets\Imported Assests\RealisticGrenadesPack\Standard Assets\Effects\ImageEffects\Shaders\SSAOShader.shader" />
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\TwirlEffect.shader" />
     <None Include="Assets\Imported Assests\JMO Assets\WarFX\Shaders\WFX_S Add Scroll.shader" />
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
@@ -226,7 +229,7 @@
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA2.shader" />
     <None Include="Assets\Imported Assests\JMO Assets\WarFX\Shaders\WFX_S Alpha-Diffuse TintColor.shader" />
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderYUV.shader" />
-    <None Include="Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
+    <None Include="Assets\Imported Assests\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Luminance.shader" />
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\NFAA.shader" />
