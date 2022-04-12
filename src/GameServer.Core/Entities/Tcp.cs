@@ -30,6 +30,8 @@ namespace GameServer.Core.Entities
             ReceiveBuffer = new byte[DataBufferSize];
 
             Stream.BeginRead(ReceiveBuffer, 0, DataBufferSize, ReceiveCallback, null);
+
+            ServerSend.Welcome(Id, "Welcome to the server!");
         }
 
         public void SendData(Packet packet) 
