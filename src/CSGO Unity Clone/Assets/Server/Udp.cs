@@ -11,7 +11,7 @@ namespace Assets.Server
 {
     public class Udp
     {
-        public UdpClient UdpScoket;
+        public UdpClient UdpSocket;
         public IPEndPoint UdpEndPoint;
         private readonly Client ClientInstance;
 
@@ -23,8 +23,9 @@ namespace Assets.Server
 
         public void Connect(int localPort) 
         {
-            UdpScoket= new UdpClient(localPort);
-            UdpScoket.BeginReceive(ReceiveCallback, null);
+            UdpSocket = new UdpClient(localPort);
+            UdpSocket.Connect(UdpEndPoint);
+            UdpSocket.BeginReceive(ReceiveCallback, null);
 
             using(Packet packet = new Packet()) 
             {
@@ -38,9 +39,9 @@ namespace Assets.Server
             {
                 //There can be only one UdpClient per server, ClientId needed to know which client sends data
                 packet.InsertInt(ClientInstance.ClientId);
-                if(UdpScoket!= null) 
+                if(UdpSocket!= null) 
                 {
-                    UdpScoket.BeginSend(packet.ToArray(), packet.Length(), null, null);
+                    UdpSocket.BeginSend(packet.ToArray(), packet.Length(), null, null);
                 }
             }
             catch (Exception ex)
@@ -54,8 +55,8 @@ namespace Assets.Server
         {
             try
             {
-                byte[] data = UdpScoket.EndReceive(result, ref UdpEndPoint);
-                UdpScoket.BeginReceive(ReceiveCallback, null);
+                byte[] data = UdpSocket.EndReceive(result, ref UdpEndPoint);
+                UdpSocket.BeginReceive(ReceiveCallback, null);
 
                 if (data.Length < 4) 
                 {

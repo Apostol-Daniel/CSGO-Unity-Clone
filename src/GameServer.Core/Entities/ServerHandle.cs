@@ -18,5 +18,12 @@ namespace GameServer.Core.Entities
                 Console.WriteLine($"Playerr \"{userName}\" (Id:{clientId} has assumed the wrong client Id ({clientIdControl})!");
             }
         }
+
+        public static void UdpTestReceived(int clientId, Packet packet) 
+        {
+            string message = packet.ReadString();
+
+            Console.WriteLine($"Message received via UDP:{message}.");
+        }
     }
 }

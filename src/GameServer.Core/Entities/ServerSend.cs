@@ -21,6 +21,16 @@ namespace GameServer.Core.Entities
         }
         #endregion
 
+        public static void UdpTest(int clientId) 
+        {
+            using(Packet packet = new Packet((int)ServerPackets.udpTest)) 
+            {
+                packet.Write("Udp packet test.");
+
+                SendUdpData(clientId, packet);
+            }
+        }
+
         #region UdpData
         private static void SendUdpData(int clientId, Packet packet) 
         {

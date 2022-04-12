@@ -33,7 +33,7 @@ namespace GameServer.Core
             TcpListener.Start();
             TcpListener.BeginAcceptTcpClient(new AsyncCallback(TcpConnectCallback), null);
 
-            UdpListener = new UdpClient();
+            UdpListener = new UdpClient(Port);
             UdpListener.BeginReceive(UdpReceiveCallback, null);
 
             Console.WriteLine($"Server started on {Port}.");
@@ -129,7 +129,8 @@ namespace GameServer.Core
 
             PacketHandlers = new Dictionary<int, PacketHandler>()
             {
-                {(int)ClientPackets.welcomeReceived, ServerHandle.WelcomeReceived }
+                {(int)ClientPackets.welcomeReceived, ServerHandle.WelcomeReceived },
+                {(int)ClientPackets.udpTestReceived, ServerHandle.UdpTestReceived }
             };
             Console.WriteLine("Init packets.");
         }

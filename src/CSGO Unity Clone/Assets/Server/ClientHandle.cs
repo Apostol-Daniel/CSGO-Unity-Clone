@@ -21,6 +21,15 @@ namespace Assets.Server
 
             Client.ClientInstance.UdpClient.Connect(((IPEndPoint)Client.ClientInstance.TcpClient.TcpSocket.Client.LocalEndPoint).Port);
         }
+
+        public static void UdpTest(Packet packet) 
+        {
+            string message = packet.ReadString();
+            Debug.Log($"Message received via UDP packet: {message}.");
+
+            ClientSend.UdpTestReceived();
+        }
     }
+
 
 }
