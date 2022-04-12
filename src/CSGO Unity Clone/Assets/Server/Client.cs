@@ -8,7 +8,6 @@ namespace Assets.Server
         public static int DataBufferSize = 4096;
 
         public string Ip = "127.0.0.1";
-
         public int Port = 26950;
         public int ClientId = 0;
         public Tcp TcpClient;
