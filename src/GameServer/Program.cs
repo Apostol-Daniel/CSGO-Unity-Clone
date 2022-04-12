@@ -33,6 +33,11 @@ namespace GameServer
                     GameLogic.Update();
 
                     nextLoop = nextLoop.AddMilliseconds(ServerTicks.MilisecondsPerTick);
+
+                    if(nextLoop > DateTime.Now) 
+                    {
+                        Thread.Sleep(nextLoop - DateTime.Now);
+                    }
                 }
             }
         }
