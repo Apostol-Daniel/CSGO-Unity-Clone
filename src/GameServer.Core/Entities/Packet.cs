@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Assets.Server
+namespace GameServer.Core.Entities
 {
     /// <summary>Sent from server to client.</summary>
     public enum ServerPackets

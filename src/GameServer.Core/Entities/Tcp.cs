@@ -32,6 +32,22 @@ namespace GameServer.Core.Entities
             Stream.BeginRead(ReceiveBuffer, 0, DataBufferSize, ReceiveCallback, null);
         }
 
+        public void SendData(Packet packet) 
+        {
+            try
+            {
+                if(Socket != null) 
+                {
+                    Stream.BeginWrite(packet.ToArray(), 0, packet.Length(), null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"Error sending data to player {Id} via TCP: {ex}.");
+            }
+        }
+
         private void ReceiveCallback(IAsyncResult result) 
         {
             try

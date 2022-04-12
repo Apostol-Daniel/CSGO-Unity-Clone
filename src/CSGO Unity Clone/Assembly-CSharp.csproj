@@ -103,7 +103,6 @@
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ScreenOverlay.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ImageEffectBase.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\BlurOptimized.cs" />
-    <Compile Include="Assets\Server\Packet.cs" />
     <Compile Include="Assets\WeaponSelector.cs" />
     <Compile Include="Assets\Imported Assests\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
     <Compile Include="Assets\Imported Assests\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
