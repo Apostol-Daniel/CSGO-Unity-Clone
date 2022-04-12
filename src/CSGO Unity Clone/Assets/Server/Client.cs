@@ -46,8 +46,7 @@ namespace Assets.Server
         {
             PacketHandlers = new Dictionary<int, PacketHandler>()
             {
-                {(int)ServerPackets.Welcome, ClientHandle.Welcome },
-                {(int)ServerPackets.udpTest, ClientHandle.UdpTest }
+                {(int)ServerPackets.Welcome, ClientHandle.Welcome }               
             };
             Debug.Log("Init Data");
         }

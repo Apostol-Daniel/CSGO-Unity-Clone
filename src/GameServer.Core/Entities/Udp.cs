@@ -18,8 +18,7 @@ namespace GameServer.Core.Entities
 
         public void Connect(IPEndPoint endPoint)    
         {
-            UdpEndPoint = endPoint;
-            ServerSend.UdpTest(UdpClientId);
+            UdpEndPoint = endPoint;           
         }
 
         public void SendData(Packet packet) 

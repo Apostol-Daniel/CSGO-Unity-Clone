@@ -17,13 +17,7 @@ namespace GameServer.Core.Entities
                 //This message should never get printed; if it is, something went horribly wrong
                 Console.WriteLine($"Playerr \"{userName}\" (Id:{clientId} has assumed the wrong client Id ({clientIdControl})!");
             }
-        }
-
-        public static void UdpTestReceived(int clientId, Packet packet) 
-        {
-            string message = packet.ReadString();
-
-            Console.WriteLine($"Message received via UDP:{message}.");
-        }
+            Server.Clients[clientId].SendIntoGame(userName);
+        }      
     }
 }
