@@ -15,6 +15,8 @@ namespace Assets.Server
             Debug.Log($"Message from server: {message}");
 
             Client.Instance.ClientId = clientId;
+
+            ClientSend.WelcomeReceived();
         }
     }
 

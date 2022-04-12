@@ -53,6 +53,22 @@ namespace Assets.Server
             Stream.BeginRead(ReceiveBuffer, 0, DataBufferSize, ReceiveCallback, null);
         }
 
+        public void SendData(Packet packet) 
+        {
+            try
+            {
+                if(Socket != null) 
+                {
+                    Stream.BeginWrite(packet.ToArray(), 0, packet.Length(), null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Debug.Log($"Error sending data to server via TCP:{ex}.");
+            }
+        }
+
         private void ReceiveCallback(IAsyncResult result)
         {
             try
