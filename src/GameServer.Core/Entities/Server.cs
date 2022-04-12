@@ -14,6 +14,9 @@ namespace GameServer.Core
 
         public static Dictionary<int, Client> Clients = new Dictionary<int, Client>();
 
+        public delegate void PacketHandler(int clientId, Packet packet);
+        public static Dictionary<int, PacketHandler> PacketHandlers;
+
         private static TcpListener tcpListener;
 
         public static void Start(int mapPlayes, int portNumber) 
@@ -59,6 +62,12 @@ namespace GameServer.Core
             {
                 Clients.Add(i,new Client(i));
             }
+
+            PacketHandlers = new Dictionary<int, PacketHandler>()
+            {
+                {(int)ClientPackets.welcomeReceived, ServerHandle.WelcomeReceived }
+            };
+            Console.WriteLine("Init packets.");
         }
     }
 }

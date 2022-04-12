@@ -13,6 +13,7 @@ namespace GameServer.Core.Entities
         private readonly int DataBufferSize;
         private NetworkStream Stream;
         private byte[] ReceiveBuffer;
+        private Packet ReceivedData;
 
         public Tcp(int id, int dataBufferSize)
         {
@@ -27,9 +28,29 @@ namespace GameServer.Core.Entities
             Socket.SendBufferSize = DataBufferSize;
 
             Stream = Socket.GetStream();
+
+            ReceivedData = new Packet();
             ReceiveBuffer = new byte[DataBufferSize];
 
             Stream.BeginRead(ReceiveBuffer, 0, DataBufferSize, ReceiveCallback, null);
+
+            ServerSend.Welcome(Id, "Welcome to the server!");
+        }
+
+        public void SendData(Packet packet) 
+        {
+            try
+            {
+                if(Socket != null) 
+                {
+                    Stream.BeginWrite(packet.ToArray(), 0, packet.Length(), null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"Error sending data to player {Id} via TCP: {ex}.");
+            }
         }
 
         private void ReceiveCallback(IAsyncResult result) 
@@ -45,6 +66,7 @@ namespace GameServer.Core.Entities
                 byte[] data = new byte[byteLenght];
                 Array.Copy(ReceiveBuffer, data, byteLenght);
 
+                ReceivedData.Reset(HandleData(data));
                 Stream.BeginRead(ReceiveBuffer,0,DataBufferSize,ReceiveCallback, null);
             }
             catch (Exception ex)
@@ -52,6 +74,52 @@ namespace GameServer.Core.Entities
 
                 Console.WriteLine($"Error receiving TCP data : {ex}");
             }
+        }
+
+        private bool HandleData(byte[] data)
+        {
+            int packetLenght = 0;
+
+            ReceivedData.SetBytes(data);
+
+            if (ReceivedData.UnreadLength() >= 4)
+            {
+                packetLenght = ReceivedData.ReadInt();
+                if (packetLenght <= 0)
+                {
+                    return true;
+                }
+            }
+
+            while (packetLenght > 0 && packetLenght <= ReceivedData.UnreadLength())
+            {
+                byte[] packetBytes = ReceivedData.ReadBytes(packetLenght);
+                ThreadManager.ExecuteOnMainThread(() =>
+                {
+                    using (Packet packet = new Packet(packetBytes))
+                    {
+                        int packetId = packet.ReadInt();
+                        Server.PacketHandlers[packetId](Id,packet);
+                    }
+                });
+
+                packetLenght = 0;
+                if (ReceivedData.UnreadLength() >= 4)
+                {
+                    packetLenght = ReceivedData.ReadInt();
+                    if (packetLenght <= 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            if (packetLenght <= 1)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
