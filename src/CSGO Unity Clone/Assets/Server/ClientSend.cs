@@ -20,7 +20,7 @@ public class ClientSend : MonoBehaviour
     #region Packets
     public static void WelcomeReceived() 
     {
-        using (Packet packet = new Packet((int)ClientPackets.welcomeReceived)) 
+        using (Packet packet = new Packet((int)ClientPackets.WelcomeReceived)) 
         {
             packet.Write(Client.ClientInstance.ClientId);
             packet.Write(UIManager.Instance.UsernameField.text);

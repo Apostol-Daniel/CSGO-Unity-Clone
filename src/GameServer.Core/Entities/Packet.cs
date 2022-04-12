@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 
 namespace GameServer.Core.Entities
@@ -7,15 +8,17 @@ namespace GameServer.Core.Entities
     /// <summary>Sent from server to client.</summary>
     public enum ServerPackets
     {
-        welcome = 1,
-        udpTest
+        Welcome = 1,
+        SpawnPlayer,
+        PlayerPosition,
+        PlayerRotaion
     }
 
     /// <summary>Sent from client to server.</summary>
     public enum ClientPackets
     {
-        welcomeReceived = 1,
-        udpTestReceived
+        WelcomeReceived = 1,
+        PlayerMocement       
     }
 
     public class Packet : IDisposable
@@ -158,6 +161,23 @@ namespace GameServer.Core.Entities
         {
             Write(value.Length); // Add the length of the string to the packet
             Buffer.AddRange(Encoding.ASCII.GetBytes(value)); // Add the string itself
+        }
+        /// <summary>Adds a Vector3 to the packet.</summary>
+        /// <param name="value">The Vector3 to add.</param>
+        public void Write(Vector3 value)
+        {
+            Write(value.X);
+            Write(value.Y);
+            Write(value.Z);
+        }
+        /// <summary>Adds a Quaternion to the packet.</summary>
+        /// <param name="value">The Quaternion to add.</param>
+        public void Write(Quaternion value)
+        {
+            Write(value.X);
+            Write(value.Y);
+            Write(value.Z);
+            Write(value.W);
         }
         #endregion
 
