@@ -6,7 +6,7 @@ namespace GameServer.Core.Entities
 {
     public class ServerHandle
     {
-        public static void WelcomeReeived(int clientId, Packet packet) 
+        public static void WelcomeReceived(int clientId, Packet packet) 
         {
             int clientIdControl = packet.ReadInt();
             string userName = packet.ReadString();
