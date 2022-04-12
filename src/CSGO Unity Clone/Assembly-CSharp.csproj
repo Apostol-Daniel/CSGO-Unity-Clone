@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{538DEFED-2A61-701E-B8D0-E00EEE08CDBB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -90,6 +91,7 @@
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\GlobalFog.cs" />
     <Compile Include="Assets\Imported Assests\JMO Assets\WarFX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
+    <Compile Include="Assets\Server\Udp.cs" />
     <Compile Include="Assets\Server\UIManager.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsBase.cs" />

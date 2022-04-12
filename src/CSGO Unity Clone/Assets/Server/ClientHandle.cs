@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 
 
@@ -14,9 +15,11 @@ namespace Assets.Server
 
             Debug.Log($"Message from server: {message}");
 
-            Client.Instance.ClientId = clientId;
+            Client.ClientInstance.ClientId = clientId;
 
             ClientSend.WelcomeReceived();
+
+            Client.ClientInstance.UdpClient.Connect(((IPEndPoint)Client.ClientInstance.TcpClient.TcpSocket.Client.LocalEndPoint).Port);
         }
     }
 

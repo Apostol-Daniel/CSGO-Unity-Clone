@@ -7,12 +7,10 @@ namespace Assets.Server
 {
     public class Tcp
     {
-        public TcpClient Socket;
+        public TcpClient TcpSocket;
         private NetworkStream Stream;
         private Packet ReceivedData;
-        private readonly Client Instance;
-        private delegate void PacketHandler(Packet packet);
-        private static Dictionary<int, PacketHandler> PacketHandlers;
+        private Client ClientInstance;       
                 
         private byte[] ReceiveBuffer;
         private readonly int DataBufferSize;
@@ -20,13 +18,12 @@ namespace Assets.Server
         public Tcp(Client instance, int dataBufferSize)
         {
             DataBufferSize = dataBufferSize;
-            Instance = instance;
+            ClientInstance = instance;
         }
 
         public void Connect()
-        {
-            InitClientData();
-            Socket = new TcpClient()
+        {          
+            TcpSocket = new TcpClient()
             {
                 ReceiveBufferSize = DataBufferSize,
                 SendBufferSize = DataBufferSize
@@ -34,19 +31,19 @@ namespace Assets.Server
 
 
             ReceiveBuffer = new byte[DataBufferSize];
-            Socket.BeginConnect(Instance.Ip, Instance.Port, ConnectCallback, Socket);
+            TcpSocket.BeginConnect(ClientInstance.Ip, ClientInstance.Port, ConnectCallback, TcpSocket);
         }
 
         private void ConnectCallback(IAsyncResult result)
         {
-            Socket.EndConnect(result);
+            TcpSocket.EndConnect(result);
 
-            if (!Socket.Connected)
+            if (!TcpSocket.Connected)
             {
                 return;
             }
 
-            Stream = Socket.GetStream();
+            Stream = TcpSocket.GetStream();
 
             ReceivedData = new Packet();
 
@@ -57,7 +54,7 @@ namespace Assets.Server
         {
             try
             {
-                if(Socket != null) 
+                if(TcpSocket != null) 
                 {
                     Stream.BeginWrite(packet.ToArray(), 0, packet.Length(), null, null);
                 }
@@ -115,7 +112,7 @@ namespace Assets.Server
                     using (Packet packet = new Packet(packetBytes))
                     {
                         int packetId = packet.ReadInt();
-                        PacketHandlers[packetId](packet);
+                        ClientInstance.PacketHandlers[packetId](packet);
                     }
                 });
 
@@ -136,16 +133,7 @@ namespace Assets.Server
             }
 
             return false;
-        }
-
-        private void InitClientData() 
-        {
-            PacketHandlers = new Dictionary<int, PacketHandler>()
-            {
-                {(int)ServerPackets.welcome, ClientHandle.Welcome }
-            };
-            Debug.Log("Init Data");
-        }
+        }       
     }
 
 
