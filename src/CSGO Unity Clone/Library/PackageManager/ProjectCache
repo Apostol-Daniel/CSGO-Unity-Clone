@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637832083300372049
-    m_Hash: 2285814204
+      ticks: 637853742304557611
+    m_Hash: 570183947
   m_LockFileStatus:
     m_FilePath: C:/st-2122-2-S6A-ipr-Apostol-Daniel/src/CSGO Unity Clone/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637832083300377049
-    m_Hash: 98188254
+      ticks: 637853742304632674
+    m_Hash: 1697592231
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -77,6 +77,7 @@ m_PackageAssets:
         - 1.14.12
         - 1.14.13
         - 1.14.15
+        - 1.14.16
         - 1.15.1
         - 1.15.4
         - 1.15.7
@@ -84,6 +85,7 @@ m_PackageAssets:
         - 1.15.12
         - 1.15.13
         - 1.15.15
+        - 1.15.16
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -98,6 +100,7 @@ m_PackageAssets:
         - 1.15.12
         - 1.15.13
         - 1.15.15
+        - 1.15.16
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -108,7 +111,7 @@ m_PackageAssets:
         - 2.1.0-preview.3
         - 2.1.0-preview.5
         - 2.1.0-preview.6
-        verified: 1.15.15
+        verified: 1.15.16
       dependencies:
       - name: com.unity.services.core
         version: 1.0.1
@@ -201,6 +204,7 @@ m_PackageAssets:
         - 3.0.9
         - 3.0.10
         - 3.0.12
+        - 3.0.13
         compatible:
         - 1.0.2
         - 1.0.6
@@ -230,6 +234,7 @@ m_PackageAssets:
         - 3.0.9
         - 3.0.10
         - 3.0.12
+        - 3.0.13
         verified: 2.0.7
       dependencies:
       - name: com.unity.test-framework
@@ -264,12 +269,12 @@ m_PackageAssets:
         url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.rider.git
         revision: abb44f053e9a41d2e00e149e32a19bcec76e98b4
         path: 
-    - packageId: com.unity.ide.visualstudio@2.0.14
+    - packageId: com.unity.ide.visualstudio@2.0.15
       testable: 0
       isDirectDependency: 1
-      version: 2.0.14
+      version: 2.0.15
       source: 1
-      resolvedPath: C:\st-2122-2-S6A-ipr-Apostol-Daniel\src\CSGO Unity Clone\Library\PackageCache\com.unity.ide.visualstudio@2.0.14
+      resolvedPath: C:\st-2122-2-S6A-ipr-Apostol-Daniel\src\CSGO Unity Clone\Library\PackageCache\com.unity.ide.visualstudio@2.0.15
       assetPath: Packages/com.unity.ide.visualstudio
       name: com.unity.ide.visualstudio
       displayName: Visual Studio Editor
@@ -303,6 +308,7 @@ m_PackageAssets:
         - 2.0.11
         - 2.0.12
         - 2.0.14
+        - 2.0.15
         compatible:
         - 1.0.2
         - 1.0.3
@@ -321,7 +327,8 @@ m_PackageAssets:
         - 2.0.11
         - 2.0.12
         - 2.0.14
-        verified: 2.0.14
+        - 2.0.15
+        verified: 2.0.15
       dependencies:
       - name: com.unity.test-framework
         version: 1.1.9
@@ -347,13 +354,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637782923640000000
+      datePublishedTicks: 637841884840000000
       documentationUrl: 
-      hasRepository: 0
+      hasRepository: 1
       repository:
-        type: 
-        url: 
-        revision: 
+        type: git
+        url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.visualstudio.git
+        revision: ca1ece42f5a2c5484ba15a15bb975ccc1f6a1a3c
         path: 
     - packageId: com.unity.ide.vscode@1.2.4
       testable: 0
@@ -1322,6 +1329,7 @@ m_PackageAssets:
         - 0.1.21-preview
         - 0.1.22-preview
         - 1.0.0
+        - 2.0.0
         compatible:
         - 0.1.4-preview
         - 0.1.5-preview
@@ -1341,6 +1349,7 @@ m_PackageAssets:
         - 0.1.21-preview
         - 0.1.22-preview
         - 1.0.0
+        - 2.0.0
         verified: 
       dependencies:
       - name: com.unity.sysroot
@@ -3217,6 +3226,7 @@ m_PackageAssets:
         - 0.1.18-preview
         - 0.1.19-preview
         - 1.0.0
+        - 2.0.0
         compatible:
         - 0.1.7-preview
         - 0.1.8-preview
@@ -3231,6 +3241,7 @@ m_PackageAssets:
         - 0.1.18-preview
         - 0.1.19-preview
         - 1.0.0
+        - 2.0.0
         verified: 
       dependencies: []
       resolvedDependencies: []
@@ -3289,6 +3300,7 @@ m_PackageAssets:
         - 0.1.14-preview
         - 0.1.15-preview
         - 1.0.0
+        - 2.0.0
         compatible:
         - 0.1.6-preview
         - 0.1.7-preview
@@ -3301,6 +3313,7 @@ m_PackageAssets:
         - 0.1.14-preview
         - 0.1.15-preview
         - 1.0.0
+        - 2.0.0
         verified: 
       dependencies:
       - name: com.unity.sysroot
@@ -3428,6 +3441,7 @@ m_PackageAssets:
         - 1.1.0-pre.41
         - 1.1.0-pre.69
         - 1.2.0
+        - 1.3.1
         compatible:
         - 1.0.1
         - 1.1.0-pre.7
@@ -3438,6 +3452,7 @@ m_PackageAssets:
         - 1.1.0-pre.41
         - 1.1.0-pre.69
         - 1.2.0
+        - 1.3.1
         verified: 1.0.1
       dependencies:
       - name: com.unity.modules.unitywebrequest
