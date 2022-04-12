@@ -11,7 +11,7 @@ namespace GameServer.Core.Entities
             int clientIdControl = packet.ReadInt();
             string userName = packet.ReadString();
 
-            Console.WriteLine($"{Server.Clients[clientId].Tcp.Socket.Client.RemoteEndPoint} connected successfully and is now player {userName}.");
+            Console.WriteLine($"{Server.Clients[clientId].Tcp.Socket.Client.RemoteEndPoint} connected successfully and is now player with Id:{clientId} and UserName:{userName }.");
             if(clientId != clientIdControl) 
             {
                 //This message should never get printed; if it is, something went horribly wrong

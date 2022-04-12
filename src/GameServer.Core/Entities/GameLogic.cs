@@ -8,6 +8,7 @@ namespace GameServer.Core.Entities
     {
         public static void Update() 
         {
+            //Workaround missing Update method from Unity Engine
             ThreadManager.UpdateMain();
         }
     }
