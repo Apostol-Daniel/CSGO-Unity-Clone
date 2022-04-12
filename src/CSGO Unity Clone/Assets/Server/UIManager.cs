@@ -28,7 +28,7 @@ namespace Assets.Server
         {
             StartMenu.SetActive(false);
             UsernameField.interactable = false;
-            Client.Instance.ConnectToServer();
+            Client.ClientInstance.ConnectToServer();
         }
     }
 }

@@ -17,7 +17,8 @@ namespace GameServer.Core
         public delegate void PacketHandler(int clientId, Packet packet);
         public static Dictionary<int, PacketHandler> PacketHandlers;
 
-        private static TcpListener tcpListener;
+        private static TcpListener TcpListener;
+        private static UdpClient UdpListener;
 
         public static void Start(int mapPlayes, int portNumber) 
         {
@@ -28,17 +29,20 @@ namespace GameServer.Core
 
             Console.WriteLine("Starting server...");
 
-            tcpListener = new TcpListener(IPAddress.Any, Port);
-            tcpListener.Start();
-            tcpListener.BeginAcceptTcpClient(new AsyncCallback(TcpConnectCallback), null);
+            TcpListener = new TcpListener(IPAddress.Any, Port);
+            TcpListener.Start();
+            TcpListener.BeginAcceptTcpClient(new AsyncCallback(TcpConnectCallback), null);
+
+            UdpListener = new UdpClient(Port);
+            UdpListener.BeginReceive(UdpReceiveCallback, null);
 
             Console.WriteLine($"Server started on {Port}.");
         }
 
         private static void TcpConnectCallback(IAsyncResult result) 
         {
-            TcpClient tcpClient = tcpListener.EndAcceptTcpClient(result);
-            tcpListener.BeginAcceptTcpClient(new AsyncCallback(TcpConnectCallback), null);
+            TcpClient tcpClient = TcpListener.EndAcceptTcpClient(result);
+            TcpListener.BeginAcceptTcpClient(new AsyncCallback(TcpConnectCallback), null);
             Console.WriteLine($"Incoming connection from {tcpClient.Client.RemoteEndPoint}...");
 
             for (int i = 1; i <= MaxPlayers; i++)
@@ -56,6 +60,66 @@ namespace GameServer.Core
             Console.WriteLine($"{tcpClient.Client.RemoteEndPoint} failed to connect: Server is full.");
         }
 
+        private static void UdpReceiveCallback(IAsyncResult result) 
+        {
+            try
+            {
+                IPEndPoint clientEndPoint = new IPEndPoint(IPAddress.Any, 0);
+                byte[]  data = UdpListener.EndReceive(result, ref clientEndPoint);
+                UdpListener.BeginReceive(UdpReceiveCallback, null);
+
+                if(data.Length < 4) 
+                {
+                    return;
+                }
+
+                using(Packet packet = new Packet(data)) 
+                {
+                    int clientId = packet.ReadInt();
+
+                    //Safety check; if clientId == 0 then the server crashes
+                    if(clientId == 0) 
+                    {
+                        return;
+                    }
+
+                    //If UdpEndPoint == null => new connection from new client;package is empty => Connect to server and then not handle the data
+                    if(Clients[clientId].Udp.UdpEndPoint == null) 
+                    {
+                        Clients[clientId].Udp.Connect(clientEndPoint);
+                        return;
+                    }
+
+                    //Check if endpoints match; hacker could send another enpoint
+                    //ToString() because just comparing Endpoint to Endpoint will return false
+                    if(Clients[clientId].Udp.UdpEndPoint.ToString() == clientEndPoint.ToString()) 
+                    {
+                        //Finally handle data
+                        Clients[clientId].Udp.HandleData(packet);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error receiving UDP data: {ex}.");
+            }
+        }
+
+        public static void SendUdpData(IPEndPoint clientEndPoint, Packet packet) 
+        {
+            try
+            {
+                if (clientEndPoint != null) 
+                {
+                    UdpListener.BeginSend(packet.ToArray(), packet.Length(), clientEndPoint, null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error sending UDP data: {ex} to {clientEndPoint}.");
+            }
+        }
+
         private static void InitializeServerData() 
         {
             for (int i = 1; i <= MaxPlayers; i++)
@@ -65,7 +129,8 @@ namespace GameServer.Core
 
             PacketHandlers = new Dictionary<int, PacketHandler>()
             {
-                {(int)ClientPackets.welcomeReceived, ServerHandle.WelcomeReceived }
+                {(int)ClientPackets.welcomeReceived, ServerHandle.WelcomeReceived },
+                {(int)ClientPackets.udpTestReceived, ServerHandle.UdpTestReceived }
             };
             Console.WriteLine("Init packets.");
         }

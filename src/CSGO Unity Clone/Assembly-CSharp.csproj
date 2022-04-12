@@ -149,6 +149,7 @@
     <Compile Include="Assets\Server\Packet.cs" />
     <Compile Include="Assets\Server\ThreadManager.cs" />
     <Compile Include="Assets\Server\ClientSend.cs" />
+    <Compile Include="Assets\Server\Udp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />
