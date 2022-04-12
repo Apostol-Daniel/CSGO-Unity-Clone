@@ -8,6 +8,7 @@ namespace GameServer.Core.Entities
     {
         public int Id;
         public Tcp Tcp;
+        public Udp Udp;
         //4 MB's
         public static int DataBufferSize = 4096;
 
@@ -15,6 +16,7 @@ namespace GameServer.Core.Entities
         {
             Id = clientId;
             Tcp = new Tcp(Id, DataBufferSize);
+            Udp = new Udp(Id);
         }
     }
 

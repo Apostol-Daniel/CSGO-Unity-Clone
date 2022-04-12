@@ -17,7 +17,8 @@ namespace GameServer.Core
         public delegate void PacketHandler(int clientId, Packet packet);
         public static Dictionary<int, PacketHandler> PacketHandlers;
 
-        private static TcpListener tcpListener;
+        private static TcpListener TcpListener;
+        private static UdpClient UdpListener;
 
         public static void Start(int mapPlayes, int portNumber) 
         {
@@ -28,17 +29,20 @@ namespace GameServer.Core
 
             Console.WriteLine("Starting server...");
 
-            tcpListener = new TcpListener(IPAddress.Any, Port);
-            tcpListener.Start();
-            tcpListener.BeginAcceptTcpClient(new AsyncCallback(TcpConnectCallback), null);
+            TcpListener = new TcpListener(IPAddress.Any, Port);
+            TcpListener.Start();
+            TcpListener.BeginAcceptTcpClient(new AsyncCallback(TcpConnectCallback), null);
+
+            UdpListener = new UdpClient();
+            UdpListener.BeginReceive(UdpReceiveCallback, null);
 
             Console.WriteLine($"Server started on {Port}.");
         }
 
         private static void TcpConnectCallback(IAsyncResult result) 
         {
-            TcpClient tcpClient = tcpListener.EndAcceptTcpClient(result);
-            tcpListener.BeginAcceptTcpClient(new AsyncCallback(TcpConnectCallback), null);
+            TcpClient tcpClient = TcpListener.EndAcceptTcpClient(result);
+            TcpListener.BeginAcceptTcpClient(new AsyncCallback(TcpConnectCallback), null);
             Console.WriteLine($"Incoming connection from {tcpClient.Client.RemoteEndPoint}...");
 
             for (int i = 1; i <= MaxPlayers; i++)
