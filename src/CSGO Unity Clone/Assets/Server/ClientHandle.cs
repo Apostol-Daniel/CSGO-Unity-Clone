@@ -31,6 +31,22 @@ namespace Assets.Server
 
             GameManager.Instance.SpawnPlayer(playerId, playerUserName, playerPosition, playerRotation);
         }
+
+        public static void PlayerPostion(Packet packet) 
+        {
+            int playerId = packet.ReadInt();
+            Vector3 postition = packet.ReadVector3();
+
+            GameManager.Players[playerId].transform.position = postition;
+        }
+
+        public static void PlayerRotation(Packet packet)
+        {
+            int playerId = packet.ReadInt();
+            Quaternion rotation = packet.ReadQuaternion();
+
+            GameManager.Players[playerId].transform.rotation = rotation;
+        }
     }
 
 

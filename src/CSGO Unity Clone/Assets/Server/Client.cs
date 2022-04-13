@@ -47,7 +47,9 @@ namespace Assets.Server
             PacketHandlers = new Dictionary<int, PacketHandler>()
             {
                 {(int)ServerPackets.Welcome, ClientHandle.Welcome },
-                {(int)ServerPackets.SpawnPlayer, ClientHandle.SpawnPlayer }
+                {(int)ServerPackets.SpawnPlayer, ClientHandle.SpawnPlayer },
+                {(int)ServerPackets.PlayerPosition, ClientHandle.PlayerPosition },
+                {(int)ServerPackets.PlayerRotation, ClientHandle.PlayerRotation }
             };
             Debug.Log("Init Data");
         }
