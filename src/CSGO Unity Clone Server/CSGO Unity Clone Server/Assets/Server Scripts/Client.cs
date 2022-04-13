@@ -50,6 +50,12 @@ public class Client
     {
         Debug.Log($"{Tcp.Socket.Client.RemoteEndPoint} has disconnected.");
 
+        ThreadManager.ExecuteOnMainThread(() =>
+        {
+            UnityEngine.Object.Destroy(Player.gameObject);
+            Player = null;
+        });
+
         UnityEngine.Object.Destroy(Player.gameObject);
         Player = null;
 
