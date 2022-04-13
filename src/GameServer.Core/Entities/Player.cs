@@ -41,11 +41,11 @@ namespace GameServer.Core.Entities
             }
             if (Inputs[2])
             {
-                inputDirection.Y += 1;
+                inputDirection.X += 1;
             }
             if (Inputs[3])
             {
-                inputDirection.Y -= 1;
+                inputDirection.X -= 1;
             }
 
             Move(inputDirection);
@@ -60,7 +60,7 @@ namespace GameServer.Core.Entities
             Position += moveDirection * MoveSpeed;
 
             ServerSend.PlayerPosition(this);
-            ServerSend.PlayerRotation(this);
+            ServerSend.PlayerRotation (this);
         }
 
         public void SetInput(bool[] inputs, Quaternion rotation) 
