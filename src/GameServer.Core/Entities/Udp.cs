@@ -40,5 +40,10 @@ namespace GameServer.Core.Entities
                 }
             });
         }
+
+        public void Disconnect() 
+        {
+            UdpEndPoint = null;
+        }
     }
 }

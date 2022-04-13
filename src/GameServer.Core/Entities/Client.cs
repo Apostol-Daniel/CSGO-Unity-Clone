@@ -46,6 +46,16 @@ namespace GameServer.Core.Entities
                 }
             }
         }
+
+        public void Disconnect() 
+        {
+            Console.WriteLine($"{Tcp.Socket.Client.RemoteEndPoint} has disconnected.");
+
+            Player = null;
+
+            Tcp.Disconnect();
+            Udp.Disconnect();
+        }
     }
 
 }
