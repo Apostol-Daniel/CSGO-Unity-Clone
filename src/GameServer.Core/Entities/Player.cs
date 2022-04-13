@@ -23,6 +23,8 @@ namespace GameServer.Core.Entities
             UserName = userName;
             Position = spawnPosition;
             Rotation = Quaternion.Identity;
+
+            Inputs = new bool[4];
         }
 
         public void Update() 
