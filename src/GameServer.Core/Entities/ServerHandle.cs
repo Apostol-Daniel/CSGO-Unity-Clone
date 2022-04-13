@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 
 namespace GameServer.Core.Entities
@@ -18,6 +19,19 @@ namespace GameServer.Core.Entities
                 Console.WriteLine($"Playerr \"{userName}\" (Id:{clientId} has assumed the wrong client Id ({clientIdControl})!");
             }
             Server.Clients[clientId].SendIntoGame(userName);
-        }      
+        }
+        
+        public static void PlayerMovement(int clientId, Packet packet) 
+        {
+            bool[] inputs = new bool[packet.ReadInt()];
+            for (int i = 0; i < inputs.Length; i++)
+            {
+                inputs[i] = packet.ReadBool();
+            }
+
+            Quaternion rotation = packet.ReadQuaternion();
+
+            Server.Clients[clientId].Player.SetInput(inputs, rotation);
+        }
     }
 }

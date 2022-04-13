@@ -18,7 +18,7 @@ namespace Assets.Server
     public enum ClientPackets
     {
         WelcomeReceived = 1,
-        PlayerMocement
+        PlayerMovement
     }
 
     public class Packet : IDisposable
