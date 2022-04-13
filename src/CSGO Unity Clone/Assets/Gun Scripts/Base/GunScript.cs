@@ -34,7 +34,7 @@ public class GunScript : MonoBehaviour, IGunScript
     public GameObject ImpactEffect;
 
     #nullable enable
-    public GameObject? ScopeOverlay;
+    public GameObject ScopeOverlay;
 
     public GameObject WeaponCamera;
 

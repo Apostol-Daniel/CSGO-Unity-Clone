@@ -11,7 +11,7 @@ namespace GameServer.Core.Entities
         #region Packets
         public static void Welcome(int toClient, string message) 
         {
-            using (Packet packet = new Packet((int)ServerPackets.welcome)) 
+            using (Packet packet = new Packet((int)ServerPackets.Welcome)) 
             {
                 packet.Write(message);
                 packet.Write(toClient);
@@ -19,17 +19,42 @@ namespace GameServer.Core.Entities
                 SendTcpData(toClient, packet);
             }
         }
-        #endregion
 
-        public static void UdpTest(int clientId) 
+        public static void SpawnPlayer(int clientId, Player player) 
         {
-            using(Packet packet = new Packet((int)ServerPackets.udpTest)) 
+            using(Packet packet = new Packet((int)ServerPackets.SpawnPlayer)) 
             {
-                packet.Write("Udp packet test.");
+                packet.Write(player.Id);
+                packet.Write(player.UserName);
+                packet.Write(player.Position);
+                packet.Write(player.Rotation);
+                SendTcpData(clientId, packet);
+            }
 
-                SendUdpData(clientId, packet);
+        }
+
+        public static void PlayerPosition(Player player) 
+        {
+            using(Packet packet = new Packet((int)ServerPackets.PlayerPosition)) 
+            {
+                packet.Write(player.Id);
+                packet.Write(player.Position);
+
+                SendUdpDataToAll(packet);
             }
         }
+
+        public static void PlayerRotation(Player player)
+        {
+            using (Packet packet = new Packet((int)ServerPackets.PlayerRotation))
+            {
+                packet.Write(player.Id);
+                packet.Write(player.Rotation);
+
+                SendUdpDataToAllExceptOneClient(player.Id,packet);
+            }
+        }
+        #endregion  
 
         #region UdpData
         private static void SendUdpData(int clientId, Packet packet) 

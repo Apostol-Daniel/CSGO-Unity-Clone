@@ -1,8 +1,4 @@
 sceneSetups:
-- path: Assets/Created Assests/Desert Rigid Body.unity
-  isLoaded: 0
-  isActive: 0
-  isSubScene: 0
 - path: Assets/Created Assests/GameServer.unity
   isLoaded: 1
   isActive: 1
