@@ -8,6 +8,15 @@ namespace GameServer.Core.Entities
     {
         public static void Update() 
         {
+            //Calculate movement of all connectef players
+            foreach (Client client in Server.Clients.Values)
+            {
+                if(client.Player != null) 
+                {
+                    client.Player.Update();
+                }
+            }
+
             //Workaround missing Update method from Unity Engine
             ThreadManager.UpdateMain();
         }
