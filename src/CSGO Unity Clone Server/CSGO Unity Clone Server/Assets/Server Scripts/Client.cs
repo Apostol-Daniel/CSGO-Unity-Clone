@@ -56,9 +56,6 @@ public class Client
             Player = null;
         });
 
-        UnityEngine.Object.Destroy(Player.gameObject);
-        Player = null;
-
         Tcp.Disconnect();
         Udp.Disconnect();
     }
