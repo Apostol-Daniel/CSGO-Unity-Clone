@@ -46,7 +46,8 @@ namespace Assets.Server
         {
             PacketHandlers = new Dictionary<int, PacketHandler>()
             {
-                {(int)ServerPackets.Welcome, ClientHandle.Welcome }               
+                {(int)ServerPackets.Welcome, ClientHandle.Welcome },
+                {(int)ServerPackets.SpawnPlayer, ClientHandle.SpawnPlayer }
             };
             Debug.Log("Init Data");
         }

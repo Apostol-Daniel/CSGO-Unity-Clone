@@ -32,7 +32,7 @@ namespace GameServer.Core.Entities
                 {
                     if(client.Id != Id) 
                     {
-                        ServerSend.SpawnPlayerSendExistingPlayersToNewPlayer(Id, client.Player);
+                        ServerSend.SpawnPlayer(Id, client.Player);
                     }
                 }
             }
@@ -42,7 +42,7 @@ namespace GameServer.Core.Entities
             {
                 if(client.Player != null) 
                 {
-                    ServerSend.SpawnPlayerSendNewPlayerInfoToAllPlayers(client.Id, Player);
+                    ServerSend.SpawnPlayer(client.Id, Player);
                 }
             }
         }

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Numerics;
+using UnityEngine;
 using System.Text;
 
 namespace Assets.Server
@@ -166,18 +166,18 @@ namespace Assets.Server
         /// <param name="value">The Vector3 to add.</param>
         public void Write(Vector3 value)
         {
-            Write(value.X);
-            Write(value.Y);
-            Write(value.Z);
+            Write(value.x);
+            Write(value.y);
+            Write(value.z);
         }
         /// <summary>Adds a Quaternion to the packet.</summary>
         /// <param name="value">The Quaternion to add.</param>
         public void Write(Quaternion value)
         {
-            Write(value.X);
-            Write(value.Y);
-            Write(value.Z);
-            Write(value.W);
+            Write(value.x);
+            Write(value.y);
+            Write(value.z);
+            Write(value.w);
         }
         #endregion
 

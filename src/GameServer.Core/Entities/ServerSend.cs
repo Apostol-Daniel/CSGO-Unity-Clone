@@ -28,7 +28,9 @@ namespace GameServer.Core.Entities
                 packet.Write(player.UserName);
                 packet.Write(player.Position);
                 packet.Write(player.Rotation);
+                SendTcpData(clientId, packet);
             }
+
         }
         #endregion  
 
