@@ -60,6 +60,7 @@ namespace Assets.Server
 
                 if (data.Length < 4) 
                 {
+                    ClientInstance.Disconnect();
                     return;
                 }
 
@@ -67,8 +68,8 @@ namespace Assets.Server
             }
             catch (Exception ex)
             {
-
-                throw;
+                Disconnect();
+                Console.WriteLine($"Error receiving UDP data : {ex}");                
             }
         }
 
@@ -89,6 +90,13 @@ namespace Assets.Server
                     ClientInstance.PacketHandlers[packetId](packet);
                 }
             });
+        }
+
+        public void Disconnect() 
+        {
+            ClientInstance.Disconnect();
+            UdpEndPoint = null;
+            UdpSocket = null;
         }
     }
 }

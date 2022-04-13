@@ -60,6 +60,7 @@ namespace GameServer.Core.Entities
                 int byteLenght = Stream.EndRead(result);
                 if(byteLenght <= 0) 
                 {
+                    Server.Clients[Id].Disconnect();
                     return;
                 }
 
@@ -71,8 +72,8 @@ namespace GameServer.Core.Entities
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine($"Error receiving TCP data : {ex}");
+                Server.Clients[Id].Disconnect();
             }
         }
 
@@ -120,6 +121,15 @@ namespace GameServer.Core.Entities
             }
 
             return false;
+        }
+
+        public void Disconnect() 
+        {
+            Socket.Close();
+            Stream = null;
+            ReceivedData = null;
+            ReceiveBuffer = null;
+            Socket = null;
         }
     }
 }
