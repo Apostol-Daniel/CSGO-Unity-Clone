@@ -62489,7 +62489,6 @@ GameObject:
   - component: {fileID: 784340514513114200}
   - component: {fileID: 784340514513114201}
   - component: {fileID: 784340514538702754}
-  - component: {fileID: 7670355225639745048}
   m_Layer: 0
   m_Name: First Person Camera
   m_TagString: Untagged
@@ -62580,6 +62579,7 @@ MonoBehaviour:
   mouseSensitivity: 100
   xRotation: 0
   playerBody: {fileID: 784340514979140733}
+  PlayerManager: {fileID: -3998042993457592464}
 --- !u!95 &784340514538702754
 Animator:
   serializedVersion: 3
@@ -62599,18 +62599,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7670355225639745048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784340514513114215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e80b3c98717265f42a241011f1c914c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &784340514536327317
 GameObject:
   m_ObjectHideFlags: 0
@@ -86613,7 +86601,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784340514979140730}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 870e1ec4107000f4db9442675087b3f0, type: 3}
   m_Name: 

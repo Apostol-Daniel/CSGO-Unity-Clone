@@ -32,7 +32,7 @@ namespace Assets.Server
             GameManager.Instance.SpawnPlayer(playerId, playerUserName, playerPosition, playerRotation);
         }
 
-        public static void PlayerPostion(Packet packet) 
+        public static void PlayerPosition(Packet packet) 
         {
             int playerId = packet.ReadInt();
             Vector3 postition = packet.ReadVector3();
