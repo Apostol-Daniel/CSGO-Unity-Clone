@@ -32,6 +32,28 @@ namespace GameServer.Core.Entities
             }
 
         }
+
+        public static void PlayerPosition(Player player) 
+        {
+            using(Packet packet = new Packet((int)ServerPackets.PlayerPosition)) 
+            {
+                packet.Write(player.Id);
+                packet.Write(player.Position);
+
+                SendUdpDataToAll(packet);
+            }
+        }
+
+        public static void PlayerRotation(Player player)
+        {
+            using (Packet packet = new Packet((int)ServerPackets.PlayerRotation))
+            {
+                packet.Write(player.Id);
+                packet.Write(player.Rotation);
+
+                SendUdpDataToAllExceptOneClient(player.Id,packet);
+            }
+        }
         #endregion  
 
         #region UdpData

@@ -11,7 +11,7 @@ namespace Assets.Server
         Welcome = 1,
         SpawnPlayer,
         PlayerPosition,
-        PlayerRotaion
+        PlayerRotation
     }
 
     /// <summary>Sent from client to server.</summary>
