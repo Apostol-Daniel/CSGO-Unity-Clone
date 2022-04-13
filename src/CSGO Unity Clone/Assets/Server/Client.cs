@@ -16,6 +16,8 @@ namespace Assets.Server
         public Tcp TcpClient;
         public Udp UdpClient;
 
+        bool IsConnected = false;
+
         private void Awake()
         {
             if(ClientInstance == null) 
@@ -30,6 +32,11 @@ namespace Assets.Server
             }
         }
 
+        private void OnApplicationQuit()
+        {
+            Disconnect();
+        }
+
         private void Start()
         {
             TcpClient = new Tcp(ClientInstance, DataBufferSize);
@@ -39,6 +46,7 @@ namespace Assets.Server
         public void ConnectToServer()
         {
             InitClientData();
+            IsConnected = true;
             TcpClient.Connect();
         }
 
@@ -52,6 +60,18 @@ namespace Assets.Server
                 {(int)ServerPackets.PlayerRotation, ClientHandle.PlayerRotation }
             };
             Debug.Log("Init Data");
+        }
+
+        public void Disconnect() 
+        {
+            if (IsConnected) 
+            {
+                IsConnected = false;
+                TcpClient.TcpSocket.Close();
+                UdpClient.UdpSocket.Close();
+
+                Debug.Log("Disconnected from server.");
+            }
         }
     }
 }

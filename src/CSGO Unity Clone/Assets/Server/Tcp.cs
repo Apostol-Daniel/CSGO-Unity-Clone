@@ -73,6 +73,7 @@ namespace Assets.Server
                 int byteLenght = Stream.EndRead(result);
                 if (byteLenght <= 0)
                 {
+                    ClientInstance.Disconnect();
                     return;
                 }
 
@@ -84,7 +85,7 @@ namespace Assets.Server
             }
             catch (Exception ex)
             {
-
+                Disconnect();
                 Console.WriteLine($"Error receiving TCP data : {ex}");
             }
         }
@@ -133,7 +134,17 @@ namespace Assets.Server
             }
 
             return false;
-        }       
+        }
+        
+        private void Disconnect() 
+        {
+            ClientInstance.Disconnect();
+
+            Stream = null;
+            ReceivedData = null;
+            ReceiveBuffer = null;
+            TcpSocket = null;
+        }
     }
 
 
