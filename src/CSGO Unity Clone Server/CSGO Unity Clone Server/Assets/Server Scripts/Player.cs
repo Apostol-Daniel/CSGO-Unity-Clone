@@ -119,10 +119,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    private IEnumerator Respwand() 
+    private IEnumerator Respawn() 
     {
         yield return new WaitForSeconds(5f);
         Health = MaxHealth;
         CharacterController.enabled=true;
+        ServerSend.PlayerRespawed(this);
     }
 }
