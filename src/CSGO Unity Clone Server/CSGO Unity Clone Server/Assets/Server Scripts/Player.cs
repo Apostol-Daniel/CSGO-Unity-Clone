@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if(Health<= 0f) 
+        if(Health <= 0f) 
         {
             return;
         }
@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
         {
             if (hitInfo.collider.CompareTag("Player")) 
             {
-                TakeDamage();
+                hitInfo.collider.GetComponent<Player>().TakeDamage(25f);
             }
         }
     }
@@ -116,14 +116,17 @@ public class Player : MonoBehaviour
             CharacterController.enabled = false;
             transform.position = new Vector3(0f,25f,0f);
             ServerSend.PlayerPosition(this);
+            StartCoroutine(Respawn());
         }
+
+        ServerSend.PlayerHealth(this);
     }
 
     private IEnumerator Respawn() 
     {
         yield return new WaitForSeconds(5f);
         Health = MaxHealth;
-        CharacterController.enabled=true;
+        CharacterController.enabled = true;
         ServerSend.PlayerRespawed(this);
     }
 }

@@ -58,7 +58,9 @@ namespace Assets.Server
                 {(int)ServerPackets.SpawnPlayer, ClientHandle.SpawnPlayer },
                 {(int)ServerPackets.PlayerPosition, ClientHandle.PlayerPosition },
                 {(int)ServerPackets.PlayerRotation, ClientHandle.PlayerRotation },
-                {(int)ServerPackets.PlayerDisconnected, ClientHandle.PlayerDisconnected }
+                {(int)ServerPackets.PlayerDisconnected, ClientHandle.PlayerDisconnected },
+                {(int)ServerPackets.PlayerHealth, ClientHandle.PlayerHealth },
+                {(int)ServerPackets.PlayerRespawned, ClientHandle.PlayerRespwaned }
             };
             Debug.Log("Init Data");
         }

@@ -55,6 +55,21 @@ namespace Assets.Server
             Destroy(GameManager.Players[playerId].gameObject);
             GameManager.Players.Remove(playerId);
         }
+
+        public static void PlayerHealth(Packet packet) 
+        {
+            int id = packet.ReadInt();
+            float health = packet.ReadFloat();
+
+            GameManager.Players[id].SetHealth(health);
+        }
+
+        public static void PlayerRespwaned(Packet packet) 
+        {
+            int id = packet.ReadInt();
+
+            GameManager.Players[id].Respawn();
+        }
     }
 
 

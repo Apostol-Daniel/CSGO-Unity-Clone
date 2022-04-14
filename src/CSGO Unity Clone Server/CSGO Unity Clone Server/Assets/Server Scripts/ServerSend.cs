@@ -60,7 +60,7 @@ public class ServerSend
         }
     }
 
-    public void PlayerHealth(Player player) 
+    public static void PlayerHealth(Player player) 
     {
         using(Packet packet = new Packet((int)ServerPackets.PlayerHealth)) 
         {

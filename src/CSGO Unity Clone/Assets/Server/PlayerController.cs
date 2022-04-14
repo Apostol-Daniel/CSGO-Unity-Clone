@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
             Input.GetKey(KeyCode.S),
             Input.GetKey(KeyCode.A),
             Input.GetKey(KeyCode.D),
-            Input.GetButtonDown("Jump"),
+            Input.GetKey(KeyCode.Space),
         };
 
         ClientSend.PlayerMovement(inputs);

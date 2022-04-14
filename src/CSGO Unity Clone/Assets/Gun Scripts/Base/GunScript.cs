@@ -28,7 +28,7 @@ public class GunScript : MonoBehaviour, IGunScript
     #endregion
 
     public Camera FpsCam;
-    public float? ScopedFOV { get; set; }
+    public float ScopedFOV { get; set; }
     private float NormalFOV;
     public ParticleSystem MuzzleFlash;
     public GameObject ImpactEffect;
