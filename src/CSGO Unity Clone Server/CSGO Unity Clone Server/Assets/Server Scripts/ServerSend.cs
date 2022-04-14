@@ -49,6 +49,16 @@ public class ServerSend
             SendUdpDataToAllExceptOneClient(player.Id, packet);
         }
     }
+
+    public static void PlayerDisconnected(int playedId) 
+    {
+        using(Packet packet = new Packet((int)ServerPackets.PlayerDisconnected)) 
+        {
+            packet.Write(playedId);
+
+            SendTcpDataToAll(packet);
+        }
+    }
     #endregion
 
     #region UdpData
