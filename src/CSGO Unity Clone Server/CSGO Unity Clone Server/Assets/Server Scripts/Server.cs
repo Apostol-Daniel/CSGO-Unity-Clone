@@ -130,7 +130,8 @@ public class Server
         PacketHandlers = new Dictionary<int, PacketHandler>()
             {
                 {(int)ClientPackets.WelcomeReceived, ServerHandle.WelcomeReceived },
-                {(int)ClientPackets.PlayerMovement, ServerHandle.PlayerMovement }
+                {(int)ClientPackets.PlayerMovement, ServerHandle.PlayerMovement },
+                {(int)ClientPackets.PlayerShoot, ServerHandle.PlayerShoot }
 
             };
         Debug.Log("Init packets.");
