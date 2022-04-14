@@ -8,10 +8,10 @@ public class Player : MonoBehaviour
     public string UserName;
     public CharacterController CharacterController;
 
-    public float Gravity = -19.62f;
-    public float JumpSpeed = 2f;
-
     private float MoveSpeed = 5f;
+    public float Gravity = -9.81f;
+    public float JumpSpeed = 15f;
+
     public float YVelocity = 0;
     private bool[] Inputs;
 
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     {
         Id = id;
         UserName = userName;      
-        Inputs = new bool[4];
+        Inputs = new bool[5];
     }
 
     public void FixedUpdate()
@@ -59,13 +59,16 @@ public class Player : MonoBehaviour
 
         if (CharacterController.isGrounded) 
         {
-            YVelocity = 0;
+            YVelocity = 0f;
+            if (Inputs[4]) 
+            {
+                YVelocity = JumpSpeed;
+            }
         }
 
         YVelocity += Gravity;
 
         moveDirection.y = YVelocity;
-
         CharacterController.Move(moveDirection);
 
         ServerSend.PlayerPosition(this);
