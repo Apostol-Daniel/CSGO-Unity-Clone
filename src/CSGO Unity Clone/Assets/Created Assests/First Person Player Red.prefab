@@ -86619,15 +86619,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870e1ec4107000f4db9442675087b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterController: {fileID: 784340514979140735}
-  speed: 5
-  gravity: -60
-  jumpHeight: 2
-  groundCheck: {fileID: 784340514321609938}
-  groundDistance: 0.2
-  groundMask:
+  CharacterController: {fileID: 784340514979140735}
+  Speed: 5
+  Gravity: -19.62
+  JumpHeight: 2
+  GroundCheck: {fileID: 784340514321609938}
+  GroundDistance: 0.4
+  GroundMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
 --- !u!33 &2224692081280993615
 MeshFilter:
   m_ObjectHideFlags: 0

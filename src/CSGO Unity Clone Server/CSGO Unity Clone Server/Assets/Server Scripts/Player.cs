@@ -5,11 +5,22 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int Id;
-    public string UserName; 
+    public string UserName;
+    public CharacterController CharacterController;
 
-    private float MoveSpeed = 5f / ServerTicks.TicksPerSecond;
+    public float Gravity = -19.62f;
+    public float JumpSpeed = 2f;
+
+    private float MoveSpeed = 5f;
+    public float YVelocity = 0;
     private bool[] Inputs;
 
+    public void Start()
+    {
+        Gravity *= Time.fixedDeltaTime * Time.fixedDeltaTime;
+        MoveSpeed *= Time.fixedDeltaTime;
+        JumpSpeed *= Time.fixedDeltaTime;
+    }
     public void Initialize(int id, string userName)
     {
         Id = id;
@@ -44,7 +55,18 @@ public class Player : MonoBehaviour
     private void Move(Vector2 inputDirection)
     {       
         Vector3 moveDirection = transform.right * inputDirection.x + transform.forward * inputDirection.y;
-        transform.position += moveDirection * MoveSpeed;
+        moveDirection *= MoveSpeed;
+
+        if (CharacterController.isGrounded) 
+        {
+            YVelocity = 0;
+        }
+
+        YVelocity += Gravity;
+
+        moveDirection.y = YVelocity;
+
+        CharacterController.Move(moveDirection);
 
         ServerSend.PlayerPosition(this);
         ServerSend.PlayerRotation(this);

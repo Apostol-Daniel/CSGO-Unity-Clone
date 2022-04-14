@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public CharacterController characterController;
+    public CharacterController CharacterController;
 
-    public float speed = 12f;
-    public float gravity = -19.62f;
-    public float jumpHeight = 2f;
+    public float Speed = 5f;
+    public float Gravity = -19.62f;
+    public float JumpHeight = 2f;
 
-    Vector3 velocity;
-    bool isGrounded;
+    Vector3 Velocity;
+    bool IsGrounded;
 
-    public Transform groundCheck;
-    public float groundDistance = 0.4f;
-    public LayerMask groundMask;
+    public Transform GroundCheck;
+    public float GroundDistance = 0.4f;
+    public LayerMask GroundMask;
     
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance,groundMask);
-        if(isGrounded && velocity.y < 0) 
+        IsGrounded = Physics.CheckSphere(GroundCheck.position, GroundDistance,GroundMask);
+        if(IsGrounded && Velocity.y < 0) 
         {
-            velocity.y = -2f;
+            Velocity.y = -2f;
         }
 
         #region Moving around
@@ -32,15 +32,15 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        characterController.Move(move * speed * Time.deltaTime);
+        CharacterController.Move(move * Speed * Time.deltaTime);
         #endregion
-        if(Input.GetButtonDown("Jump")&& isGrounded)
+        if(Input.GetButtonDown("Jump")&& IsGrounded)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            Velocity.y = Mathf.Sqrt(JumpHeight * -2f * Gravity);
         }
 
-        velocity.y += gravity * Time.deltaTime;
+        Velocity.y += Gravity * Time.deltaTime;
 
-        characterController.Move(velocity * Time.deltaTime);
+        CharacterController.Move(Velocity * Time.deltaTime);
     }
 }
