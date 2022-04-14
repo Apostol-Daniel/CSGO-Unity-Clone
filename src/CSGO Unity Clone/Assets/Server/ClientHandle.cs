@@ -47,6 +47,14 @@ namespace Assets.Server
 
             GameManager.Players[playerId].transform.rotation = rotation;
         }
+
+        public static void PlayerDisconnected(Packet packet) 
+        {
+            int playerId = packet.ReadInt();
+
+            Destroy(GameManager.Players[playerId].gameObject);
+            GameManager.Players.Remove(playerId);
+        }
     }
 
 

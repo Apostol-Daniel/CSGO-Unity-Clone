@@ -57,7 +57,8 @@ namespace Assets.Server
                 {(int)ServerPackets.Welcome, ClientHandle.Welcome },
                 {(int)ServerPackets.SpawnPlayer, ClientHandle.SpawnPlayer },
                 {(int)ServerPackets.PlayerPosition, ClientHandle.PlayerPosition },
-                {(int)ServerPackets.PlayerRotation, ClientHandle.PlayerRotation }
+                {(int)ServerPackets.PlayerRotation, ClientHandle.PlayerRotation },
+                {(int)ServerPackets.PlayerDisconnected, ClientHandle.PlayerDisconnected }
             };
             Debug.Log("Init Data");
         }
