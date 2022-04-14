@@ -144,8 +144,9 @@ MonoBehaviour:
   Id: 0
   UserName: 
   CharacterController: {fileID: 4352461132862595801}
+  MoveSpeed: 5
   Gravity: -19.62
-  JumpSpeed: 2
+  JumpSpeed: 5
   YVelocity: 0
 --- !u!143 &4352461132862595801
 CharacterController:

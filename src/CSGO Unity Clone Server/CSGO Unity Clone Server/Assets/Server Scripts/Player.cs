@@ -8,9 +8,9 @@ public class Player : MonoBehaviour
     public string UserName;
     public CharacterController CharacterController;
 
-    private float MoveSpeed = 5f;
-    public float Gravity = -9.81f;
-    public float JumpSpeed = 15f;
+    public float MoveSpeed = 5f;
+    public float Gravity = -19.62f;
+    public float JumpSpeed = 5;
 
     public float YVelocity = 0;
     private bool[] Inputs;

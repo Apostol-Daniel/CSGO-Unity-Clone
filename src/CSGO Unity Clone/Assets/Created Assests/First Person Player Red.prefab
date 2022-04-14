@@ -62580,7 +62580,7 @@ MonoBehaviour:
   mouseSensitivity: 100
   xRotation: 0
   playerBody: {fileID: 784340514979140733}
-  PlayerManager: {fileID: 3488021049644914947}
+  PlayerManager: {fileID: 0}
 --- !u!95 &784340514538702754
 Animator:
   serializedVersion: 3
