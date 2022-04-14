@@ -100,7 +100,8 @@ public class Server
         }
         catch (Exception ex)
         {
-            Debug.Log($"Error receiving UDP data: {ex}.");
+            Debug.Log($"Error receiving UDP data: {ex}.\n" +
+                      $"This error will be thrown by every disconnect, don't worry about this one.");
         }
     }
 
@@ -133,5 +134,11 @@ public class Server
 
             };
         Debug.Log("Init packets.");
+    }
+
+    public static void Stop() 
+    {
+        TcpListener.Stop();
+        UdpListener.Close();
     }
 }

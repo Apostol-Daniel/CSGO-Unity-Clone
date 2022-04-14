@@ -24,17 +24,18 @@ public class NetworkManager : MonoBehaviour
     private void Start()
     {
         QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = 128;
+        Application.targetFrameRate = 128;      
 
-        #if UNITY_EDITOR
-        Debug.Log("Build the project to start the server.");
-        #else
         Server.Start(10, 26950);
-        #endif
+    }
+
+    private void OnApplicationQuit()
+    {
+        Server.Stop();
     }
 
     public Player InstantiatePlayer() 
     {
-        return Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity).GetComponent<Player>();
+        return Instantiate(PlayerPrefab, new Vector3(0f, 0.5f, 0f), Quaternion.identity).GetComponent<Player>();
     }
 }
