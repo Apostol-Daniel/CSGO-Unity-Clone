@@ -39734,8 +39734,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac3fdd7bc1735e4e9e44ec9457089b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LocalPlayerPrefab: {fileID: 784340514979140730, guid: d236964f55ad25440bae8aaa80ed7811, type: 3}
-  PlayerPrefab: {fileID: 784340514979140730, guid: c5a32acbe5c699f4ab83f63efcf46715, type: 3}
+  LocalPlayerPrefab: {fileID: 784340514979140730, guid: 1ae2f8124f19b5141bcb30497a76a9e9, type: 3}
+  PlayerPrefab: {fileID: 784340514979140730, guid: 2f3444770ddebf544971847a2cf72592, type: 3}
 --- !u!4 &777853084
 Transform:
   m_ObjectHideFlags: 0

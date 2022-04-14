@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Created Assests/Desert Rigid Body.unity
-    guid: c150696d1445fe94889bb45f7d0901a0
-  - enabled: 0
-    path: Assets/Created Assests/GameServer.unity
-    guid: 473ce4c626e1fe04e934059247c0b898
+    path: Assets/Created Assests/Scenes/Desert Rigid Body.unity
+    guid: 76f4daf7461978c40824d817ab931c58
   m_configObjects: {}
