@@ -93,6 +93,16 @@ public class ServerSend
             SendTcpData(clientId, packet);
         }
     }
+
+    public static void ItemSpawned(int spawnerId)
+    {
+        using (Packet packet = new Packet((int)ServerPackets.ItemSpawned))
+        {
+            packet.Write(spawnerId);
+
+            SendTcpDataToAll(packet);
+        }
+    }
     #endregion
 
     #region UdpData
