@@ -13,7 +13,8 @@ public class Player : MonoBehaviour
     public float MaxHealth = 100f;
     public float MoveSpeed = 5f;
     public float Gravity = -19.62f;
-    public float JumpSpeed = 5;
+    public float JumpHeight = 5;
+    public float ThrowForce = 20f; 
     public int ItemAmmount = 0;
     public int MaxItemAmmount = 3;
 
@@ -24,7 +25,7 @@ public class Player : MonoBehaviour
     {
         Gravity *= Time.fixedDeltaTime * Time.fixedDeltaTime;
         MoveSpeed *= Time.fixedDeltaTime;
-        JumpSpeed *= Time.fixedDeltaTime;
+        JumpHeight *= Time.fixedDeltaTime;
     }
     public void Initialize(int id, string userName)
     {
@@ -74,7 +75,7 @@ public class Player : MonoBehaviour
             YVelocity = 0f;
             if (Inputs[4]) 
             {
-                YVelocity = JumpSpeed;
+                YVelocity = JumpHeight;
             }
         }
 
@@ -111,6 +112,20 @@ public class Player : MonoBehaviour
                 Debug.Log($"Player hit.");
 
             }
+        }
+    }
+
+    public void ThrowItem(Vector3 direction) 
+    {
+        if(Health <= 0) 
+        {
+            return;
+        }
+
+        if(ItemAmmount > 0)
+        {
+            ItemAmmount--;
+            NetworkManager.Instance.InstantiateProjectile(ShootOrigin).Initialize(direction, ThrowForce, Id);
         }
     }
 
