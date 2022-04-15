@@ -114,6 +114,39 @@ public class ServerSend
             SendTcpDataToAll(_packet);
         }
     }
+
+    public static void SpawnProjectile(Projectile projectile, int playerId)
+    {
+        using (Packet packet = new Packet((int)ServerPackets.SpawnProjectile))
+        {
+            packet.Write(projectile.Id);
+            packet.Write(projectile.transform.position);
+
+            SendTcpDataToAll(packet);
+        }
+    }
+
+    public static void ProjectilePosition(Projectile projectile)
+    {
+        using (Packet packet = new Packet((int)ServerPackets.ProjectilePositon))
+        {
+            packet.Write(projectile.Id);
+            packet.Write(projectile.transform.position);
+
+            SendTcpDataToAll(packet);
+        }
+    }
+
+    public static void ProjectileExploded(Projectile projectile)
+    {
+        using (Packet packet = new Packet((int)ServerPackets.ProjectileExploded))
+        {
+            packet.Write(projectile.Id);
+            packet.Write(projectile.transform.position);
+
+            SendTcpDataToAll(packet);
+        }
+    }
     #endregion
 
     #region UdpData
