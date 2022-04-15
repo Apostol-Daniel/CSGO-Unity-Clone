@@ -7,7 +7,10 @@ public class Player : MonoBehaviour
     public int Id;
     public string UserName;
     public CharacterController CharacterController;
+    public Transform ShootOrigin;
 
+    public float Health;
+    public float MaxHealth = 100f;
     public float MoveSpeed = 5f;
     public float Gravity = -19.62f;
     public float JumpSpeed = 5;
@@ -24,12 +27,19 @@ public class Player : MonoBehaviour
     public void Initialize(int id, string userName)
     {
         Id = id;
-        UserName = userName;      
+        UserName = userName;
+        Health = MaxHealth;
+
         Inputs = new bool[5];
     }
 
     public void FixedUpdate()
     {
+        if(Health <= 0f) 
+        {
+            return;
+        }
+
         Vector2 inputDirection = Vector2.zero;
 
         if (Inputs[0])
@@ -79,5 +89,48 @@ public class Player : MonoBehaviour
     {
         Inputs = inputs;
         transform.rotation = rotation;
+    }
+
+    public void Shoot(Vector3 direction) 
+    {
+        if(Physics.Raycast(ShootOrigin.position, direction, out RaycastHit hitInfo, 25f)) 
+        {
+            Debug.Log($"Target hit on Server before player tag:{hitInfo.collider.name}");
+
+            if (hitInfo.collider.CompareTag("Player")) 
+            {
+                hitInfo.collider.GetComponentInParent<Player>().TakeDamage(25f);
+                Debug.Log($"Player hit.");
+
+            }
+        }
+    }
+
+    public void TakeDamage(float damage) 
+    {
+        if(Health <= 0f) 
+        {
+            return;
+        }
+
+        Health -= damage;
+        if(Health <= 0f) 
+        {
+            Health = 0f;
+            CharacterController.enabled = false;
+            transform.position = new Vector3(0f,25f,0f);
+            ServerSend.PlayerPosition(this);
+            StartCoroutine(Respawn());
+        }
+
+        ServerSend.PlayerHealth(this);
+    }
+
+    private IEnumerator Respawn() 
+    {
+        yield return new WaitForSeconds(5f);
+        Health = MaxHealth;
+        CharacterController.enabled = true;
+        ServerSend.PlayerRespawed(this);
     }
 }

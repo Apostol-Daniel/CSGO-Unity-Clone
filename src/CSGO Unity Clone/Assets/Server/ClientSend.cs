@@ -44,5 +44,15 @@ public class ClientSend : MonoBehaviour
             SendUdpData(packet);
         }
     }
+
+    public static void PlayerShoot(Vector3 facing) 
+    {
+        using(Packet packet = new Packet((int)ClientPackets.PlayerShoot)) 
+        {
+            packet.Write(facing);
+
+            SendTcpData(packet);
+        }
+    }
     #endregion
 }

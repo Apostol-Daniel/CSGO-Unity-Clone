@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Transform CameraTransform;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0)) 
+        {
+            Debug.Log("PlayerController Shoot");
+            ClientSend.PlayerShoot(CameraTransform.forward);
+        }
+    }
+
     private void FixedUpdate()
     {
         SendInputToServer();
@@ -17,7 +28,7 @@ public class PlayerController : MonoBehaviour
             Input.GetKey(KeyCode.S),
             Input.GetKey(KeyCode.A),
             Input.GetKey(KeyCode.D),
-            Input.GetButtonDown("Jump"),
+            Input.GetKey(KeyCode.Space),
         };
 
         ClientSend.PlayerMovement(inputs);

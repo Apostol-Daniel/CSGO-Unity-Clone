@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Created Assests/Desert Rigid Body.unity
+- path: Assets/Created Assests/Scenes/Desert Rigid Body.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
