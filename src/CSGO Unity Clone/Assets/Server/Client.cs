@@ -60,7 +60,8 @@ namespace Assets.Server
                 {(int)ServerPackets.PlayerRotation, ClientHandle.PlayerRotation },
                 {(int)ServerPackets.PlayerDisconnected, ClientHandle.PlayerDisconnected },
                 {(int)ServerPackets.PlayerHealth, ClientHandle.PlayerHealth },
-                {(int)ServerPackets.PlayerRespawned, ClientHandle.PlayerRespwaned }
+                {(int)ServerPackets.PlayerRespawned, ClientHandle.PlayerRespwaned },
+                {(int)ServerPackets.CreateItemSpawner, ClientHandle.CreateItemSpawner }
             };
             Debug.Log("Init Data");
         }
