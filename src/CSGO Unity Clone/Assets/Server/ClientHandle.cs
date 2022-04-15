@@ -96,6 +96,31 @@ namespace Assets.Server
             GameManager.Players[playerId].ItemCount++;
         }
 
+        public static void SpawnProjectile(Packet packet) 
+        {
+            int projectleId = packet.ReadInt();
+            Vector3 position = packet.ReadVector3();
+            int playerId = packet.ReadInt();
+
+            GameManager.Instance.SpawnProjcetile(projectleId, position);
+            GameManager.Players[playerId].ItemCount--;
+        }
+
+        public static void ProjectilePosition(Packet packet)
+        {
+            int projectileId = packet.ReadInt();
+            Vector3 position = packet.ReadVector3();
+
+            GameManager.Projectiles[projectileId].transform.position = position;
+        }
+
+        public static void ProjectileExploded(Packet packet)
+        {
+            int projectileId = packet.ReadInt();
+            Vector3 position = packet.ReadVector3();
+
+            GameManager.Projectiles[projectileId].Explode(position);
+        }
 
     }
 

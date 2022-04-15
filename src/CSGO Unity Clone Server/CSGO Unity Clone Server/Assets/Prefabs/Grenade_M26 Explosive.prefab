@@ -108,7 +108,7 @@ CapsuleCollider:
   m_Height: 0.47853136
   m_Direction: 1
   m_Center: {x: 0, y: 0.054972105, z: 0.022090636}
---- !u!114 &-3775800258704296695
+--- !u!114 &3752471446636283987
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,10 +117,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7443762876503829569}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92495f47101ee0749b521302ff56eb71, type: 3}
+  m_Script: {fileID: 11500000, guid: 82f922be2cdda4c44848e7b48222c273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 3
-  radius: 5
-  explosionForce: 200
-  explosionEffect: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
+  Id: 0
+  Rigidbody: {fileID: 2131844035}
+  PlayerId: 0
+  Force: {x: 0, y: 0, z: 0}
+  ExplosionRadius: 1.5
+  ExplosionDamage: 75

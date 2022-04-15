@@ -63,7 +63,10 @@ namespace Assets.Server
                 {(int)ServerPackets.PlayerRespawned, ClientHandle.PlayerRespwaned },
                 {(int)ServerPackets.CreateItemSpawner, ClientHandle.CreateItemSpawner },
                 {(int)ServerPackets.ItemSpawned, ClientHandle.ItemSpawned },
-                {(int)ServerPackets.ItemPickedUp, ClientHandle.ItemPickedUp }
+                {(int)ServerPackets.ItemPickedUp, ClientHandle.ItemPickedUp },
+                {(int)ServerPackets.SpawnProjectile, ClientHandle.SpawnProjectile },
+                {(int)ServerPackets.ProjectilePositon, ClientHandle.ProjectilePosition },
+                {(int)ServerPackets.ProjectileExploded, ClientHandle.ProjectileExploded }
             };
             Debug.Log("Init Data");
         }

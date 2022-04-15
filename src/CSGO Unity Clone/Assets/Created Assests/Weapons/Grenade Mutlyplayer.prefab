@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 31f3d55055bba9443b8439d272a0da30, type: 3}
       propertyPath: m_Name
-      value: Grenade_M26 Explosive
+      value: Grenade Mutlyplayer
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 31f3d55055bba9443b8439d272a0da30, type: 3}
       propertyPath: m_RootOrder
@@ -17,15 +17,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 31f3d55055bba9443b8439d272a0da30, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.8
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 31f3d55055bba9443b8439d272a0da30, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 31f3d55055bba9443b8439d272a0da30, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.8
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 31f3d55055bba9443b8439d272a0da30, type: 3}
       propertyPath: m_LocalPosition.x
@@ -108,7 +108,7 @@ CapsuleCollider:
   m_Height: 0.47853136
   m_Direction: 1
   m_Center: {x: 0, y: 0.054972105, z: 0.022090636}
---- !u!114 &-3775800258704296695
+--- !u!114 &4173712918233104450
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,10 +117,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7443762876503829569}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92495f47101ee0749b521302ff56eb71, type: 3}
+  m_Script: {fileID: 11500000, guid: 42a3b74f77d145547984f09120071bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 3
-  radius: 5
-  explosionForce: 200
-  explosionEffect: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
+  Id: 0
+  ExplosionEffect: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}

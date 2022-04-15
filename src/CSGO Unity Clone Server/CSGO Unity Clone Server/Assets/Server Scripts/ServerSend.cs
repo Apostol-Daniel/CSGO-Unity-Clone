@@ -121,8 +121,9 @@ public class ServerSend
         {
             packet.Write(projectile.Id);
             packet.Write(projectile.transform.position);
+            packet.Write(playerId);
 
-            SendTcpDataToAllExceptOneClient(playerId, packet);
+            SendTcpDataToAll(packet);
         }
     }
 
