@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public Transform ShootOrigin;
 
     public float Health;
-    public float MaxHealth;
+    public float MaxHealth = 100f;
     public float MoveSpeed = 5f;
     public float Gravity = -19.62f;
     public float JumpSpeed = 5;
@@ -95,9 +95,13 @@ public class Player : MonoBehaviour
     {
         if(Physics.Raycast(ShootOrigin.position, direction, out RaycastHit hitInfo, 25f)) 
         {
+            Debug.Log($"Target hit on Server before player tag:{hitInfo.collider.name}");
+
             if (hitInfo.collider.CompareTag("Player")) 
             {
-                hitInfo.collider.GetComponent<Player>().TakeDamage(25f);
+                hitInfo.collider.GetComponentInParent<Player>().TakeDamage(25f);
+                Debug.Log($"Player hit.");
+
             }
         }
     }

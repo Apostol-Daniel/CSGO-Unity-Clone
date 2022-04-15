@@ -6,10 +6,11 @@ public class PlayerController : MonoBehaviour
 {
     public Transform CameraTransform;
 
-    private void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0)) 
         {
+            Debug.Log("PlayerController Shoot");
             ClientSend.PlayerShoot(CameraTransform.forward);
         }
     }
