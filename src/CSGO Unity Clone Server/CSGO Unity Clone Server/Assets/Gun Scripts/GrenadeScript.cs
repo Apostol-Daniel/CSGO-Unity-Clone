@@ -62,7 +62,7 @@ namespace Assets.Gun_Scripts
 
             //Remove grenade
             hasExploded = true;
-            //For some reasson the explosionEffect does not get delete automatically
+            //For some reasson the explosionEffect does not get deleted automatically
             Destroy(explosionEffectObject, 3.5f);
             Destroy(gameObject);
         }
