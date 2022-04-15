@@ -95,6 +95,12 @@ public class Player : MonoBehaviour
 
     public void Shoot(Vector3 direction) 
     {
+
+        if(Health <= 0f) 
+        {
+            return;
+        }
+
         if(Physics.Raycast(ShootOrigin.position, direction, out RaycastHit hitInfo, 25f)) 
         {
             Debug.Log($"Target hit on Server before player tag:{hitInfo.collider.name}");
