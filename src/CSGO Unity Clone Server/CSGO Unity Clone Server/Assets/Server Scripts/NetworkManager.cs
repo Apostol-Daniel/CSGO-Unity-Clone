@@ -7,6 +7,7 @@ public class NetworkManager : MonoBehaviour
     public static NetworkManager Instance;
 
     public GameObject PlayerPrefab;
+    public GameObject ProjectilePrefab;
     private void Awake()
     {
         if (Instance == null)
@@ -37,5 +38,10 @@ public class NetworkManager : MonoBehaviour
     public Player InstantiatePlayer() 
     {
         return Instantiate(PlayerPrefab, new Vector3(0f, 1.5f, 0f), Quaternion.identity).GetComponent<Player>();
+    }
+
+    public Projectile InstantiateProjectile(Transform shootOrigin) 
+    {
+        return Instantiate(ProjectilePrefab, shootOrigin.position + shootOrigin.forward * 0.7f, Quaternion.identity).GetComponent<Projectile>();
     }
 }

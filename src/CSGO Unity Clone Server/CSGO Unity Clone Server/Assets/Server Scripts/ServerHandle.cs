@@ -38,4 +38,10 @@ public class ServerHandle
 
         Server.Clients[clientId].Player.Shoot(shootDirection);
     }
+
+    public static void PlayerThrowItem(int cliendId, Packet packet) 
+    {
+        Vector3 throwDirection = packet.ReadVector3();
+        Server.Clients[cliendId].Player.ThrowItem(throwDirection);
+    }
 }

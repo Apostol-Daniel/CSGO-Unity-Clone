@@ -13,6 +13,12 @@ public class PlayerController : MonoBehaviour
             Debug.Log("PlayerController Shoot");
             ClientSend.PlayerShoot(CameraTransform.forward);
         }
+
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            Debug.Log("PlayerController Throw");
+            ClientSend.PlayerThrowItem(CameraTransform.forward);
+        }
     }
 
     private void FixedUpdate()

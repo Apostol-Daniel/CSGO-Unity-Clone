@@ -17,7 +17,10 @@ namespace Assets.Server
         PlayerRespawned,
         CreateItemSpawner,
         ItemSpawned,
-        ItemPickedUp
+        ItemPickedUp,
+        SpawnProjectile,
+        ProjectilePositon,
+        ProjectileExploded
     }
 
     /// <summary>Sent from client to server.</summary>
@@ -25,7 +28,8 @@ namespace Assets.Server
     {
         WelcomeReceived = 1,
         PlayerMovement,
-        PlayerShoot
+        PlayerShoot,
+        PlayerThrowItem
     }
 
     public class Packet : IDisposable
