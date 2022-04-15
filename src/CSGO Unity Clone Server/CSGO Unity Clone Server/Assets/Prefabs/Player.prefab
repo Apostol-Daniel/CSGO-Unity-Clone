@@ -180,7 +180,8 @@ MonoBehaviour:
   MaxHealth: 100
   MoveSpeed: 5
   Gravity: -19.62
-  JumpSpeed: 5
+  JumpHeight: 5
+  ThrowForce: 20
   ItemAmmount: 0
   MaxItemAmmount: 3
   YVelocity: 0
@@ -198,7 +199,7 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.4
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
