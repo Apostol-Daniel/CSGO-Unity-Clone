@@ -103,6 +103,17 @@ public class ServerSend
             SendTcpDataToAll(packet);
         }
     }
+
+    public static void ItemPickedUp(int spawnerId, int byPlayer)
+    {
+        using (Packet _packet = new Packet((int)ServerPackets.ItemPickedUp))
+        {
+            _packet.Write(spawnerId);
+            _packet.Write(byPlayer);
+
+            SendTcpDataToAll(_packet);
+        }
+    }
     #endregion
 
     #region UdpData

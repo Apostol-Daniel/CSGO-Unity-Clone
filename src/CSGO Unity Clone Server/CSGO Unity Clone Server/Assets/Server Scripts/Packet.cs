@@ -15,7 +15,8 @@ public enum ServerPackets
     PlayerHealth,
     PlayerRespawned,
     CreateItemSpawner,
-    ItemSpawned
+    ItemSpawned,
+    ItemPickedUp
 }
 
 /// <summary>Sent from client to server.</summary>

@@ -62,7 +62,8 @@ namespace Assets.Server
                 {(int)ServerPackets.PlayerHealth, ClientHandle.PlayerHealth },
                 {(int)ServerPackets.PlayerRespawned, ClientHandle.PlayerRespwaned },
                 {(int)ServerPackets.CreateItemSpawner, ClientHandle.CreateItemSpawner },
-                {(int)ServerPackets.ItemSpawned, ClientHandle.ItemSpawned }
+                {(int)ServerPackets.ItemSpawned, ClientHandle.ItemSpawned },
+                {(int)ServerPackets.ItemPickedUp, ClientHandle.ItemPickedUp }
             };
             Debug.Log("Init Data");
         }

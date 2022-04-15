@@ -86,6 +86,15 @@ namespace Assets.Server
 
             GameManager.Spawners[spawnerId].ItemSpawned();
         }
+
+        public static void ItemPickedUp(Packet packet)
+        {
+            int spawnerId = packet.ReadInt();
+            int playerId = packet.ReadInt();
+
+            GameManager.Spawners[spawnerId].ItemPickedUp();
+            GameManager.Players[playerId].ItemCount++;
+        }
     }
 
 

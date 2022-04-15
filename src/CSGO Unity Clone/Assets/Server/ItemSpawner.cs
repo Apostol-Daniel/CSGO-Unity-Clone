@@ -24,4 +24,10 @@ public class ItemSpawner : MonoBehaviour
         HasItem = true;
         ItemModel.enabled = true;
     }
+
+    public void ItemPickedUp() 
+    {
+        HasItem = false;
+        ItemModel.enabled = false;
+    }
 }

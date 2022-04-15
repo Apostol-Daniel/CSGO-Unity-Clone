@@ -16,7 +16,8 @@ namespace Assets.Server
         PlayerHealth,
         PlayerRespawned,
         CreateItemSpawner,
-        ItemSpawned
+        ItemSpawned,
+        ItemPickedUp
     }
 
     /// <summary>Sent from client to server.</summary>
