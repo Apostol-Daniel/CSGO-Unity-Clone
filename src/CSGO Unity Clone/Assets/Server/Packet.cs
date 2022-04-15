@@ -25,7 +25,8 @@ namespace Assets.Server
     {
         WelcomeReceived = 1,
         PlayerMovement,
-        PlayerShoot
+        PlayerShoot,
+        PlayerThrowItem
     }
 
     public class Packet : IDisposable

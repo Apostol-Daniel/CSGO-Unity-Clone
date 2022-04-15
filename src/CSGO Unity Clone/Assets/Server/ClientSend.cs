@@ -54,5 +54,15 @@ public class ClientSend : MonoBehaviour
             SendTcpData(packet);
         }
     }
+
+    public static void PlayerThrowItem(Vector3 facing) 
+    {
+        using (Packet packet = new Packet((int)ClientPackets.PlayerThrowItem)) 
+        {
+            packet.Write(facing);
+
+            SendTcpData(packet);
+        }
+    }
     #endregion
 }
