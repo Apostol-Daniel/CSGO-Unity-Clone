@@ -181,6 +181,8 @@ MonoBehaviour:
   MoveSpeed: 5
   Gravity: -19.62
   JumpSpeed: 5
+  ItemAmmount: 0
+  MaxItemAmmount: 3
   YVelocity: 0
 --- !u!143 &4352461132862595801
 CharacterController:

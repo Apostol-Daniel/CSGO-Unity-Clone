@@ -44,6 +44,11 @@ public class Client
                 ServerSend.SpawnPlayer(client.Id, Player);
             }
         }
+
+        foreach(ItemSpawner spawner in ItemSpawner.Spawners.Values) 
+        {
+            ServerSend.CreateItemSpawner(Id, spawner.SpawnerId, spawner.transform.position, spawner.HasItem);
+        }
     }
 
     public void Disconnect()

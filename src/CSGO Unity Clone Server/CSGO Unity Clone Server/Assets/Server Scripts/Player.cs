@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public float MoveSpeed = 5f;
     public float Gravity = -19.62f;
     public float JumpSpeed = 5;
+    public int ItemAmmount = 0;
+    public int MaxItemAmmount = 3;
 
     public float YVelocity = 0;
     private bool[] Inputs;
@@ -132,5 +134,17 @@ public class Player : MonoBehaviour
         Health = MaxHealth;
         CharacterController.enabled = true;
         ServerSend.PlayerRespawed(this);
+    }
+
+    public bool AttemptPickUpItem() 
+    {
+        if(ItemAmmount >= MaxItemAmmount) 
+        {
+            return false;
+        }
+
+        ItemAmmount++;
+
+        return true;
     }
 }
