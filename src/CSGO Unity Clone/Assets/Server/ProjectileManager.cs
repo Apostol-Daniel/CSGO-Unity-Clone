@@ -14,8 +14,10 @@ public class ProjectileManager : MonoBehaviour
 
     public void Explode(Vector3 position) 
     {
-        transform.position = position;
-        Instantiate(ExplosionEffect, transform.position ,Quaternion.identity);
+        transform.position = position;        
+        GameObject explosionEffectObject = Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
+        GameManager.Projectiles.Remove(Id);
+        Destroy(explosionEffectObject, 3.5f);
         Destroy(gameObject);
     }
 }

@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
 
         ServerSend.SpawnProjectile(this, PlayerId);
 
-        Rigidbody.AddForce(Force);
+        Rigidbody.AddForce(Force, ForceMode.VelocityChange);
         StartCoroutine(ExplodeAfterTime());
     }
 
@@ -54,10 +54,11 @@ public class Projectile : MonoBehaviour
         {
             if (collider.CompareTag("Player")) 
             {
-                collider.GetComponent<Player>().TakeDamage(ExplosionDamage);
+                collider.GetComponentInParent<Player>().TakeDamage(ExplosionDamage);
             }
         }
 
+        Projectiles.Remove(Id);
         Destroy(gameObject);
     }
 
