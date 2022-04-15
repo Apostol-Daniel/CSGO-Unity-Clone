@@ -79,6 +79,13 @@ namespace Assets.Server
 
             GameManager.Instance.CreateItemSpawner(spawnerId, spawnPosition, hasItem);
         }
+
+        public static void ItemSpawned(Packet packet)
+        {
+            int spawnerId = packet.ReadInt();
+
+            GameManager.Spawners[spawnerId].ItemSpawned();
+        }
     }
 
 

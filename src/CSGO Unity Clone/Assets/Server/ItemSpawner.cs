@@ -18,4 +18,10 @@ public class ItemSpawner : MonoBehaviour
 
         BasePosition = transform.position;
     }
+
+    public void ItemSpawned() 
+    {
+        HasItem = true;
+        ItemModel.enabled = true;
+    }
 }
