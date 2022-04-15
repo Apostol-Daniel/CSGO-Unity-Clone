@@ -14,7 +14,8 @@ namespace Assets.Server
         PlayerRotation,
         PlayerDisconnected,
         PlayerHealth,
-        PlayerRespawned
+        PlayerRespawned,
+        CreaterItemSpawner
     }
 
     /// <summary>Sent from client to server.</summary>

@@ -70,6 +70,15 @@ namespace Assets.Server
 
             GameManager.Players[id].Respawn();
         }
+
+        public static void CreateItemSpawner(Packet packet) 
+        {
+            int spawnerId = packet.ReadInt();
+            Vector3 spawnPosition = packet.ReadVector3();
+            bool hasItem = packet.ReadBool();
+
+            GameManager.Instance.CreateItemSpawner(spawnerId, spawnPosition, hasItem);
+        }
     }
 
 
