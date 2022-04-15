@@ -17,7 +17,10 @@ namespace Assets.Server
         PlayerRespawned,
         CreateItemSpawner,
         ItemSpawned,
-        ItemPickedUp
+        ItemPickedUp,
+        SpawnProjectile,
+        ProjectilePositon,
+        ProjectileExploded
     }
 
     /// <summary>Sent from client to server.</summary>

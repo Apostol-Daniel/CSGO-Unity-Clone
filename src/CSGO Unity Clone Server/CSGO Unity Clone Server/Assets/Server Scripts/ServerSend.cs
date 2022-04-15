@@ -122,7 +122,7 @@ public class ServerSend
             packet.Write(projectile.Id);
             packet.Write(projectile.transform.position);
 
-            SendTcpDataToAll(packet);
+            SendTcpDataToAllExceptOneClient(playerId, packet);
         }
     }
 

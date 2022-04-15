@@ -95,6 +95,8 @@ namespace Assets.Server
             GameManager.Spawners[spawnerId].ItemPickedUp();
             GameManager.Players[playerId].ItemCount++;
         }
+
+
     }
 
 

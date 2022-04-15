@@ -22,13 +22,15 @@ public class Projectile : MonoBehaviour
         NextProjectileId++;
         Projectiles.Add(Id, this);
 
+        ServerSend.SpawnProjectile(this, PlayerId);
+
         Rigidbody.AddForce(Force);
         StartCoroutine(ExplodeAfterTime());
     }
 
     private void FixedUpdate()
     {
-
+        ServerSend.ProjectilePosition(this);
     }
 
     //Use with another grenade ?
@@ -44,7 +46,9 @@ public class Projectile : MonoBehaviour
     }
 
     private void Explode() 
-    {
+    {       
+        ServerSend.ProjectileExploded(this);
+
         Collider[] colliders = Physics.OverlapSphere(transform.position, ExplosionRadius);
         foreach(Collider collider in colliders) 
         {
