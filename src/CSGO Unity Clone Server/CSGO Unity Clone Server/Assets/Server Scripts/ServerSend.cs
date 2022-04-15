@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class ServerSend
 {
@@ -78,6 +79,18 @@ public class ServerSend
             packet.Write(player.Id);
 
             SendTcpDataToAll(packet);
+        }
+    }
+
+    public static void CreateItemSpawner(int clientId, int spawnerId, Vector3 spwanerPosition, bool hasItem) 
+    {
+        using(Packet packet = new Packet((int)ServerPackets.CreateItemSpawner)) 
+        {
+            packet.Write(spawnerId);
+            packet.Write(spwanerPosition);
+            packet.Write(hasItem);
+
+            SendTcpData(clientId, packet);
         }
     }
     #endregion

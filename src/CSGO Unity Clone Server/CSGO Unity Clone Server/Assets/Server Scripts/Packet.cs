@@ -13,7 +13,8 @@ public enum ServerPackets
     PlayerRotation,
     PlayerDisconnected,
     PlayerHealth,
-    PlayerRespawned
+    PlayerRespawned,
+    CreateItemSpawner
 }
 
 /// <summary>Sent from client to server.</summary>
