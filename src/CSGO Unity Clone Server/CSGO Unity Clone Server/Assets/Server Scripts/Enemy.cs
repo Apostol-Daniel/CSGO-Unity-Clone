@@ -46,10 +46,10 @@ namespace Assets.Server_Scripts
             switch (State) 
             {
                 case EnemyState.Idle:
-                    LookForPlayer();
+                    LookingForPlayer();
                     break;
                 case EnemyState.Patrol:
-                    if (!LookForPlayer()) 
+                    if (!LookingForPlayer()) 
                     {
                         Patrol();
                     }
@@ -65,7 +65,7 @@ namespace Assets.Server_Scripts
             }
         }
 
-        public bool LookForPlayer()
+        public bool LookingForPlayer()
         {
             foreach (Client client in Server.Clients.Values) 
             {
@@ -149,6 +149,24 @@ namespace Assets.Server_Scripts
                     }
                 }
             }
+        }
+
+        private bool CanSeeTarget() 
+        {
+            if (Target == null) 
+            {
+                return false;
+            }
+
+            if(Physics.Raycast(ShootOrigin.position, Target.transform.position - transform.position, out RaycastHit raycastHit, DetectionRange)) 
+            {
+                if (raycastHit.collider.CompareTag("Player")) 
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public void TakeDamage(float damage) 
