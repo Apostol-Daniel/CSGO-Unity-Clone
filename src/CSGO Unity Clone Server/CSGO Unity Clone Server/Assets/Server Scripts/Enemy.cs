@@ -151,6 +151,17 @@ namespace Assets.Server_Scripts
             }
         }
 
+        public void TakeDamage(float damage) 
+        {
+            Health -= damage;
+            if(Health <= 0) 
+            {
+                Health = 0f;
+                Enemies.Remove(Id);
+                Destroy(gameObject);
+            }
+        }
+
     }
 
     public enum EnemyState 
