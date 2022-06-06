@@ -145,6 +145,30 @@ namespace Assets.Server_Scripts
             }
         }
 
+        private void Attack()
+        {
+            if (CanSeeTarget())
+            {
+                Vector3 distanceToPlayer = Target.transform.position - transform.position;
+                transform.forward = new Vector3(distanceToPlayer.x, 0f, distanceToPlayer.z);
+
+                if (distanceToPlayer.magnitude <= ShootRange)
+                {
+                    Shoot(distanceToPlayer);
+                }
+                else
+                {
+                    Move(distanceToPlayer, ChaseSpeed);
+                }
+
+            }
+            else
+            {
+                Target = null;
+                State = EnemyState.Patrol;
+            }
+        }
+
         private void Move(Vector3 direction, float speed) 
         {
             direction.y = 0f;
