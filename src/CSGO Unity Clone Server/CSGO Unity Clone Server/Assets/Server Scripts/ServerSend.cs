@@ -233,6 +233,17 @@ public class ServerSend
         return packet;
     }
 
+    private static void EnemyPosition(Enemy enemy) 
+    {
+        using(Packet packet = new Packet((int)ServerPackets.EnemyPosition))
+        {
+            packet.Write(enemy.Id);
+            packet.Write(enemy.transform.position);
+
+            SendUdpDataToAll(packet);
+        }
+    }
+
     #endregion
 
 
