@@ -123,6 +123,28 @@ namespace Assets.Server_Scripts
             IsPatrolRoutineRunning = false;
         }
 
+        private void Chase() 
+        {
+            if (CanSeeTarget())
+            {
+                Vector3 distanceToPlayer = Target.transform.position - transform.position;
+                if (distanceToPlayer.magnitude <= ShootRange)
+                {
+                    State = EnemyState.Attack;
+                }
+                else
+                {
+                    Move(distanceToPlayer, ChaseSpeed);
+                }
+
+            }
+            else 
+            {
+                Target = null;
+                State = EnemyState.Patrol;
+            }
+        }
+
         private void Move(Vector3 direction, float speed) 
         {
             direction.y = 0f;
