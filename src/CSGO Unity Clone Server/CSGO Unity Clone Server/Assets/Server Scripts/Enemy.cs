@@ -103,6 +103,8 @@ namespace Assets.Server_Scripts
             {
                 StartCoroutine(StartPatrol());
             }
+
+            Move(transform.forward, PatrolSpeed);
         }
 
         private IEnumerator StartPatrol() 
