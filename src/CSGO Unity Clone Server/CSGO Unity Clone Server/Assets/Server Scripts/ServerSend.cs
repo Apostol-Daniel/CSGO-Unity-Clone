@@ -1,3 +1,4 @@
+using Assets.Server_Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -209,5 +210,14 @@ public class ServerSend
         }
     }
 
+    private static Packet SpawnEnemyData (Enemy enemy, Packet packet) 
+    {
+        packet.Write(enemy.Id);
+        packet.Write(enemy.transform.position);
+        return packet;
+    }
+
     #endregion
+
+
 }
