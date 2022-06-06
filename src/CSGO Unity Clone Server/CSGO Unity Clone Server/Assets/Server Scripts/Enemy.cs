@@ -137,6 +137,20 @@ namespace Assets.Server_Scripts
             Controller.Move(movement);
         }
 
+        private void Shoot(Vector3 shootDirection) 
+        {
+            if(Physics.Raycast(ShootOrigin.position, shootDirection, out RaycastHit raycastHit, ShootRange)) 
+            {
+                if (raycastHit.collider.CompareTag("Player"))                
+                {
+                    if(Random.value <= ShootAccuracy) 
+                    {
+                        raycastHit.collider.GetComponent<Player>().TakeDamage(25f);
+                    }
+                }
+            }
+        }
+
     }
 
     public enum EnemyState 
