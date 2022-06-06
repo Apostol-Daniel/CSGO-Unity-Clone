@@ -232,6 +232,8 @@ namespace Assets.Server_Scripts
                 Enemies.Remove(Id);
                 Destroy(gameObject);
             }
+
+            ServerSend.EnemyHealth(this);
         }
 
     }
