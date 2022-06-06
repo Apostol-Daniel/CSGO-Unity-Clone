@@ -1,8 +1,5 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Assets.Server_Scripts
@@ -25,7 +22,8 @@ namespace Assets.Server_Scripts
         public float MaxHealth;
         public float DetectionRange = 30f;
         public float ShootRange = 15f;
-        public float ShootAccuracy = 3f;
+        public float ShootAccuracy = 0.1f;
+        public float PatrolDuration = 3f;
         public float IdleDuration = 1f;
 
         private bool IsPatrolRoutineRunning;
@@ -79,6 +77,7 @@ namespace Assets.Server_Scripts
                                 if (IsPatrolRoutineRunning) 
                                 {
                                     IsPatrolRoutineRunning = false;
+                                    StopCoroutine(StartPatrol());
                                 }
 
                                 State = EnemyState.Chase;
@@ -91,6 +90,30 @@ namespace Assets.Server_Scripts
             }
 
             return false;
+        }
+
+        public void Patrol() 
+        {
+            if (!IsPatrolRoutineRunning) 
+            {
+                StartCoroutine(StartPatrol());
+            }
+        }
+
+        private IEnumerator StartPatrol() 
+        {
+            IsPatrolRoutineRunning = true;
+            Vector2 RandomPatrolDirectrion = Random.insideUnitCircle.normalized;
+            transform.forward = new Vector3(RandomPatrolDirectrion.x, 0f, RandomPatrolDirectrion.y);
+
+            yield return new WaitForSeconds(PatrolDuration);
+
+            State = EnemyState.Idle;
+
+            yield return new WaitForSeconds(IdleDuration);
+
+            State = EnemyState.Patrol;
+            IsPatrolRoutineRunning = false;
         }
 
     }
