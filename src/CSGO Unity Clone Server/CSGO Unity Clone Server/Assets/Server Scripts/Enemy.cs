@@ -55,7 +55,42 @@ namespace Assets.Server_Scripts
                     break;
                 case EnemyState.Attack:
                     break;
+
+                default:
+
+                    break;
             }
+        }
+
+        public bool LookForPlayer()
+        {
+            foreach (Client client in Server.Clients.Values) 
+            {
+                if(client.Player != null) 
+                {
+                    Vector3 distanceToPlayer = client.Player.transform.position - transform.position;
+                    if(distanceToPlayer.magnitude <= DetectionRange) 
+                    {
+                        if(Physics.Raycast(ShootOrigin.position, distanceToPlayer, out RaycastHit raycastHit, DetectionRange)) 
+                        {
+                            if (raycastHit.collider.CompareTag("Player")) 
+                            {
+                                Target = raycastHit.collider.GetComponent<Player>();
+                                if (IsPatrolRoutineRunning) 
+                                {
+                                    IsPatrolRoutineRunning = false;
+                                }
+
+                                State = EnemyState.Chase;
+                                Debug.Log("Ai has found a target Player.");
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return false;
         }
 
     }
