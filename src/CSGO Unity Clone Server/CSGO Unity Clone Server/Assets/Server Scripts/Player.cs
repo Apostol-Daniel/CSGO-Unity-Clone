@@ -1,3 +1,4 @@
+using Assets.Server_Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -110,7 +111,11 @@ public class Player : MonoBehaviour
             {
                 hitInfo.collider.GetComponentInParent<Player>().TakeDamage(25f);
                 Debug.Log($"Player hit.");
-
+            }
+            else if (hitInfo.collider.CompareTag("Enemy"))
+            {
+                hitInfo.collider.GetComponent<Enemy>().TakeDamage(25f);
+                Debug.Log($"Enemy bot hit.");
             }
         }
     }
