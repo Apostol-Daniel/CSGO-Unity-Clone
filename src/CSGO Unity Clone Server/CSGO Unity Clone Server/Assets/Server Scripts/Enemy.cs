@@ -55,8 +55,10 @@ namespace Assets.Server_Scripts
                     }
                     break;
                 case EnemyState.Chase:
+                    Chase();
                     break;
                 case EnemyState.Attack:
+                    Attack();
                     break;
 
                 default:
