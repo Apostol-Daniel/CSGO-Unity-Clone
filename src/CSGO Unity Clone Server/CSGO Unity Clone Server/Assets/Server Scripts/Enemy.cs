@@ -35,6 +35,8 @@ namespace Assets.Server_Scripts
             NextEnemyId++;
             Enemies.Add(Id, this);
 
+            ServerSend.SpawnEnemy(this);
+
             State = EnemyState.Patrol;
             Gravity *= Time.fixedDeltaTime * Time.fixedDeltaTime;
             PatrolSpeed *= Time.fixedDeltaTime;
