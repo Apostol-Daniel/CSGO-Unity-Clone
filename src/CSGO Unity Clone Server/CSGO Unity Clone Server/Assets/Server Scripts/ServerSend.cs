@@ -233,7 +233,7 @@ public class ServerSend
         return packet;
     }
 
-    private static void EnemyPosition(Enemy enemy) 
+    public static void EnemyPosition(Enemy enemy) 
     {
         using(Packet packet = new Packet((int)ServerPackets.EnemyPosition))
         {

@@ -187,6 +187,8 @@ namespace Assets.Server_Scripts
 
             movement.y = YVelocity;
             Controller.Move(movement);
+
+            ServerSend.EnemyPosition(this);
         }
 
         private void Shoot(Vector3 shootDirection) 
