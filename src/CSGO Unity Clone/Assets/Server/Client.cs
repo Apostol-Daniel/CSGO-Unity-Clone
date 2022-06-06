@@ -39,12 +39,13 @@ namespace Assets.Server
 
         private void Start()
         {
-            TcpClient = new Tcp(ClientInstance, DataBufferSize);
-            UdpClient = new Udp(ClientInstance);
+            
         }
 
         public void ConnectToServer()
         {
+            TcpClient = new Tcp(ClientInstance, DataBufferSize);
+            UdpClient = new Udp(ClientInstance);
             InitClientData();
             IsConnected = true;
             TcpClient.Connect();
