@@ -210,6 +210,14 @@ public class ServerSend
         }
     }
 
+    public static void SpawnEnemy(Enemy enemy) 
+    {
+        using(Packet packet = new Packet((int)ServerPackets.SpawnEnemy)) 
+        {
+            SendTcpDataToAll(SpawnEnemyData(enemy, packet));
+        }
+    }
+
     private static Packet SpawnEnemyData (Enemy enemy, Packet packet) 
     {
         packet.Write(enemy.Id);
