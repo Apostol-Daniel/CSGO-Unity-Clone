@@ -46,8 +46,13 @@ namespace Assets.Server_Scripts
             switch (State) 
             {
                 case EnemyState.Idle:
+                    LookForPlayer();
                     break;
                 case EnemyState.Patrol:
+                    if (!LookForPlayer()) 
+                    {
+                        Patrol();
+                    }
                     break;
                 case EnemyState.Chase:
                     break;
@@ -103,8 +108,8 @@ namespace Assets.Server_Scripts
         private IEnumerator StartPatrol() 
         {
             IsPatrolRoutineRunning = true;
-            Vector2 RandomPatrolDirectrion = Random.insideUnitCircle.normalized;
-            transform.forward = new Vector3(RandomPatrolDirectrion.x, 0f, RandomPatrolDirectrion.y);
+            Vector2 randomPatrolDirectrion = Random.insideUnitCircle.normalized;
+            transform.forward = new Vector3(randomPatrolDirectrion.x, 0f, randomPatrolDirectrion.y);
 
             yield return new WaitForSeconds(PatrolDuration);
 
@@ -114,6 +119,22 @@ namespace Assets.Server_Scripts
 
             State = EnemyState.Patrol;
             IsPatrolRoutineRunning = false;
+        }
+
+        private void Move(Vector3 direction, float speed) 
+        {
+            direction.y = 0f;
+            transform.forward = direction;
+            Vector3 movement = transform.forward * speed;
+
+            if (Controller.isGrounded) 
+            {
+                YVelocity = 0f;
+            }
+            YVelocity += Gravity;
+
+            movement.y = YVelocity;
+            Controller.Move(movement);
         }
 
     }
