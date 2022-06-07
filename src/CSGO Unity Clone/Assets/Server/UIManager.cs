@@ -8,6 +8,7 @@ namespace Assets.Server
         public static UIManager Instance;
 
         public GameObject StartMenu;
+        public GameObject Player;
         public InputField UsernameField;
 
         private void Awake()
@@ -29,6 +30,13 @@ namespace Assets.Server
             StartMenu.SetActive(false);
             UsernameField.interactable = false;
             Client.ClientInstance.ConnectToServer();
+        }
+
+        public void StartSinglePlayer()
+        {
+            StartMenu.SetActive(false);
+            UsernameField.interactable = false;
+            Player.SetActive(true);
         }
     }
 }
