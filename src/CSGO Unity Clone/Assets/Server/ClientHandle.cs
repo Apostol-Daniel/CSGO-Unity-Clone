@@ -111,7 +111,13 @@ namespace Assets.Server
             int projectileId = packet.ReadInt();
             Vector3 position = packet.ReadVector3();
 
-            GameManager.Projectiles[projectileId].transform.position = position;
+            //Since UDP is faster than TCP, sometimes the position packet can arrive before the spawn packet
+            //which can cause an error because we are trying to access an non existing element of the dictionary
+            //more of a problem on a real server than on localhost, bu beter safe than sorry
+            if (GameManager.Projectiles.TryGetValue(projectileId, out ProjectileManager projectile))
+            {
+                projectile.transform.position = position;
+            }
         }
 
         public static void ProjectileExploded(Packet packet)
@@ -135,7 +141,13 @@ namespace Assets.Server
             int enemyId = packet.ReadInt();
             Vector3 position = packet.ReadVector3();
 
-            GameManager.Enemies[enemyId].transform.position = position;
+            //Since UDP is faster than TCP, sometimes the position packet can arrive before the spawn packet
+            //which can cause an error because we are trying to access an non existing element of the dictionary
+            //more of a problem on a real server than on localhost, bu beter safe than sorry
+            if(GameManager.Enemies.TryGetValue(enemyId, out EnemyManager enemy))      
+            {
+                enemy.transform.position = position;
+            }
         }
 
         public static void EnemyHealth(Packet packet)
