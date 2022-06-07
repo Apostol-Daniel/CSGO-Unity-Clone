@@ -67,7 +67,10 @@ namespace Assets.Server
                 {(int)ServerPackets.ItemPickedUp, ClientHandle.ItemPickedUp },
                 {(int)ServerPackets.SpawnProjectile, ClientHandle.SpawnProjectile },
                 {(int)ServerPackets.ProjectilePositon, ClientHandle.ProjectilePosition },
-                {(int)ServerPackets.ProjectileExploded, ClientHandle.ProjectileExploded }
+                {(int)ServerPackets.ProjectileExploded, ClientHandle.ProjectileExploded },
+                {(int)ServerPackets.SpawnEnemy, ClientHandle.SpawnEnemy },
+                {(int)ServerPackets.EnemyPosition, ClientHandle.EnemyPosition },
+                {(int)ServerPackets.EnemyHealth, ClientHandle.EnemyHealth }
             };
             Debug.Log("Init Data");
         }
