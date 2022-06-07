@@ -255,6 +255,16 @@ public class ServerSend
         }
     }
 
+    public static void EnemyDestroyed(Enemy enemy) 
+    {
+        using (Packet packet = new Packet((int)ServerPackets.EnemyPosition))
+        {
+            packet.Write(enemy.Id);            
+
+            SendTcpDataToAll(packet);
+        }
+    }
+
     #endregion
 
 
