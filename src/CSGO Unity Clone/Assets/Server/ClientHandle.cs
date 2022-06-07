@@ -122,6 +122,16 @@ namespace Assets.Server
             GameManager.Projectiles[projectileId].Explode(position);
         }
 
+        public static void SpawnEnemy(Packet packet) 
+        {
+            int enemyId = packet.ReadInt();
+            Vector3 position = packet.ReadVector3();
+
+            GameManager.Instance.SpawnEnemy(enemyId, position);
+        }
+
+
+
     }
 
 
