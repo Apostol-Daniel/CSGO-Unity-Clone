@@ -19,7 +19,7 @@ namespace Assets.Server_Scripts
         public float PatrolSpeed = 2f;
         public float ChaseSpeed = 8f;
         public float Health;
-        public float MaxHealth;
+        public float MaxHealth = 100f;
         public float DetectionRange = 30f;
         public float ShootRange = 15f;
         public float ShootAccuracy = 0.1f;
