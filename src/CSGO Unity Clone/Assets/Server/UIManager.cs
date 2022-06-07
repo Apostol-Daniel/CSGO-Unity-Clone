@@ -10,10 +10,12 @@ namespace Assets.Server
 
         public GameObject StartMenu;
         public GameObject Player;
-        public InputField UsernameField;
+        public InputField InputUsernameField;
+        public InputField InputIpField;
         public Button ButtonMultiplayer;
         public Button ButtonSinglePlayer;
-        public Button ButtonConnectToServer;
+        public Button ButtonConnectToLocalhost;
+        public Button ButtonConnectInputIp;
         public Button ButtonBackToMainMenu;
         
 
@@ -39,7 +41,7 @@ namespace Assets.Server
         public void ConnectToServer()
         {
             StartMenu.SetActive(false);
-            UsernameField.interactable = false;
+            InputUsernameField.interactable = false;
             Client.ClientInstance.ConnectToServer();
         }
 
@@ -47,7 +49,7 @@ namespace Assets.Server
         {
             Cursor.lockState = CursorLockMode.Locked;
             StartMenu.SetActive(false);
-            UsernameField.interactable = false;
+            InputUsernameField.interactable = false;
             Player.SetActive(true);
         }
 
@@ -55,18 +57,36 @@ namespace Assets.Server
         {
             Player.SetActive(false);
             StartMenu.SetActive(true);
-            UsernameField.interactable = true;
+            InputUsernameField.interactable = true;
             Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
-        public void MultiplayerButtonOnClick() 
+        public void ButtonMultiplayerOnClick() 
         {
             ButtonMultiplayer.gameObject.SetActive(false);
             ButtonSinglePlayer.gameObject.SetActive(false);
-            UsernameField.gameObject.SetActive(true);
-            UsernameField.interactable = true;
-            ButtonConnectToServer.gameObject.SetActive(true);
+            InputUsernameField.gameObject.SetActive(true);
+            InputUsernameField.interactable = true;
+            InputIpField.gameObject.SetActive(true);
+            InputIpField.interactable = true;
+
+            ButtonConnectToLocalhost.gameObject.SetActive(true);
+            ButtonConnectInputIp.gameObject.SetActive(true);
+            ButtonBackToMainMenu.gameObject.SetActive(true);
+        }
+
+        public void ButtonBackToMaineMenuOnClick() 
+        {
+            ButtonBackToMainMenu.gameObject.SetActive(false);
+            ButtonConnectToLocalhost.gameObject.SetActive(false);
+            ButtonConnectInputIp.gameObject.SetActive(false);
+            InputUsernameField.gameObject.SetActive(false);
+            InputIpField.gameObject.SetActive(false);
+
+            ButtonSinglePlayer.gameObject.SetActive(true);
+            ButtonMultiplayer.gameObject.SetActive(true);
+
         }
     }
 }

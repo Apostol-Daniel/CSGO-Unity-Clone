@@ -35,12 +35,7 @@ namespace Assets.Server
         private void OnApplicationQuit()
         {
             Disconnect();
-        }
-
-        private void Start()
-        {
-            
-        }
+        }       
 
         public void ConnectToServer()
         {
