@@ -38,5 +38,12 @@ namespace Assets.Server
             UsernameField.interactable = false;
             Player.SetActive(true);
         }
+
+        public void EscapeToMainMenu() 
+        {
+            Player.SetActive(false);
+            StartMenu.SetActive(true);
+            UsernameField.interactable = true;
+        }
     }
 }
