@@ -11,6 +11,11 @@ namespace Assets.Server
         public GameObject StartMenu;
         public GameObject Player;
         public InputField UsernameField;
+        public Button ButtonMultiplayer;
+        public Button ButtonSinglePlayer;
+        public Button ButtonConnectToServer;
+        public Button ButtonBackToMainMenu;
+        
 
         private void Awake()
         {
@@ -53,6 +58,15 @@ namespace Assets.Server
             UsernameField.interactable = true;
             Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        public void MultiplayerButtonOnClick() 
+        {
+            ButtonMultiplayer.gameObject.SetActive(false);
+            ButtonSinglePlayer.gameObject.SetActive(false);
+            UsernameField.gameObject.SetActive(true);
+            UsernameField.interactable = true;
+            ButtonConnectToServer.gameObject.SetActive(true);
         }
     }
 }
