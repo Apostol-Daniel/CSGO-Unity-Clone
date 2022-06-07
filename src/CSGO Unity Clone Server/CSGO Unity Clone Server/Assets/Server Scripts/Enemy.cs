@@ -6,7 +6,7 @@ namespace Assets.Server_Scripts
 {
     public class Enemy : MonoBehaviour
     {
-        public static int MaxEnemies = 10;
+        public static int MaxEnemies = 5;
         public static Dictionary<int, Enemy> Enemies = new Dictionary<int, Enemy>();
         private static int NextEnemyId = 1;
 
