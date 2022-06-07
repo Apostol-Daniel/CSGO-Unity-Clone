@@ -232,8 +232,7 @@ namespace Assets.Server_Scripts
             {
                 Health = 0f;
                 Enemies.Remove(Id);
-                Destroy(gameObject);
-                //ServerSend.EnemyDestroyed(this);
+                Destroy(gameObject);               
             }
 
             ServerSend.EnemyHealth(this);
