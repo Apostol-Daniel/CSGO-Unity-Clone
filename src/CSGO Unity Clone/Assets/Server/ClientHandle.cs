@@ -137,6 +137,14 @@ namespace Assets.Server
 
             GameManager.Enemies[enemyId].transform.position = position;
         }
+
+        public static void EnemyHealth(Packet packet)
+        {
+            int enemyId = packet.ReadInt();
+            Vector3 position = packet.ReadVector3();
+
+            GameManager.Enemies[enemyId].transform.position = position;
+        }
     }
 
 
