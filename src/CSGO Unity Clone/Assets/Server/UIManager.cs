@@ -5,7 +5,7 @@ namespace Assets.Server
 {
     public class UIManager : MonoBehaviour
     {
-        public static UIManager Instance;
+        public static UIManager UIManagerInstance;
 
         public GameObject StartMenu;
         public GameObject Player;
@@ -13,16 +13,21 @@ namespace Assets.Server
 
         private void Awake()
         {
-            if (Instance == null)
+            if (UIManagerInstance == null)
             {
-                Instance = this;
+                UIManagerInstance = this;
             }
 
-            else if (Instance != this)
+            else if (UIManagerInstance != this)
             {
                 Debug.Log("Instance already exists, detroying object.");
                 Destroy(this);
             }
+        }
+
+        public static UIManager Instance() 
+        {
+            return UIManagerInstance;
         }
 
         public void ConnectToServer()
