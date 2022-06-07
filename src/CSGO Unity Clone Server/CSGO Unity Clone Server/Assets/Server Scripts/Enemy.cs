@@ -18,6 +18,7 @@ namespace Assets.Server_Scripts
         public float Gravity = -19.62f;
         public float PatrolSpeed = 2f;
         public float ChaseSpeed = 3f;
+        public float Damage = 5f; 
         public float Health;
         public float MaxHealth = 100f;
         public float DetectionRange = 15f;
@@ -199,7 +200,7 @@ namespace Assets.Server_Scripts
                 {
                     if(Random.value <= ShootAccuracy) 
                     {
-                        raycastHit.collider.GetComponentInParent<Player>().TakeDamage(25f);
+                        raycastHit.collider.GetComponentInParent<Player>().TakeDamage(Damage);
                     }
                 }
             }
