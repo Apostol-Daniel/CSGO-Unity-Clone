@@ -111,7 +111,7 @@ namespace Assets.Server
             Vector3 position = packet.ReadVector3();
             int playerId = packet.ReadInt();
 
-            GameManager.Instance.SpawnProjcetile(projectleId, position);
+            GameManager.Instance.SpawnProjectile(projectleId, position);
             GameManager.Players[playerId].ItemCount--;
         }
 

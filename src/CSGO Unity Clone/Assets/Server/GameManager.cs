@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject LocalPlayerPrefab;
     public GameObject PlayerPrefab;
-    public GameObject ItemSpawnerPrefab;
+    public GameObject GrenadeSpawnerPrefab;
     public GameObject ProjectilePrefab;
     public GameObject EnemyPrefab;
     private void Awake()
@@ -49,12 +49,12 @@ public class GameManager : MonoBehaviour
 
     public void CreateItemSpawner(int spawnerId, Vector3 position, bool hasItem) 
     {
-        GameObject spawner = Instantiate(ItemSpawnerPrefab, position, ItemSpawnerPrefab.transform.rotation);
+        GameObject spawner = Instantiate(GrenadeSpawnerPrefab, position, GrenadeSpawnerPrefab.transform.rotation);
         spawner.GetComponent<ItemSpawner>().Initialize(spawnerId, hasItem);
         Spawners.Add(spawnerId, spawner.GetComponent<ItemSpawner>());
     }
 
-    public void SpawnProjcetile(int id, Vector3 postion) 
+    public void SpawnProjectile(int id, Vector3 postion) 
     {
         GameObject projectile = Instantiate(ProjectilePrefab, postion, Quaternion.identity);
         projectile.GetComponent<ProjectileManager>().Initialize(id);
