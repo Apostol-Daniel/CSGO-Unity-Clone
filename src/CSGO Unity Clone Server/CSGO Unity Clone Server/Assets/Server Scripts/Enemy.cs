@@ -17,11 +17,11 @@ namespace Assets.Server_Scripts
         public Transform ShootOrigin;
         public float Gravity = -19.62f;
         public float PatrolSpeed = 2f;
-        public float ChaseSpeed = 8f;
+        public float ChaseSpeed = 3f;
         public float Health;
         public float MaxHealth = 100f;
-        public float DetectionRange = 30f;
-        public float ShootRange = 15f;
+        public float DetectionRange = 15f;
+        public float ShootRange = 5f;
         public float ShootAccuracy = 0.1f;
         public float PatrolDuration = 3f;
         public float IdleDuration = 1f;
