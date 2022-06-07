@@ -1,3 +1,4 @@
+using Assets.Server_Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -134,7 +135,7 @@ public class ServerSend
             packet.Write(projectile.Id);
             packet.Write(projectile.transform.position);
 
-            SendTcpDataToAll(packet);
+            SendUdpDataToAll(packet);
         }
     }
 
@@ -209,5 +210,51 @@ public class ServerSend
         }
     }
 
+    public static void SpawnEnemy(Enemy enemy) 
+    {
+        using(Packet packet = new Packet((int)ServerPackets.SpawnEnemy)) 
+        {
+            SendTcpDataToAll(SpawnEnemyData(enemy, packet));
+        }
+    }
+
+    public static void SpawnEnemiesForNewClient(int clientId, Enemy enemy)
+    {
+        using (Packet packet = new Packet((int)ServerPackets.SpawnEnemy))
+        {
+            SendTcpData(clientId, SpawnEnemyData(enemy, packet));
+        }
+    }
+
+    private static Packet SpawnEnemyData (Enemy enemy, Packet packet) 
+    {
+        packet.Write(enemy.Id);
+        packet.Write(enemy.transform.position);
+        return packet;
+    }
+
+    public static void EnemyPosition(Enemy enemy) 
+    {
+        using(Packet packet = new Packet((int)ServerPackets.EnemyPosition))
+        {
+            packet.Write(enemy.Id);
+            packet.Write(enemy.transform.position);
+
+            SendUdpDataToAll(packet);
+        }
+    }
+
+    public static void EnemyHealth(Enemy enemy) 
+    {
+        using (Packet packet = new Packet((int)ServerPackets.EnemyHealth))
+        {
+            packet.Write(enemy.Id);
+            packet.Write(enemy.Health);
+
+            SendTcpDataToAll(packet);
+        }
+    }
     #endregion
+
+
 }

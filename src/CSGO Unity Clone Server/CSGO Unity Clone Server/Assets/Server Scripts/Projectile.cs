@@ -1,3 +1,4 @@
+using Assets.Server_Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -55,6 +56,10 @@ public class Projectile : MonoBehaviour
             if (collider.CompareTag("Player")) 
             {
                 collider.GetComponentInParent<Player>().TakeDamage(ExplosionDamage);
+            }
+            else if (collider.CompareTag("Enemy")) 
+            {
+                collider.GetComponentInParent<Enemy>().TakeDamage(2*ExplosionDamage);
             }
         }
 

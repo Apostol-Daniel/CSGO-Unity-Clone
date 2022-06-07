@@ -20,7 +20,10 @@ namespace Assets.Server
         ItemPickedUp,
         SpawnProjectile,
         ProjectilePositon,
-        ProjectileExploded
+        ProjectileExploded,
+        SpawnEnemy,
+        EnemyPosition,
+        EnemyHealth
     }
 
     /// <summary>Sent from client to server.</summary>

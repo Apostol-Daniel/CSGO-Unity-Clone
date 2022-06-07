@@ -37,15 +37,24 @@ namespace Assets.Server
             int playerId = packet.ReadInt();
             Vector3 postition = packet.ReadVector3();
 
-            GameManager.Players[playerId].transform.position = postition;
+            //Since UDP is faster than TCP, sometimes the position packet can arrive before the spawn packet
+            //which can cause an error because we are trying to access an non existing element of the dictionary
+            //more of a problem on a real server than on localhost, bu beter safe than sorry
+            if (GameManager.Players.TryGetValue(playerId, out PlayerManager player)) 
+            {
+                player.transform.position = postition;
+            }
         }
 
         public static void PlayerRotation(Packet packet)
         {
             int playerId = packet.ReadInt();
             Quaternion rotation = packet.ReadQuaternion();
-
-            GameManager.Players[playerId].transform.rotation = rotation;
+           
+            if (GameManager.Players.TryGetValue(playerId, out PlayerManager player))
+            {
+                player.transform.rotation = rotation;
+            }
         }
 
         public static void PlayerDisconnected(Packet packet) 
@@ -102,7 +111,7 @@ namespace Assets.Server
             Vector3 position = packet.ReadVector3();
             int playerId = packet.ReadInt();
 
-            GameManager.Instance.SpawnProjcetile(projectleId, position);
+            GameManager.Instance.SpawnProjectile(projectleId, position);
             GameManager.Players[playerId].ItemCount--;
         }
 
@@ -110,8 +119,11 @@ namespace Assets.Server
         {
             int projectileId = packet.ReadInt();
             Vector3 position = packet.ReadVector3();
-
-            GameManager.Projectiles[projectileId].transform.position = position;
+           
+            if (GameManager.Projectiles.TryGetValue(projectileId, out ProjectileManager projectile))
+            {
+                projectile.transform.position = position;
+            }
         }
 
         public static void ProjectileExploded(Packet packet)
@@ -122,6 +134,32 @@ namespace Assets.Server
             GameManager.Projectiles[projectileId].Explode(position);
         }
 
+        public static void SpawnEnemy(Packet packet) 
+        {
+            int enemyId = packet.ReadInt();
+            Vector3 position = packet.ReadVector3();
+
+            GameManager.Instance.SpawnEnemy(enemyId, position);
+        }
+
+        public static void EnemyPosition(Packet packet)
+        {
+            int enemyId = packet.ReadInt();
+            Vector3 position = packet.ReadVector3();
+           
+            if(GameManager.Enemies.TryGetValue(enemyId, out EnemyManager enemy))      
+            {
+                enemy.transform.position = position;
+            }
+        }
+
+        public static void EnemyHealth(Packet packet)
+        {
+            int enemyId = packet.ReadInt();
+            float health = packet.ReadFloat();
+
+            GameManager.Enemies[enemyId].SetHealth(health);
+        }
     }
 
 

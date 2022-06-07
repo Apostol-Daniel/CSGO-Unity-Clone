@@ -62579,7 +62579,7 @@ MonoBehaviour:
   mouseSensitivity: 100
   xRotation: 0
   playerBody: {fileID: 784340514979140733}
-  PlayerManager: {fileID: -3998042993457592464}
+  PlayerManager: {fileID: 0}
 --- !u!95 &784340514538702754
 Animator:
   serializedVersion: 3
@@ -86550,8 +86550,6 @@ GameObject:
   - component: {fileID: 784340514979140732}
   - component: {fileID: 2224692081280993615}
   - component: {fileID: 7903917107394970352}
-  - component: {fileID: -3998042993457592464}
-  - component: {fileID: 3432908005320699090}
   m_Layer: 0
   m_Name: First Person Player Blue
   m_TagString: Untagged
@@ -86567,7 +86565,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784340514979140730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.69, y: 1.1, z: -4.97}
+  m_LocalPosition: {x: 1496, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 784340514321609938}
@@ -86601,7 +86599,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784340514979140730}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 870e1ec4107000f4db9442675087b3f0, type: 3}
   m_Name: 
@@ -86664,32 +86662,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-3998042993457592464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784340514979140730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6aebf0493c3cf9044b38a59a3bc5bfd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Id: 0
-  UserName: 
---- !u!114 &3432908005320699090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784340514979140730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 842da0b9ac5602f47a83d8f14f2582fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &784340514985045487
 GameObject:
   m_ObjectHideFlags: 0
