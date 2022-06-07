@@ -22,7 +22,8 @@ public enum ServerPackets
     ProjectileExploded,
     SpawnEnemy,
     EnemyPosition,
-    EnemyHealth
+    EnemyHealth,
+    EnemyDestroyed
 }
 
 /// <summary>Sent from client to server.</summary>
