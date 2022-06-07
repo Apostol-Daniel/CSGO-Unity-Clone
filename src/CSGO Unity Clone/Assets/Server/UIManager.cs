@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Assets.Server
@@ -39,6 +40,7 @@ namespace Assets.Server
 
         public void StartSinglePlayer()
         {
+            Cursor.lockState = CursorLockMode.Locked;
             StartMenu.SetActive(false);
             UsernameField.interactable = false;
             Player.SetActive(true);
@@ -49,6 +51,8 @@ namespace Assets.Server
             Player.SetActive(false);
             StartMenu.SetActive(true);
             UsernameField.interactable = true;
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
