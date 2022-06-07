@@ -21,7 +21,7 @@ namespace Assets.Server
             ClientInstance = instance;
         }
 
-        public void Connect()
+        public void ConnectToLocalhost()
         {          
             TcpSocket = new TcpClient()
             {
@@ -32,6 +32,19 @@ namespace Assets.Server
 
             ReceiveBuffer = new byte[DataBufferSize];
             TcpSocket.BeginConnect(ClientInstance.Ip, ClientInstance.Port, ConnectCallback, TcpSocket);
+        }
+
+        public void ConnectToGivenIp(string ip)
+        {
+            TcpSocket = new TcpClient()
+            {
+                ReceiveBufferSize = DataBufferSize,
+                SendBufferSize = DataBufferSize
+            };
+
+
+            ReceiveBuffer = new byte[DataBufferSize];
+            TcpSocket.BeginConnect(ip, ClientInstance.Port, ConnectCallback, TcpSocket);
         }
 
         private void ConnectCallback(IAsyncResult result)

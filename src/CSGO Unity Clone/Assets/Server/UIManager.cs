@@ -42,7 +42,7 @@ namespace Assets.Server
         {
             StartMenu.SetActive(false);
             InputUsernameField.interactable = false;
-            Client.ClientInstance.ConnectToServer();
+            Client.ClientInstance.ConnectToLocalhost();
         }
 
         public void StartSinglePlayer()

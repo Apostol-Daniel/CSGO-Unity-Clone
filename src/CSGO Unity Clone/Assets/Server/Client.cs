@@ -37,13 +37,22 @@ namespace Assets.Server
             Disconnect();
         }       
 
-        public void ConnectToServer()
+        public void ConnectToLocalhost()
         {
             TcpClient = new Tcp(ClientInstance, DataBufferSize);
             UdpClient = new Udp(ClientInstance);
             InitClientData();
             IsConnected = true;
-            TcpClient.Connect();
+            TcpClient.ConnectToLocalhost();
+        }
+
+        public void ConnectToGivenIp(string ip)
+        {
+            TcpClient = new Tcp(ClientInstance, DataBufferSize);
+            UdpClient = new Udp(ClientInstance);
+            InitClientData();
+            IsConnected = true;
+            TcpClient.ConnectToGivenIp(ip);
         }
 
         private void InitClientData()
