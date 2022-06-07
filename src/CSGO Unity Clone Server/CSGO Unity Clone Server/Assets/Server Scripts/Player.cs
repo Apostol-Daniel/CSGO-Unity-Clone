@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
             }
             else if (hitInfo.collider.CompareTag("Enemy"))
             {
-                hitInfo.collider.GetComponentInParent<Enemy>().TakeDamage(25f);
+                hitInfo.collider.GetComponentInParent<Enemy>().TakeDamage(2*25f);
                 Debug.Log($"Enemy bot hit.");
             }
         }

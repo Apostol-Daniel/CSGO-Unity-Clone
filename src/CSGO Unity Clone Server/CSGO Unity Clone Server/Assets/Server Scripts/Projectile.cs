@@ -59,7 +59,7 @@ public class Projectile : MonoBehaviour
             }
             else if (collider.CompareTag("Enemy")) 
             {
-                collider.GetComponent<Enemy>().TakeDamage(ExplosionDamage);
+                collider.GetComponentInParent<Enemy>().TakeDamage(2*ExplosionDamage);
             }
         }
 
