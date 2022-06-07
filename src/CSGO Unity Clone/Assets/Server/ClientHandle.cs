@@ -37,15 +37,24 @@ namespace Assets.Server
             int playerId = packet.ReadInt();
             Vector3 postition = packet.ReadVector3();
 
-            GameManager.Players[playerId].transform.position = postition;
+            //Since UDP is faster than TCP, sometimes the position packet can arrive before the spawn packet
+            //which can cause an error because we are trying to access an non existing element of the dictionary
+            //more of a problem on a real server than on localhost, bu beter safe than sorry
+            if (GameManager.Players.TryGetValue(playerId, out PlayerManager player)) 
+            {
+                player.transform.position = postition;
+            }
         }
 
         public static void PlayerRotation(Packet packet)
         {
             int playerId = packet.ReadInt();
             Quaternion rotation = packet.ReadQuaternion();
-
-            GameManager.Players[playerId].transform.rotation = rotation;
+           
+            if (GameManager.Players.TryGetValue(playerId, out PlayerManager player))
+            {
+                player.transform.rotation = rotation;
+            }
         }
 
         public static void PlayerDisconnected(Packet packet) 
@@ -110,10 +119,7 @@ namespace Assets.Server
         {
             int projectileId = packet.ReadInt();
             Vector3 position = packet.ReadVector3();
-
-            //Since UDP is faster than TCP, sometimes the position packet can arrive before the spawn packet
-            //which can cause an error because we are trying to access an non existing element of the dictionary
-            //more of a problem on a real server than on localhost, bu beter safe than sorry
+           
             if (GameManager.Projectiles.TryGetValue(projectileId, out ProjectileManager projectile))
             {
                 projectile.transform.position = position;
@@ -140,10 +146,7 @@ namespace Assets.Server
         {
             int enemyId = packet.ReadInt();
             Vector3 position = packet.ReadVector3();
-
-            //Since UDP is faster than TCP, sometimes the position packet can arrive before the spawn packet
-            //which can cause an error because we are trying to access an non existing element of the dictionary
-            //more of a problem on a real server than on localhost, bu beter safe than sorry
+           
             if(GameManager.Enemies.TryGetValue(enemyId, out EnemyManager enemy))      
             {
                 enemy.transform.position = position;
