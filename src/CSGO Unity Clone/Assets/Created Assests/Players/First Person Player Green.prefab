@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7493657950116162181}
   - component: {fileID: 3488021049644914947}
   m_Layer: 0
-  m_Name: First Person Player Red
+  m_Name: First Person Player Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
