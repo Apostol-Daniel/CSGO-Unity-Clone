@@ -35,6 +35,7 @@ namespace Assets.Server_Scripts
             Id = NextEnemyId;
             NextEnemyId++;
             Enemies.Add(Id, this);
+            Health = MaxHealth;
 
             ServerSend.SpawnEnemy(this);
 
@@ -232,7 +233,7 @@ namespace Assets.Server_Scripts
                 Health = 0f;
                 Enemies.Remove(Id);
                 Destroy(gameObject);
-                ServerSend.EnemyDestroyed(this);
+                //ServerSend.EnemyDestroyed(this);
             }
 
             ServerSend.EnemyHealth(this);

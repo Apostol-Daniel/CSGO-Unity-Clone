@@ -156,9 +156,9 @@ namespace Assets.Server
         public static void EnemyHealth(Packet packet)
         {
             int enemyId = packet.ReadInt();
-            Vector3 position = packet.ReadVector3();
+            float health = packet.ReadFloat();
 
-            GameManager.Enemies[enemyId].transform.position = position;
+            GameManager.Enemies[enemyId].SetHealth(health);
         }
     }
 

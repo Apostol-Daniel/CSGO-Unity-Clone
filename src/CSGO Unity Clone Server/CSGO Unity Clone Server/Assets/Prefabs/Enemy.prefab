@@ -197,11 +197,12 @@ MonoBehaviour:
   ShootOrigin: {fileID: 4141048523040264084}
   Gravity: -19.62
   PatrolSpeed: 2
-  ChaseSpeed: 8
+  ChaseSpeed: 3
+  Damage: 5
   Health: 0
-  MaxHealth: 0
-  DetectionRange: 30
-  ShootRange: 15
+  MaxHealth: 100
+  DetectionRange: 15
+  ShootRange: 5
   ShootAccuracy: 0.1
   PatrolDuration: 3
   IdleDuration: 1

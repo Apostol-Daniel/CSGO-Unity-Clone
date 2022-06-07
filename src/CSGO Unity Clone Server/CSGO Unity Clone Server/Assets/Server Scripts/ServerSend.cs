@@ -246,20 +246,10 @@ public class ServerSend
 
     public static void EnemyHealth(Enemy enemy) 
     {
-        using (Packet packet = new Packet((int)ServerPackets.EnemyPosition))
+        using (Packet packet = new Packet((int)ServerPackets.EnemyHealth))
         {
             packet.Write(enemy.Id);
-            packet.Write(enemy.transform.position);
-
-            SendTcpDataToAll(packet);
-        }
-    }
-
-    public static void EnemyDestroyed(Enemy enemy) 
-    {
-        using (Packet packet = new Packet((int)ServerPackets.EnemyPosition))
-        {
-            packet.Write(enemy.Id);            
+            packet.Write(enemy.Health);
 
             SendTcpDataToAll(packet);
         }
