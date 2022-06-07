@@ -38,11 +38,22 @@ namespace Assets.Server
             return UIManagerInstance;
         }
 
-        public void ConnectToServer()
+        public void ConnetToLocalhost()
         {
+            Cursor.lockState = CursorLockMode.None;
+
             StartMenu.SetActive(false);
             InputUsernameField.interactable = false;
             Client.ClientInstance.ConnectToLocalhost();
+        }
+
+        public void ConnetToGivenIp()
+        {
+            StartMenu.SetActive(false);
+            InputUsernameField.interactable = false;
+            InputIpField.interactable = false;           
+
+            Client.ClientInstance.ConnectToGivenIp(InputIpField.text);
         }
 
         public void StartSinglePlayer()
