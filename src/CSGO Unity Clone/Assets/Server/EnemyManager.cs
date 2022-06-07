@@ -22,6 +22,7 @@ namespace Assets.Server
 
             if(Health <= 0f) 
             {
+                GameManager.Enemies.Remove(Id);
                 Destroy(gameObject);
             }
         }
