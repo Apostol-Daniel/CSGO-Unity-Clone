@@ -82,7 +82,7 @@ namespace Assets.Server_Scripts
                         {
                             if (raycastHit.collider.CompareTag("Player")) 
                             {
-                                Target = raycastHit.collider.GetComponent<Player>();
+                                Target = raycastHit.collider.GetComponentInParent<Player>();
                                 if (IsPatrolRoutineRunning) 
                                 {
                                     IsPatrolRoutineRunning = false;
@@ -199,7 +199,7 @@ namespace Assets.Server_Scripts
                 {
                     if(Random.value <= ShootAccuracy) 
                     {
-                        raycastHit.collider.GetComponent<Player>().TakeDamage(25f);
+                        raycastHit.collider.GetComponentInParent<Player>().TakeDamage(25f);
                     }
                 }
             }
