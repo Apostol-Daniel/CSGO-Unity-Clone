@@ -1,3 +1,4 @@
+using Assets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -53,5 +54,5 @@ public class NetworkManager : MonoBehaviour
     public void InstantiateEnemy(Vector3 positon) 
     {
         Instantiate(EnemyPrefab, positon, Quaternion.identity);
-    }
+    }   
 }

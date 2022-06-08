@@ -11,12 +11,14 @@ namespace Assets
         public GameObject StartMenu;
         public Button ButtonHostOnLocalhost;
         public Button ButtonHostOnIpv4;
+        public Button ButtonDisconnect;
         public InputField InputHostedOn;
 
 
         private void Awake()
         {
             InputHostedOn.interactable = false;
+            ButtonDisconnect.gameObject.SetActive(false);
 
             if (UIManagerInstance == null)
             {
@@ -37,19 +39,23 @@ namespace Assets
         
         public void HostOnLocalHost() 
         {
-            StartMenu.SetActive(false); ;
+            StartMenu.SetActive(false);
+            ButtonDisconnect.gameObject.SetActive(true);
             Server.StartOnLocalhost(10, 26950);
         }
 
         public void HostOnIPV4() 
         {
-            StartMenu.SetActive(false); ;
+            StartMenu.SetActive(false);
+            ButtonDisconnect.gameObject.SetActive(true);
             Server.StartOnIPV4(10, 26950);
         }
 
         public void EscapeToMainMenu()
         {
             StartMenu.SetActive(true);
+            ButtonDisconnect.gameObject.SetActive(false);
+            InputHostedOn.text = "";
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             Server.Stop();
         }

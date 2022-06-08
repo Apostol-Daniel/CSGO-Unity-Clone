@@ -176,6 +176,7 @@ public class Server
 
     public static void Stop() 
     {
+        Clients.Clear();
         TcpListener.Stop();
         UdpListener.Close();
     }
