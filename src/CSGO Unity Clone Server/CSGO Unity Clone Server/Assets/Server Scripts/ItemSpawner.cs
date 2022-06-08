@@ -8,6 +8,7 @@ public class ItemSpawner : MonoBehaviour
     public static Dictionary<int, ItemSpawner> Spawners = new Dictionary<int, ItemSpawner>();
 
     private static int NextSpwanerId = 1;
+    private bool IsSpawningAllowed = false;
 
     public int SpawnerId;
     public bool HasItem = false;
@@ -28,6 +29,8 @@ public class ItemSpawner : MonoBehaviour
 
     private void Start()
     {
+        if(!IsSpawningAllowed) return;
+
         HasItem = false;
         SpawnerId = NextSpwanerId;
         NextSpwanerId++;

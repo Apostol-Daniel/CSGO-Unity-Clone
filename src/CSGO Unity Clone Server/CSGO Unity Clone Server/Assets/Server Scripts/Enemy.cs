@@ -10,7 +10,10 @@ namespace Assets.Server_Scripts
 
         public static int MaxEnemies = 5;
         public static Dictionary<int, Enemy> Enemies = new Dictionary<int, Enemy>();
+
         private static int NextEnemyId = 1;
+        private bool IsSpawningAllowed = false;
+
 
         public int Id;
         public EnemyState State;
@@ -47,6 +50,8 @@ namespace Assets.Server_Scripts
 
         private void Start()
         {
+            if (!IsSpawningAllowed) return;
+
             Id = NextEnemyId;
             NextEnemyId++;
             Enemies.Add(Id, this);

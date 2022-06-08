@@ -25,11 +25,6 @@ public class NetworkManager : MonoBehaviour
         }
     }
 
-    public void Update()
-    {
-        
-    }
-
     private void Start()
     {
         QualitySettings.vSyncCount = 0;
