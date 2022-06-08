@@ -40,7 +40,7 @@ namespace Assets.Server
 
         public void ConnetToLocalhost()
         {
-            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.Locked;
 
             StartMenu.SetActive(false);
             InputUsernameField.interactable = false;

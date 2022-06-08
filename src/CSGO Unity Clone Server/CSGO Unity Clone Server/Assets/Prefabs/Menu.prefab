@@ -121,9 +121,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Assets.Server.UIManager, Assembly-CSharp
-        m_MethodName: StartSinglePlayer
+      - m_Target: {fileID: 7143850316843346651}
+        m_TargetAssemblyTypeName: Assets.UIManager, Assembly-CSharp
+        m_MethodName: HostOnLocalHost
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 2132268877790397277}
   - component: {fileID: 2132268877790397278}
   - component: {fileID: 2132268877790397279}
+  - component: {fileID: 7143850316843346651}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -443,6 +444,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7143850316843346651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132268877790397264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273ef23b1cbf69341b7b85d1c9ae43e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartMenu: {fileID: 2132268877164306522}
+  ButtonHostOnLocalhost: {fileID: 2132268876806357105}
+  ButtonHostOnIpv4: {fileID: 2132268877284907563}
 --- !u!1 &2132268878293486379
 GameObject:
   m_ObjectHideFlags: 0
