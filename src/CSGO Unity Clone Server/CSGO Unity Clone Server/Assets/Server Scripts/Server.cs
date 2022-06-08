@@ -19,7 +19,26 @@ public class Server
     private static TcpListener TcpListener;
     private static UdpClient UdpListener;
 
-    public static void Start(int mapPlayes, int portNumber)
+    public static void StartOnLocalhost(int mapPlayes, int portNumber)
+    {
+        MaxPlayers = mapPlayes;
+        Port = portNumber;
+
+        InitializeServerData();
+
+        Debug.Log("Starting server...");
+
+        TcpListener = new TcpListener(IPAddress.Any, Port);
+        TcpListener.Start();
+        TcpListener.BeginAcceptTcpClient(new AsyncCallback(TcpConnectCallback), null);
+
+        UdpListener = new UdpClient(Port);
+        UdpListener.BeginReceive(UdpReceiveCallback, null);
+
+        Debug.Log($"Server started on {Port}.");
+    }
+
+    public static void StartOnIPV4(int mapPlayes, int portNumber)
     {
         MaxPlayers = mapPlayes;
         Port = portNumber;

@@ -34,7 +34,7 @@ namespace Assets
         public void HostOnLocalHost() 
         {
             StartMenu.SetActive(false); ;
-            Server.Start(10, 26950);
+            Server.StartOnLocalhost(10, 26950);
         }
     }
 }
