@@ -4,12 +4,27 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
+    public static ItemSpawner Instance;
     public static Dictionary<int, ItemSpawner> Spawners = new Dictionary<int, ItemSpawner>();
 
     private static int NextSpwanerId = 1;
 
     public int SpawnerId;
     public bool HasItem = false;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+
+        else if (Instance != this)
+        {
+            Debug.Log("ItemSpawner Instance already exists, detroying object.");
+            Destroy(this);
+        }
+    }
 
     private void Start()
     {
