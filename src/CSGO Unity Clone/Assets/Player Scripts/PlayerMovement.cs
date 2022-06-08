@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         //Getting Escape(Esc) button input
         if (Input.GetButtonDown("Cancel"))
         {
-            UIManager.Instance().EscapeToMainMenu();
+            UIManager.Instance().EscapeToMainMenuSinglePlayer();
         }
     }
 

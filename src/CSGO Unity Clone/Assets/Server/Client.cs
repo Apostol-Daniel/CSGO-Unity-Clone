@@ -32,6 +32,11 @@ namespace Assets.Server
             }
         }
 
+        public static Client Instance()
+        {
+            return ClientInstance;
+        }
+
         private void OnApplicationQuit()
         {
             Disconnect();

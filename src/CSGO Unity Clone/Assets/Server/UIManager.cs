@@ -65,8 +65,18 @@ namespace Assets.Server
             Player.SetActive(true);
         }
 
-        public void EscapeToMainMenu() 
+        public void EscapeToMainMenuSinglePlayer() 
         {
+            Player.SetActive(false);
+            StartMenu.SetActive(true);
+            InputUsernameField.interactable = true;
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        public void EscapeToMainMenuSingleMultiplayer()
+        {
+            Client.Instance().Disconnect();
             Player.SetActive(false);
             StartMenu.SetActive(true);
             InputUsernameField.interactable = true;
