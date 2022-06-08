@@ -35,26 +35,27 @@ public class Server
         UdpListener = new UdpClient(Port);
         UdpListener.BeginReceive(UdpReceiveCallback, null);
 
-        Debug.Log($"Server started on {Port}.");
+        Debug.Log($"Server started on localhost, port: {Port}.");
     }
 
     public static void StartOnIPV4(int mapPlayes, int portNumber)
     {
         MaxPlayers = mapPlayes;
         Port = portNumber;
+        var IPaddress = IPAddress.Parse(GetLocalIPAddress());
 
         InitializeServerData();
 
         Debug.Log("Starting server...");
 
-        TcpListener = new TcpListener(IPAddress.Parse(GetLocalIPAddress()), Port);
+        TcpListener = new TcpListener(IPaddress, Port);
         TcpListener.Start();
         TcpListener.BeginAcceptTcpClient(new AsyncCallback(TcpConnectCallback), null);
 
         UdpListener = new UdpClient(Port);
         UdpListener.BeginReceive(UdpReceiveCallback, null);
 
-        Debug.Log($"Server started on {Port}.");
+        Debug.Log($"Server on IP: {IPaddress} and on port: {Port}.");
     }
 
     public static string GetLocalIPAddress()

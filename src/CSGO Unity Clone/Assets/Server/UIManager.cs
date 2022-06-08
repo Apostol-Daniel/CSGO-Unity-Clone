@@ -49,6 +49,7 @@ namespace Assets.Server
 
         public void ConnetToGivenIp()
         {
+            Cursor.lockState = CursorLockMode.Locked;
             StartMenu.SetActive(false);
             InputUsernameField.interactable = false;
             InputIpField.interactable = false;           

@@ -36,5 +36,11 @@ namespace Assets
             StartMenu.SetActive(false); ;
             Server.StartOnLocalhost(10, 26950);
         }
+
+        public void HostOnIPV4() 
+        {
+            StartMenu.SetActive(false); ;
+            Server.StartOnIPV4(10, 26950);
+        }
     }
 }

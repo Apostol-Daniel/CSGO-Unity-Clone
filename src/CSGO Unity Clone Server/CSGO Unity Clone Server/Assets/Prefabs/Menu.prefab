@@ -331,9 +331,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Assets.Server.UIManager, Assembly-CSharp
-        m_MethodName: ButtonMultiplayerOnClick
+      - m_Target: {fileID: 7143850316843346651}
+        m_TargetAssemblyTypeName: Assets.UIManager, Assembly-CSharp
+        m_MethodName: HostOnIPV4
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
