@@ -6,6 +6,8 @@ namespace Assets.Server_Scripts
 {
     public class Enemy : MonoBehaviour
     {
+        public static Enemy Instance;
+
         public static int MaxEnemies = 5;
         public static Dictionary<int, Enemy> Enemies = new Dictionary<int, Enemy>();
         private static int NextEnemyId = 1;
@@ -29,6 +31,19 @@ namespace Assets.Server_Scripts
 
         private bool IsPatrolRoutineRunning;
         private float YVelocity = 0f;
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+
+            else if (Instance != this)
+            {
+                Debug.Log("Enemy Instance already exists, detroying object.");
+                Destroy(this);
+            }
+        }
 
         private void Start()
         {
