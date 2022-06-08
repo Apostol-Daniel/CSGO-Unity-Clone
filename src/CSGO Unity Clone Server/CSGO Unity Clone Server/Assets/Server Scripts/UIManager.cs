@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Assets
@@ -44,6 +45,13 @@ namespace Assets
         {
             StartMenu.SetActive(false); ;
             Server.StartOnIPV4(10, 26950);
+        }
+
+        public void EscapeToMainMenu()
+        {
+            StartMenu.SetActive(true);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Server.Stop();
         }
     }
 }

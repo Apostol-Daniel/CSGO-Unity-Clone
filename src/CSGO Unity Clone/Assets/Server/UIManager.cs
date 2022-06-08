@@ -77,11 +77,7 @@ namespace Assets.Server
         public void EscapeToMainMenuSingleMultiplayer()
         {
             Client.Instance().Disconnect();
-            Player.SetActive(false);
-            StartMenu.SetActive(true);
-            InputUsernameField.interactable = true;
-            Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            EscapeToMainMenuSinglePlayer();
         }
 
         public void ButtonMultiplayerOnClick() 
