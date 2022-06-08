@@ -8,9 +8,14 @@ namespace Assets.Server_Scripts
     {
         public float Frequency = 3f;
 
-        private void Start()
+        public void StartSpawnCoroutine()
         {
             StartCoroutine(SpawnEnemy());
+        }
+
+        public void StopSpawnCoroutine()
+        {
+            StopCoroutine(SpawnEnemy());
         }
 
         private IEnumerator SpawnEnemy() 
