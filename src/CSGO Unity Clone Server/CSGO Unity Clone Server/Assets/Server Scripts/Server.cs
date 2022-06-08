@@ -47,7 +47,7 @@ public class Server
 
         Debug.Log("Starting server...");
 
-        TcpListener = new TcpListener(IPAddress.Any, Port);
+        TcpListener = new TcpListener(IPAddress.Parse(GetLocalIPAddress()), Port);
         TcpListener.Start();
         TcpListener.BeginAcceptTcpClient(new AsyncCallback(TcpConnectCallback), null);
 
@@ -55,6 +55,19 @@ public class Server
         UdpListener.BeginReceive(UdpReceiveCallback, null);
 
         Debug.Log($"Server started on {Port}.");
+    }
+
+    public static string GetLocalIPAddress()
+    {
+        var host = Dns.GetHostEntry(Dns.GetHostName());
+        foreach (var ip in host.AddressList)
+        {
+            if (ip.AddressFamily == AddressFamily.InterNetwork)
+            {
+                return ip.ToString();
+            }
+        }
+        throw new Exception("No network adapters with an IPv4 address in the system!");
     }
 
     private static void TcpConnectCallback(IAsyncResult result)
