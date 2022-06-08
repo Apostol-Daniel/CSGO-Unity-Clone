@@ -1,3 +1,4 @@
+using Assets;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -35,6 +36,7 @@ public class Server
         UdpListener = new UdpClient(Port);
         UdpListener.BeginReceive(UdpReceiveCallback, null);
 
+        UIManager.Instance().InputHostedOn.text = $"Server started on localhost, port: {Port}.";
         Debug.Log($"Server started on localhost, port: {Port}.");
     }
 
@@ -55,7 +57,8 @@ public class Server
         UdpListener = new UdpClient(Port);
         UdpListener.BeginReceive(UdpReceiveCallback, null);
 
-        Debug.Log($"Server on IP: {IPaddress} and on port: {Port}.");
+        UIManager.Instance().InputHostedOn.text = $"Server started on IP: {IPaddress} and on port: {Port}.";
+        Debug.Log($"Server started on IP: {IPaddress} and on port: {Port}.");
     }
 
     public static string GetLocalIPAddress()

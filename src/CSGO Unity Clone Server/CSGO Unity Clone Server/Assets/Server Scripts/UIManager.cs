@@ -10,10 +10,13 @@ namespace Assets
         public GameObject StartMenu;
         public Button ButtonHostOnLocalhost;
         public Button ButtonHostOnIpv4;
+        public InputField InputHostedOn;
 
 
         private void Awake()
         {
+            InputHostedOn.interactable = false;
+
             if (UIManagerInstance == null)
             {
                 UIManagerInstance = this;
