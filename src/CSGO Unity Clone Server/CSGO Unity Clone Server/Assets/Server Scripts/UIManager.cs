@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Assets.Server_Scripts;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -40,14 +42,14 @@ namespace Assets
         public void HostOnLocalHost() 
         {
             StartMenu.SetActive(false);
-            ButtonDisconnect.gameObject.SetActive(true);
+            ButtonDisconnect.gameObject.SetActive(true);           
             Server.StartOnLocalhost(10, 26950);
         }
 
         public void HostOnIPV4() 
         {
             StartMenu.SetActive(false);
-            ButtonDisconnect.gameObject.SetActive(true);
+            ButtonDisconnect.gameObject.SetActive(true);            
             Server.StartOnIPV4(10, 26950);
         }
 
@@ -55,7 +57,7 @@ namespace Assets
         {
             StartMenu.SetActive(true);
             ButtonDisconnect.gameObject.SetActive(false);
-            InputHostedOn.text = "";
+            InputHostedOn.text = "";           
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             Server.Stop();
         }

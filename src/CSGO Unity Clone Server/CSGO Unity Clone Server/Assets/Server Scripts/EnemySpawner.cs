@@ -6,25 +6,9 @@ namespace Assets.Server_Scripts
 {
     public class EnemySpawner : MonoBehaviour
     {
-        public static EnemySpawner Instance;
+        public float Frequency = 3f;             
 
-        public float Frequency = 3f;
-
-        private void Awake()
-        {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
-
-            else if (Instance != this)
-            {
-                Debug.Log("EnemySpawner Instance already exists, detroying object.");
-                Destroy(this);
-            }
-        }
-
-        public void StartSpawnCoroutine()
+        public void Start()
         {
             StartCoroutine(SpawnEnemy());
         }

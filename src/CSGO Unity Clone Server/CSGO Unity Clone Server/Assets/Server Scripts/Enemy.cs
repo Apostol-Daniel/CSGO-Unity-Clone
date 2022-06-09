@@ -6,14 +6,10 @@ namespace Assets.Server_Scripts
 {
     public class Enemy : MonoBehaviour
     {
-        public static Enemy Instance;
-
         public static int MaxEnemies = 5;
         public static Dictionary<int, Enemy> Enemies = new Dictionary<int, Enemy>();
 
         private static int NextEnemyId = 1;
-        private bool IsSpawningAllowed = false;
-
 
         public int Id;
         public EnemyState State;
@@ -33,25 +29,10 @@ namespace Assets.Server_Scripts
         public float IdleDuration = 1f;
 
         private bool IsPatrolRoutineRunning;
-        private float YVelocity = 0f;
-        private void Awake()
-        {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
-
-            else if (Instance != this)
-            {
-                Debug.Log("Enemy Instance already exists, detroying object.");
-                Destroy(this);
-            }
-        }
+        private float YVelocity = 0f;             
 
         private void Start()
         {
-            if (!IsSpawningAllowed) return;
-
             Id = NextEnemyId;
             NextEnemyId++;
             Enemies.Add(Id, this);
