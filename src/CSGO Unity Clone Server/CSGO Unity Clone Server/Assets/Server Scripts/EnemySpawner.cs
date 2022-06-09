@@ -8,8 +8,8 @@ namespace Assets.Server_Scripts
     {
         public float Frequency = 3f;             
 
-        public void Start()
-        {
+        public void Start() 
+        {          
             StartCoroutine(SpawnEnemy());
         }
 

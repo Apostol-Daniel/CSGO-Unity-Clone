@@ -58,7 +58,9 @@ namespace Assets
             StartMenu.SetActive(true);
             ButtonDisconnect.gameObject.SetActive(false);
             InputHostedOn.text = "";           
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            var scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
+
             Server.Stop();
         }
     }
