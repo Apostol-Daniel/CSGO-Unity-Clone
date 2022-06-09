@@ -28,5 +28,10 @@ namespace Assets.Server_Scripts
             }
             StartCoroutine(SpawnEnemy());
         }
+
+        public void ClearEnemyCountOnDisconnet() 
+        {
+            Enemy.Enemies.Clear();
+        }
     }
 }

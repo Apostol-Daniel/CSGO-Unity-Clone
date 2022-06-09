@@ -1,3 +1,4 @@
+using Assets.Server_Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,8 +21,18 @@ public class EnemySpawnerHolder : MonoBehaviour
             Destroy(this);
         }
     }
+
     public static EnemySpawnerHolder Instance()
     {
         return EnemySpawnerHolderInstance;
+    }
+
+    void ClearEnemyCountOnDisconnet() 
+    {
+        foreach(Transform enemySpawner in transform) 
+        {
+            var enemySpawnerScript = enemySpawner.GetComponent<EnemySpawner>();
+            enemySpawnerScript.ClearEnemyCountOnDisconnet();
+        }
     }
 }
