@@ -31,7 +31,7 @@ namespace Assets.Server
 
 
             ReceiveBuffer = new byte[DataBufferSize];
-            TcpSocket.BeginConnect(ClientInstance.Ip, ClientInstance.Port, ConnectCallback, TcpSocket);
+            TcpSocket.BeginConnect(ClientInstance.LocalhostIp, ClientInstance.Port, ConnectCallback, TcpSocket);
         }
 
         public void ConnectToGivenIp(string ip)

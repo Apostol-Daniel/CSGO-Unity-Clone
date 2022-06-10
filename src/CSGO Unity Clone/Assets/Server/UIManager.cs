@@ -77,6 +77,9 @@ namespace Assets.Server
         public void EscapeToMainMenuSingleMultiplayer()
         {
             Client.Instance().Disconnect();
+            Client.Instance().PacketHandlers.Clear();
+            GameManager.Instance().ClearData();
+            GameManager.Instance().Reset();
             EscapeToMainMenuSinglePlayer();
         }
 

@@ -17,6 +17,8 @@ public class Server
     public delegate void PacketHandler(int clientId, Packet packet);
     public static Dictionary<int, PacketHandler> PacketHandlers;
 
+    public static bool IsServerDataInitialized;
+
     private static TcpListener TcpListener;
     private static UdpClient UdpListener;
 
@@ -25,7 +27,7 @@ public class Server
         MaxPlayers = mapPlayes;
         Port = portNumber;
 
-        InitializeServerData();
+        if (!IsServerDataInitialized) InitializeServerData();       
 
         Debug.Log("Starting server...");
 
@@ -46,7 +48,7 @@ public class Server
         Port = portNumber;
         var IPaddress = IPAddress.Parse(GetLocalIPAddress());
 
-        InitializeServerData();
+        if(!IsServerDataInitialized) InitializeServerData();
 
         Debug.Log("Starting server...");
 
@@ -158,6 +160,8 @@ public class Server
 
     private static void InitializeServerData()
     {
+        IsServerDataInitialized = true;
+
         for (int i = 1; i <= MaxPlayers; i++)
         {
             Clients.Add(i, new Client(i));
@@ -176,8 +180,13 @@ public class Server
 
     public static void Stop() 
     {
-        TcpListener.Stop();
-        UdpListener.Close();
-        //Clients.Clear();
+        if(TcpListener != null && UdpListener != null) 
+        {
+            if(TcpListener.Server.IsBound || UdpListener.Client.IsBound) 
+            {
+                TcpListener.Stop();
+                UdpListener.Close();              
+            }
+        }
     }
 }

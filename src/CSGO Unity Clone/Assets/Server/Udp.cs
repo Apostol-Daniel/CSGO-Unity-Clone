@@ -18,7 +18,7 @@ namespace Assets.Server
         public Udp(Client instance)
         {
             ClientInstance = instance;
-            UdpEndPoint = new IPEndPoint(IPAddress.Parse(ClientInstance.Ip), ClientInstance.Port);
+            UdpEndPoint = new IPEndPoint(IPAddress.Parse(ClientInstance.LocalhostIp), ClientInstance.Port);
         }
 
         public void Connect(int localPort) 

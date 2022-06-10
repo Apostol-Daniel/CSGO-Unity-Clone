@@ -29,7 +29,7 @@ namespace Assets.Server
             Vector3 playerPosition = packet.ReadVector3();
             Quaternion playerRotation = packet.ReadQuaternion();
 
-            GameManager.Instance.SpawnPlayer(playerId, playerUserName, playerPosition, playerRotation);
+            GameManager.GameManagerInstance.SpawnPlayer(playerId, playerUserName, playerPosition, playerRotation);
         }
 
         public static void PlayerPosition(Packet packet) 
@@ -86,7 +86,7 @@ namespace Assets.Server
             Vector3 spawnPosition = packet.ReadVector3();
             bool hasItem = packet.ReadBool();
 
-            GameManager.Instance.CreateItemSpawner(spawnerId, spawnPosition, hasItem);
+            GameManager.GameManagerInstance.CreateItemSpawner(spawnerId, spawnPosition, hasItem);
         }
 
         public static void ItemSpawned(Packet packet)
@@ -111,7 +111,7 @@ namespace Assets.Server
             Vector3 position = packet.ReadVector3();
             int playerId = packet.ReadInt();
 
-            GameManager.Instance.SpawnProjectile(projectleId, position);
+            GameManager.GameManagerInstance.SpawnProjectile(projectleId, position);
             GameManager.Players[playerId].ItemCount--;
         }
 
@@ -139,7 +139,7 @@ namespace Assets.Server
             int enemyId = packet.ReadInt();
             Vector3 position = packet.ReadVector3();
 
-            GameManager.Instance.SpawnEnemy(enemyId, position);
+            GameManager.GameManagerInstance.SpawnEnemy(enemyId, position);
         }
 
         public static void EnemyPosition(Packet packet)

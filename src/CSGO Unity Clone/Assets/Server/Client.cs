@@ -10,7 +10,7 @@ namespace Assets.Server
         public delegate void PacketHandler(Packet packet);
         public Dictionary<int, PacketHandler> PacketHandlers;
 
-        public string Ip = "127.0.0.1";
+        public string LocalhostIp = "127.0.0.1";
         public int Port = 26950;
         public int ClientId = 0;
         public Tcp TcpClient;
