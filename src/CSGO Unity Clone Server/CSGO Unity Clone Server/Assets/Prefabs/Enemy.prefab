@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  State: 0
+  State: 1
   Target: {fileID: 0}
   Controller: {fileID: 4352461132862595801}
   ShootOrigin: {fileID: 4141048523040264084}

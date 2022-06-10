@@ -27,7 +27,7 @@ public class EnemySpawnerHolder : MonoBehaviour
         return EnemySpawnerHolderInstance;
     }
 
-    void ClearEnemyCountOnDisconnet() 
+    public void ClearEnemyCountOnDisconnet() 
     {
         foreach(Transform enemySpawner in transform) 
         {

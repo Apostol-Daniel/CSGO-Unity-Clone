@@ -57,9 +57,9 @@ namespace Assets
         {
             StartMenu.SetActive(true);
             ButtonDisconnect.gameObject.SetActive(false);
-            InputHostedOn.text = "";           
-            var scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
+            InputHostedOn.text = "";
+            EnemySpawnerHolder.Instance().ClearEnemyCountOnDisconnet();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
             Server.Stop();
         }

@@ -1,5 +1,6 @@
 ﻿
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Server_Scripts
@@ -32,6 +33,10 @@ namespace Assets.Server_Scripts
         public void ClearEnemyCountOnDisconnet() 
         {
             Enemy.Enemies.Clear();
+            foreach (KeyValuePair<int, Enemy> enemy in Enemy.Enemies)
+            {               
+                enemy.Value.Reset();
+            }
         }
     }
 }

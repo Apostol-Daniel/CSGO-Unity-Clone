@@ -178,6 +178,6 @@ public class Server
     {
         TcpListener.Stop();
         UdpListener.Close();
-        Clients.Clear();
+        //Clients.Clear();
     }
 }
