@@ -41,9 +41,16 @@ namespace Assets.Gun_Scripts
                 //Damage
                 //First destroy object -> create more objects(pieces of objects)
                 Destructible dest = nearbyObjects.GetComponent<Destructible>();
+                EnemySinglePlayer enemySinglePlayer = nearbyObjects.GetComponentInParent<EnemySinglePlayer>();
+
                 if (dest != null)
                 {
                     dest.Destroy();
+                }
+
+                if(enemySinglePlayer != null) 
+                {
+                    enemySinglePlayer.TakeDamage(explosionForce);
                 }
 
             }

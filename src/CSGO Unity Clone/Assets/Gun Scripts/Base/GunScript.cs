@@ -114,9 +114,15 @@ public class GunScript : MonoBehaviour, IGunScript
             //Debug.Log(hitInfo.transform.name);
 
             Target target = hitInfo.transform.GetComponent<Target>();
+            EnemySinglePlayer enemySinglePlayer = hitInfo.transform.GetComponentInParent<EnemySinglePlayer>();
             if (target != null)
             {
                 target.TakeDamage(Damage);
+            }
+
+            if (enemySinglePlayer != null) 
+            {
+                enemySinglePlayer.TakeDamage(Damage);
             }
 
             if (hitInfo.rigidbody != null)
