@@ -91,7 +91,7 @@ public class EnemySinglePlayer : MonoBehaviour
                     {
                         if (raycastHit.collider.CompareTag("Player"))
                         {
-                            Target = raycastHit.collider.GetComponentInParent<PlayerMovement>();
+                            Target = raycastHit.collider.GetComponent<PlayerMovement>();
                             if (IsPatrolRoutineRunning)
                             {
                                 IsPatrolRoutineRunning = false;

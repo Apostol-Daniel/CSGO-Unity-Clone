@@ -136,7 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2082173314163745200}
   - component: {fileID: 4352461132862595801}
-  - component: {fileID: -5023899723719087839}
+  - component: {fileID: 52142138971615672}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -178,7 +178,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-5023899723719087839
+--- !u!114 &52142138971615672
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,12 +187,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7475797047966079443}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb7b34b8b1c683c43b5ace5fb2406ba3, type: 3}
+  m_Script: {fileID: 11500000, guid: 59de8c6b66d7ac74388eeac077f51501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
   State: 1
-  Target: {fileID: 0}
+  Target: {fileID: 784340514979140732, guid: 220a058ba18ffd94bb87ac3135831270, type: 3}
   Controller: {fileID: 4352461132862595801}
   ShootOrigin: {fileID: 4141048523040264084}
   Gravity: -19.62

@@ -16,7 +16,7 @@ namespace Assets.Server
         public Tcp TcpClient;
         public Udp UdpClient;
 
-        bool IsConnected = false;
+        public bool IsConnected = false;
 
         private void Awake()
         {
