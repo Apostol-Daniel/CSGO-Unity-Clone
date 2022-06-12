@@ -1,6 +1,7 @@
 using Assets.Gun_Scripts.Interfaces;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GunScript : MonoBehaviour, IGunScript
 {
@@ -37,6 +38,8 @@ public class GunScript : MonoBehaviour, IGunScript
 
     public GameObject WeaponCamera;
 
+    public Text TxtAmmo;
+
 
 
     //setting ammo to full when loaded in
@@ -57,6 +60,8 @@ public class GunScript : MonoBehaviour, IGunScript
     // Update is called once per frame
     public void Update()
     {
+        TxtAmmo.text = CurrentAmmo.ToString();
+
         Scope();
         //Getting player input
         CheckFireInputAndAmmo();
@@ -114,9 +119,15 @@ public class GunScript : MonoBehaviour, IGunScript
             //Debug.Log(hitInfo.transform.name);
 
             Target target = hitInfo.transform.GetComponent<Target>();
+            EnemySinglePlayer enemySinglePlayer = hitInfo.transform.GetComponentInParent<EnemySinglePlayer>();
             if (target != null)
             {
                 target.TakeDamage(Damage);
+            }
+
+            if (enemySinglePlayer != null) 
+            {
+                enemySinglePlayer.TakeDamage(Damage);
             }
 
             if (hitInfo.rigidbody != null)

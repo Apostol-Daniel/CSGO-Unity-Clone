@@ -10,6 +10,7 @@ namespace Assets.Server
 
         public GameObject StartMenu;
         public GameObject Player;
+        public GameObject EnemySpawnerHolder;
         public InputField InputUsernameField;
         public InputField InputIpField;
         public Button ButtonMultiplayer;
@@ -17,6 +18,8 @@ namespace Assets.Server
         public Button ButtonConnectToLocalhost;
         public Button ButtonConnectInputIp;
         public Button ButtonBackToMainMenu;
+
+
         
 
         private void Awake()
@@ -63,11 +66,13 @@ namespace Assets.Server
             StartMenu.SetActive(false);
             InputUsernameField.interactable = false;
             Player.SetActive(true);
+            EnemySpawnerHolderSinglePlayer.Instance().StartSpawnCoroutine();
         }
 
         public void EscapeToMainMenuSinglePlayer() 
         {
             Player.SetActive(false);
+            EnemySpawnerHolderSinglePlayer.Instance().ClearEnemyCountOnDisconnet();
             StartMenu.SetActive(true);
             InputUsernameField.interactable = true;
             Cursor.lockState = CursorLockMode.None;
