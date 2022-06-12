@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
             ClientSend.PlayerShoot(CameraTransform.forward);
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             Debug.Log("PlayerController Throw");
             ClientSend.PlayerThrowItem(CameraTransform.forward);
