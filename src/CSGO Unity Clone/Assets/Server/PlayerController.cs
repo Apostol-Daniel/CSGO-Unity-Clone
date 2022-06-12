@@ -1,3 +1,4 @@
+using Assets.Server;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        EscapeToMainMenu();
+
         if (Input.GetKeyDown(KeyCode.Mouse0)) 
         {
             Debug.Log("PlayerController Shoot");
@@ -38,5 +41,14 @@ public class PlayerController : MonoBehaviour
         };
 
         ClientSend.PlayerMovement(inputs);
+    }
+
+    public void EscapeToMainMenu()
+    {
+        //Getting Escape(Esc) button input
+        if (Input.GetButtonDown("Cancel"))
+        {
+            UIManager.Instance().EscapeToMainMenuSingleMultiplayer();
+        }
     }
 }

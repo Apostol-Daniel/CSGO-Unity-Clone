@@ -15,6 +15,7 @@ public class Projectile : MonoBehaviour
     public Vector3 Force;
     public float ExplosionRadius = 1.5f;
     public float ExplosionDamage = 75f;
+    public GameObject ExplosionEffect;
 
 
     private void Start()
@@ -51,7 +52,8 @@ public class Projectile : MonoBehaviour
         ServerSend.ProjectileExploded(this);
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, ExplosionRadius);
-        foreach(Collider collider in colliders) 
+        GameObject explosionEffectObject = Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
+        foreach (Collider collider in colliders) 
         {
             if (collider.CompareTag("Player")) 
             {
@@ -64,6 +66,7 @@ public class Projectile : MonoBehaviour
         }
 
         Projectiles.Remove(Id);
+        Destroy(explosionEffectObject, 3.5f);
         Destroy(gameObject);
     }
 

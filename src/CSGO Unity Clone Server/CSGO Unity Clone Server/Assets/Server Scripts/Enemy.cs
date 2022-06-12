@@ -6,8 +6,11 @@ namespace Assets.Server_Scripts
 {
     public class Enemy : MonoBehaviour
     {
+        public static Enemy EnemyInstance;
+
         public static int MaxEnemies = 5;
         public static Dictionary<int, Enemy> Enemies = new Dictionary<int, Enemy>();
+
         private static int NextEnemyId = 1;
 
         public int Id;
@@ -29,6 +32,16 @@ namespace Assets.Server_Scripts
 
         private bool IsPatrolRoutineRunning;
         private float YVelocity = 0f;
+
+        public static Enemy Instance()
+        {
+            return EnemyInstance;
+        }
+
+        public void Reset()
+        {
+            
+        }
 
         private void Start()
         {

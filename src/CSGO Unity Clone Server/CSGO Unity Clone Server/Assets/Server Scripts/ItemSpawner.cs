@@ -7,12 +7,13 @@ public class ItemSpawner : MonoBehaviour
     public static Dictionary<int, ItemSpawner> Spawners = new Dictionary<int, ItemSpawner>();
 
     private static int NextSpwanerId = 1;
+    public bool IsSpawningAllowed = false;
 
     public int SpawnerId;
-    public bool HasItem = false;
+    public bool HasItem = false;  
 
     private void Start()
-    {
+    {      
         HasItem = false;
         SpawnerId = NextSpwanerId;
         NextSpwanerId++;

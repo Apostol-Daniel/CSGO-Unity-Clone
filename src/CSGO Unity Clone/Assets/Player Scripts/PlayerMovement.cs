@@ -1,3 +1,4 @@
+using Assets.Server;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        EscapeToMainMenu();
+
         IsGrounded = Physics.CheckSphere(GroundCheck.position, GroundDistance,GroundMask);
         if(IsGrounded && Velocity.y < 0) 
         {
@@ -43,4 +46,14 @@ public class PlayerMovement : MonoBehaviour
 
         CharacterController.Move(Velocity * Time.deltaTime);
     }
+
+    public void EscapeToMainMenu()
+    {
+        //Getting Escape(Esc) button input
+        if (Input.GetButtonDown("Cancel"))
+        {
+            UIManager.Instance().EscapeToMainMenuSinglePlayer();
+        }
+    }
+
 }

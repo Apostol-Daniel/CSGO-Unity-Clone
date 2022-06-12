@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager GameManagerInstance;
     public static Dictionary<int, PlayerManager> Players = new Dictionary<int, PlayerManager>();
     public static Dictionary<int, ItemSpawner> Spawners = new Dictionary<int, ItemSpawner>();
     public static Dictionary<int, ProjectileManager> Projectiles = new Dictionary<int, ProjectileManager>();
@@ -18,17 +18,28 @@ public class GameManager : MonoBehaviour
     public GameObject EnemyPrefab;
     private void Awake()
     {
-        if (Instance == null)
+        if (GameManagerInstance == null)
         {
-            Instance = this;
+            GameManagerInstance = this;
         }
 
-        else if (Instance != this)
+        else if (GameManagerInstance != this)
         {
             Debug.Log("Instance already exists, detroying object.");
             Destroy(this);
         }
     }
+
+    public void Reset()
+    {
+        
+    }
+
+    public static GameManager Instance() 
+    {
+        return GameManagerInstance;
+    }
+
 
     public void SpawnPlayer(int playerId, string userName, Vector3 position, Quaternion rotation) 
     {
@@ -66,5 +77,13 @@ public class GameManager : MonoBehaviour
         GameObject enemy = Instantiate(EnemyPrefab, position, Quaternion.identity);
         enemy.GetComponent<EnemyManager>().Initialize(id);
         Enemies.Add(id, enemy.GetComponent<EnemyManager>());
+    }
+
+    public void ClearData() 
+    {
+        Players.Clear();
+        Spawners.Clear();
+        Projectiles.Clear();
+        Enemies.Clear();
     }
 }

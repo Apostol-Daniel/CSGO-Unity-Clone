@@ -1,3 +1,4 @@
+using Assets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,8 +29,6 @@ public class NetworkManager : MonoBehaviour
     {
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 128;      
-
-        Server.Start(10, 26950);
     }
 
     private void OnApplicationQuit()
@@ -50,5 +49,5 @@ public class NetworkManager : MonoBehaviour
     public void InstantiateEnemy(Vector3 positon) 
     {
         Instantiate(EnemyPrefab, positon, Quaternion.identity);
-    }
+    }   
 }

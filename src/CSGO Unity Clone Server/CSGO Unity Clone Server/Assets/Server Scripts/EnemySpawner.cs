@@ -1,16 +1,22 @@
 ﻿
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Server_Scripts
 {
     public class EnemySpawner : MonoBehaviour
     {
-        public float Frequency = 3f;
+        public float Frequency = 3f;             
 
-        private void Start()
-        {
+        public void Start() 
+        {          
             StartCoroutine(SpawnEnemy());
+        }
+
+        public void StopSpawnCoroutine()
+        {
+            StopCoroutine(SpawnEnemy());
         }
 
         private IEnumerator SpawnEnemy() 
@@ -22,6 +28,15 @@ namespace Assets.Server_Scripts
                 NetworkManager.Instance.InstantiateEnemy(transform.position);
             }
             StartCoroutine(SpawnEnemy());
+        }
+
+        public void ClearEnemyCountOnDisconnet() 
+        {
+            Enemy.Enemies.Clear();
+            foreach (KeyValuePair<int, Enemy> enemy in Enemy.Enemies)
+            {               
+                enemy.Value.Reset();
+            }
         }
     }
 }

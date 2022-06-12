@@ -1,3 +1,4 @@
+using Assets;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,15 +17,17 @@ public class Server
     public delegate void PacketHandler(int clientId, Packet packet);
     public static Dictionary<int, PacketHandler> PacketHandlers;
 
+    public static bool IsServerDataInitialized;
+
     private static TcpListener TcpListener;
     private static UdpClient UdpListener;
 
-    public static void Start(int mapPlayes, int portNumber)
+    public static void StartOnLocalhost(int mapPlayes, int portNumber)
     {
         MaxPlayers = mapPlayes;
         Port = portNumber;
 
-        InitializeServerData();
+        if (!IsServerDataInitialized) InitializeServerData();       
 
         Debug.Log("Starting server...");
 
@@ -35,7 +38,42 @@ public class Server
         UdpListener = new UdpClient(Port);
         UdpListener.BeginReceive(UdpReceiveCallback, null);
 
-        Debug.Log($"Server started on {Port}.");
+        UIManager.Instance().InputHostedOn.text = $"Server started on localhost, port: {Port}.";
+        Debug.Log($"Server started on localhost, port: {Port}.");
+    }
+
+    public static void StartOnIPV4(int mapPlayes, int portNumber)
+    {
+        MaxPlayers = mapPlayes;
+        Port = portNumber;
+        var IPaddress = IPAddress.Parse(GetLocalIPAddress());
+
+        if(!IsServerDataInitialized) InitializeServerData();
+
+        Debug.Log("Starting server...");
+
+        TcpListener = new TcpListener(IPaddress, Port);
+        TcpListener.Start();
+        TcpListener.BeginAcceptTcpClient(new AsyncCallback(TcpConnectCallback), null);
+
+        UdpListener = new UdpClient(Port);
+        UdpListener.BeginReceive(UdpReceiveCallback, null);
+
+        UIManager.Instance().InputHostedOn.text = $"Server started on IP: {IPaddress} and on port: {Port}.";
+        Debug.Log($"Server started on IP: {IPaddress} and on port: {Port}.");
+    }
+
+    public static string GetLocalIPAddress()
+    {
+        var host = Dns.GetHostEntry(Dns.GetHostName());
+        foreach (var ip in host.AddressList)
+        {
+            if (ip.AddressFamily == AddressFamily.InterNetwork)
+            {
+                return ip.ToString();
+            }
+        }
+        throw new Exception("No network adapters with an IPv4 address in the system!");
     }
 
     private static void TcpConnectCallback(IAsyncResult result)
@@ -122,6 +160,8 @@ public class Server
 
     private static void InitializeServerData()
     {
+        IsServerDataInitialized = true;
+
         for (int i = 1; i <= MaxPlayers; i++)
         {
             Clients.Add(i, new Client(i));
@@ -140,7 +180,13 @@ public class Server
 
     public static void Stop() 
     {
-        TcpListener.Stop();
-        UdpListener.Close();
+        if(TcpListener != null && UdpListener != null) 
+        {
+            if(TcpListener.Server.IsBound || UdpListener.Client.IsBound) 
+            {
+                TcpListener.Stop();
+                UdpListener.Close();              
+            }
+        }
     }
 }

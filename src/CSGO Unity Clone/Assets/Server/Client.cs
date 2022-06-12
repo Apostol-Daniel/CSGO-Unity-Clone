@@ -10,7 +10,7 @@ namespace Assets.Server
         public delegate void PacketHandler(Packet packet);
         public Dictionary<int, PacketHandler> PacketHandlers;
 
-        public string Ip = "127.0.0.1";
+        public string LocalhostIp = "127.0.0.1";
         public int Port = 26950;
         public int ClientId = 0;
         public Tcp TcpClient;
@@ -32,23 +32,32 @@ namespace Assets.Server
             }
         }
 
+        public static Client Instance()
+        {
+            return ClientInstance;
+        }
+
         private void OnApplicationQuit()
         {
             Disconnect();
-        }
+        }       
 
-        private void Start()
-        {
-            
-        }
-
-        public void ConnectToServer()
+        public void ConnectToLocalhost()
         {
             TcpClient = new Tcp(ClientInstance, DataBufferSize);
             UdpClient = new Udp(ClientInstance);
             InitClientData();
             IsConnected = true;
-            TcpClient.Connect();
+            TcpClient.ConnectToLocalhost();
+        }
+
+        public void ConnectToGivenIp(string ip)
+        {
+            TcpClient = new Tcp(ClientInstance, DataBufferSize);
+            UdpClient = new Udp(ClientInstance);
+            InitClientData();
+            IsConnected = true;
+            TcpClient.ConnectToGivenIp(ip);
         }
 
         private void InitClientData()

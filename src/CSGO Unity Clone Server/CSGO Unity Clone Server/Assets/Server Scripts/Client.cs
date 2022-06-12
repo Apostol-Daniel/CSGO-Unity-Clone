@@ -48,7 +48,10 @@ public class Client
 
         foreach(ItemSpawner spawner in ItemSpawner.Spawners.Values) 
         {
-            ServerSend.CreateItemSpawner(Id, spawner.SpawnerId, spawner.transform.position, spawner.HasItem);
+            if(spawner!= null) 
+            {
+                ServerSend.CreateItemSpawner(Id, spawner.SpawnerId, spawner.transform.position, spawner.HasItem);
+            }
         }
 
         foreach(Enemy enemy in Enemy.Enemies.Values) 
