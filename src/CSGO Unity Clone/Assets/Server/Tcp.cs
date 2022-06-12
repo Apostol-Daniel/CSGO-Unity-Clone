@@ -31,7 +31,8 @@ namespace Assets.Server
 
 
             ReceiveBuffer = new byte[DataBufferSize];
-            TcpSocket.BeginConnect(ClientInstance.LocalhostIp, ClientInstance.Port, ConnectCallback, TcpSocket);
+            var result = TcpSocket.BeginConnect(ClientInstance.LocalhostIp, ClientInstance.Port, ConnectCallback, TcpSocket);
+            Debug.Log(result);
         }
 
         public void ConnectToGivenIp(string ip)
@@ -44,7 +45,8 @@ namespace Assets.Server
 
 
             ReceiveBuffer = new byte[DataBufferSize];
-            TcpSocket.BeginConnect(ip, ClientInstance.Port, ConnectCallback, TcpSocket);
+            var result = TcpSocket.BeginConnect(ip, ClientInstance.Port, ConnectCallback, TcpSocket);
+            Debug.Log(result);
         }
 
         private void ConnectCallback(IAsyncResult result)

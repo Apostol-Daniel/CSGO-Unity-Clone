@@ -179,8 +179,8 @@ public class Server
     }
 
     public static void Stop() 
-    {
-        if(TcpListener.Server != null && UdpListener.Client != null) 
+    {      
+        if(TcpListener! == null && UdpListener != null && TcpListener.Server != null && UdpListener.Client != null) 
         {
             if(TcpListener.Server.IsBound || UdpListener.Client.IsBound) 
             {
