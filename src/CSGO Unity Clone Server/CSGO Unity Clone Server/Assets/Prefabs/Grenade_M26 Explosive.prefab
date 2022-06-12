@@ -126,3 +126,4 @@ MonoBehaviour:
   Force: {x: 0, y: 0, z: 0}
   ExplosionRadius: 1.5
   ExplosionDamage: 75
+  ExplosionEffect: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
