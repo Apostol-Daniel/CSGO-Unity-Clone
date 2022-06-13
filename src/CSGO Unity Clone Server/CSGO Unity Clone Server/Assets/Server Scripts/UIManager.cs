@@ -1,5 +1,7 @@
 ﻿using Assets.Server_Scripts;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,12 +17,14 @@ namespace Assets
         public Button ButtonHostOnIpv4;
         public Button ButtonDisconnect;
         public Button ButtonMainMenu;
+        public Button ButtonConnectToChosenIp;
         public InputField InputHostedOn;
         public Dropdown SlcServerIps;
 
 
         private void Awake()
         {
+            PopulateSlcServerIps();
             InputHostedOn.interactable = false;
             ButtonDisconnect.gameObject.SetActive(false);
 
@@ -54,6 +58,14 @@ namespace Assets
             ButtonHostOnIpv4.gameObject.SetActive(false);            
             SlcServerIps.gameObject.SetActive(true);
             ButtonMainMenu.gameObject.SetActive(true);
+            ButtonConnectToChosenIp.gameObject.SetActive(true);
+        }
+
+        public void ButtonConnectToChosenIpOnClick() 
+        {
+            StartMenu.SetActive(false);
+            ButtonDisconnect.gameObject.SetActive(true);
+            Server.StartOnIPV4(10, 26950);
         }
 
         public void ButtonDisconnectOnClick()
@@ -73,6 +85,21 @@ namespace Assets
             ButtonHostOnIpv4.gameObject.SetActive(true);
             ButtonMainMenu.gameObject.SetActive(false);
             SlcServerIps.gameObject.SetActive(false);
+            ButtonConnectToChosenIp.gameObject.SetActive(false);
         }
+
+        public void PopulateSlcServerIps() 
+        {
+            SlcServerIps.options.Clear();
+
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    SlcServerIps.options.Add(new Dropdown.OptionData() { text = ip.ToString() });
+                }
+            }                     
+        }       
     }
 }
