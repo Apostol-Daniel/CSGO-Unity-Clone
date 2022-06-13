@@ -838,7 +838,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 929362399173323267}
-  m_Father: {fileID: 1257231152730210228}
+  m_Father: {fileID: 1257231154250472623}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -966,15 +966,15 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929362399945751217}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 929362399303822819}
   - {fileID: 929362399424262900}
   - {fileID: 929362399276610428}
-  m_Father: {fileID: 1257231152730210228}
-  m_RootOrder: 4
+  m_Father: {fileID: 1257231154250472623}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1838,8 +1838,6 @@ RectTransform:
   - {fileID: 1257231154250472623}
   - {fileID: 929362398964067910}
   - {fileID: 929362400660083831}
-  - {fileID: 929362399705692806}
-  - {fileID: 929362399945751214}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1926,6 +1924,7 @@ MonoBehaviour:
   ButtonHostOnIpv4: {fileID: 1257231154380580547}
   ButtonDisconnect: {fileID: 929362400660083828}
   ButtonMainMenu: {fileID: 929362399705692807}
+  ButtonConnectToChosenIp: {fileID: 0}
   InputHostedOn: {fileID: 929362398964067911}
   SlcServerIps: {fileID: 0}
 --- !u!1 &1257231153234278339
@@ -2250,6 +2249,8 @@ RectTransform:
   m_Children:
   - {fileID: 1257231153869536410}
   - {fileID: 1257231154380580548}
+  - {fileID: 929362399945751214}
+  - {fileID: 929362399705692806}
   m_Father: {fileID: 1257231152730210228}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

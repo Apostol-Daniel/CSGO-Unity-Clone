@@ -65,7 +65,7 @@ namespace Assets
         {
             StartMenu.SetActive(false);
             ButtonDisconnect.gameObject.SetActive(true);
-            Server.StartOnIPV4(10, 26950);
+            Server.StartOnIPV4(SlcServerIps.options[SlcServerIps.value].text,10, 26950);
         }
 
         public void ButtonDisconnectOnClick()

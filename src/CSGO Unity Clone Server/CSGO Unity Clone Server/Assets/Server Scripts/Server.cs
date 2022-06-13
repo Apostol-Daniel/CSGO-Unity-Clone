@@ -42,11 +42,11 @@ public class Server
         Debug.Log($"Server started on localhost, port: {Port}.");
     }
 
-    public static void StartOnIPV4(int mapPlayes, int portNumber)
+    public static void StartOnIPV4(string ip,int mapPlayes, int portNumber)
     {
         MaxPlayers = mapPlayes;
         Port = portNumber;
-        var IPaddress = IPAddress.Parse("192.168.0.119");
+        var IPaddress = IPAddress.Parse(ip);
 
         if(!IsServerDataInitialized) InitializeServerData();
 
@@ -167,7 +167,7 @@ public class Server
 
     public static void Stop() 
     {      
-        if(TcpListener! == null && UdpListener != null && TcpListener.Server != null && UdpListener.Client != null) 
+        if(TcpListener != null && UdpListener != null && TcpListener.Server != null && UdpListener.Client != null) 
         {
             if(TcpListener.Server.IsBound || UdpListener.Client.IsBound) 
             {
