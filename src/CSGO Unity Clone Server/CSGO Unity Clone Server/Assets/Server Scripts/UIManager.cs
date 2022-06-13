@@ -14,6 +14,7 @@ namespace Assets
         public Button ButtonHostOnLocalhost;
         public Button ButtonHostOnIpv4;
         public Button ButtonDisconnect;
+        public Button ButtonMainMenu;
         public InputField InputHostedOn;
         public Dropdown SlcServerIps;
 
@@ -40,21 +41,22 @@ namespace Assets
             return UIManagerInstance;
         }
         
-        public void HostOnLocalHost() 
+        public void ButtonHostOnLocalhostOnClick() 
         {
             StartMenu.SetActive(false);
             ButtonDisconnect.gameObject.SetActive(true);           
             Server.StartOnLocalhost(10, 26950);
         }
 
-        public void HostOnIPV4() 
+        public void ButtonHostOnIpv4OnClick() 
         {
-            StartMenu.SetActive(false);
-            ButtonDisconnect.gameObject.SetActive(true);            
-            Server.StartOnIPV4(10, 26950);
+            ButtonHostOnLocalhost.gameObject.SetActive(false);
+            ButtonHostOnIpv4.gameObject.SetActive(false);            
+            SlcServerIps.gameObject.SetActive(true);
+            ButtonMainMenu.gameObject.SetActive(true);
         }
 
-        public void EscapeToMainMenu()
+        public void ButtonDisconnectOnClick()
         {
             StartMenu.SetActive(true);
             ButtonDisconnect.gameObject.SetActive(false);
@@ -63,6 +65,14 @@ namespace Assets
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
             Server.Stop();
+        }
+
+        public void ButtonMainMenuOnClick() 
+        {
+            ButtonHostOnLocalhost.gameObject.SetActive(true);
+            ButtonHostOnIpv4.gameObject.SetActive(true);
+            ButtonMainMenu.gameObject.SetActive(false);
+            SlcServerIps.gameObject.SetActive(false);
         }
     }
 }
