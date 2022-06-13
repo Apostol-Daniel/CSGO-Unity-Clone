@@ -15,6 +15,7 @@ namespace Assets
         public Button ButtonHostOnIpv4;
         public Button ButtonDisconnect;
         public InputField InputHostedOn;
+        public Dropdown SlcServerIps;
 
 
         private void Awake()

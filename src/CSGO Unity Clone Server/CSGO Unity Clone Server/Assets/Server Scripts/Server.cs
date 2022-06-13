@@ -46,7 +46,7 @@ public class Server
     {
         MaxPlayers = mapPlayes;
         Port = portNumber;
-        var IPaddress = IPAddress.Parse(GetLocalIPAddress());
+        var IPaddress = IPAddress.Parse("192.168.0.119");
 
         if(!IsServerDataInitialized) InitializeServerData();
 
