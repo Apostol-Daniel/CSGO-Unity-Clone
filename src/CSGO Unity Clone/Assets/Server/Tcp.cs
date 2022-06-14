@@ -99,7 +99,7 @@ namespace Assets.Server
             catch (Exception ex)
             {
                 Disconnect();
-                Console.WriteLine($"Error receiving TCP data : {ex}");
+                Debug.Log($"Error receiving TCP data : {ex}");
             }
         }
 

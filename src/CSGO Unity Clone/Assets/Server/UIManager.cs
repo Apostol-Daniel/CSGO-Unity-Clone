@@ -18,7 +18,6 @@ namespace Assets.Server
         public Button ButtonConnectToLocalhost;
         public Button ButtonConnectInputIp;
         public Button ButtonBackToMainMenu;
-        public Dropdown SlcServerIps;
 
 
         
