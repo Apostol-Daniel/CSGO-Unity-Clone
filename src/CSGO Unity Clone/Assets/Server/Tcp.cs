@@ -31,7 +31,7 @@ namespace Assets.Server
 
 
             ReceiveBuffer = new byte[DataBufferSize];
-            TcpSocket.BeginConnect(ClientInstance.LocalhostIp, ClientInstance.Port, ConnectCallback, TcpSocket);
+            TcpSocket.BeginConnect(ClientInstance.LocalhostIp, ClientInstance.Port, ConnectCallback, TcpSocket);            
         }
 
         public void ConnectToGivenIp(string ip)
@@ -44,7 +44,7 @@ namespace Assets.Server
 
 
             ReceiveBuffer = new byte[DataBufferSize];
-            TcpSocket.BeginConnect(ip, ClientInstance.Port, ConnectCallback, TcpSocket);
+            TcpSocket.BeginConnect(ip, ClientInstance.Port, ConnectCallback, TcpSocket);          
         }
 
         private void ConnectCallback(IAsyncResult result)
@@ -99,7 +99,7 @@ namespace Assets.Server
             catch (Exception ex)
             {
                 Disconnect();
-                Console.WriteLine($"Error receiving TCP data : {ex}");
+                Debug.Log($"Error receiving TCP data : {ex}");
             }
         }
 

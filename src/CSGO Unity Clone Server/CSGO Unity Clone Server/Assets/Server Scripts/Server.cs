@@ -42,11 +42,11 @@ public class Server
         Debug.Log($"Server started on localhost, port: {Port}.");
     }
 
-    public static void StartOnIPV4(int mapPlayes, int portNumber)
+    public static void StartOnIPV4(string ip,int mapPlayes, int portNumber)
     {
         MaxPlayers = mapPlayes;
         Port = portNumber;
-        var IPaddress = IPAddress.Parse(GetLocalIPAddress());
+        var IPaddress = IPAddress.Parse(ip);
 
         if(!IsServerDataInitialized) InitializeServerData();
 
@@ -61,20 +61,7 @@ public class Server
 
         UIManager.Instance().InputHostedOn.text = $"Server started on IP: {IPaddress} and on port: {Port}.";
         Debug.Log($"Server started on IP: {IPaddress} and on port: {Port}.");
-    }
-
-    public static string GetLocalIPAddress()
-    {
-        var host = Dns.GetHostEntry(Dns.GetHostName());
-        foreach (var ip in host.AddressList)
-        {
-            if (ip.AddressFamily == AddressFamily.InterNetwork)
-            {
-                return ip.ToString();
-            }
-        }
-        throw new Exception("No network adapters with an IPv4 address in the system!");
-    }
+    }   
 
     private static void TcpConnectCallback(IAsyncResult result)
     {
@@ -179,8 +166,8 @@ public class Server
     }
 
     public static void Stop() 
-    {
-        if(TcpListener.Server != null && UdpListener.Client != null) 
+    {      
+        if(TcpListener != null && UdpListener != null && TcpListener.Server != null && UdpListener.Client != null) 
         {
             if(TcpListener.Server.IsBound || UdpListener.Client.IsBound) 
             {

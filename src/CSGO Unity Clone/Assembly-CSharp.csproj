@@ -83,6 +83,7 @@
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsHelper.cs" />
     <Compile Include="Assets\Server\Packet.cs" />
     <Compile Include="Assets\Server\ThreadManager.cs" />
+    <Compile Include="Assets\EnemySpawnerHolderSinglePlayer.cs" />
     <Compile Include="Assets\Destructible.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\DepthOfFieldDeprecated.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Environment\Water\Water\Scripts\PlanarReflection.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Assets\Server\UIManager.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsBase.cs" />
+    <Compile Include="Assets\EnemySpawnerSinglePlayer.cs" />
     <Compile Include="Assets\Imported Assests\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Tonemapping.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ScreenSpaceAmbientObscurance.cs" />
@@ -158,8 +160,6 @@
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionRamp.cs" />
     <Compile Include="Assets\Imported Assests\EffectExamples\Shared\Scripts\GunAim.cs" />
     <Compile Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Scripts\Triangles.cs" />
-    <Compile Include="Assets\EnemySpawnerSinglePlayer.cs" />
-    <Compile Include="Assets\EnemySpawnerHolderSinglePlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported Assests\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />
